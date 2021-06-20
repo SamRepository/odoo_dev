@@ -4,7 +4,7 @@ from odoo import models, fields, api,  _
 
 class StagesSession(models.Model):
     _name = 'stages.session'
-    _description = 'Session Stages - فترة التربص'
+    _description = 'Session Stages - فترات التربص'
     _rec_name = 'name'
 
     name = fields.Char(string="Intitulé - إسم الفترة", required=True)

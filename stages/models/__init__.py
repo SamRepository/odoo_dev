@@ -8,6 +8,7 @@ from . import stages_conseil
 from . import stages_contacts
 from . import stages_departement
 from . import stages_docs_retour
+from . import stages_docs_depart
 from . import stages_enseignant
 from . import stages_exercice
 from . import stages_frais_stage
@@ -17,3 +18,7 @@ from . import stages_laboratoire
 from . import stages_organisme
 from . import stages_session
 from . import stages_zone
+
+from . import res_users
+from . import res_partner
+
