@@ -4,10 +4,10 @@ from odoo import models, fields, api,  _
 
 class StagesGrade(models.Model):
     _name = 'stages.grade'
-    _description = 'Grade Scientifique'
+    _description = 'Grade Scientifique - الرتبة العلمية'
     _rec_name = 'name'
 
-    name = fields.Char(string="Intitulé grade / إسم الرتبة", required=True)
-    categories = fields.Char(string="Catégories / الفئة", required=False)
-    corps = fields.Char(string="Corps / السلك", required=False)
+    name = fields.Char(string="Intitulé grade - إسم الرتبة", required=True)
+    categories = fields.Char(string="Catégories - الفئة", required=False)
+    corps = fields.Char(string="Corps - السلك", required=False)
 
