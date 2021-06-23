@@ -13,7 +13,7 @@
     'category': 'Education',
     'version': '12.0.0.2',
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','contacts','hr','event','account',],
     'application': ['True'],
     'sequence': 1,
     # always loaded
