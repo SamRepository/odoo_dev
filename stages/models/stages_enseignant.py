@@ -6,9 +6,13 @@ class StagesEnseignant(models.Model):
     _inherit = ['hr.employee']
 
     num_pers = fields.Char(string="Num Personel - الرقم التعريفي", required=False, )
-    civilite = fields.Selection(string="Civilité - الهوية", selection=[('mr', 'Mr - السيد'), ('mme', 'Mme - السيدة'), ('melle', 'Melle - الآنسة'), ], required=True, )
+    civilite = fields.Many2one(comodel_name="res.partner.title", string="Civilité - الهوية", required=False, )
+#   civilite = fields.Selection(string="Civilité - الهوية", selection=[('mr', 'Mr. - السيد'), ('mme', 'Mme. - السيدة'), ('melle', 'Melle. - الآنسة'),('dr', 'Dr. - الدكتور'), ('pr', 'Pr. - البروفسور'),], required=True, )
     nom_prenom_ar = fields.Char(string="اللقب و الاسم", required=True, )
     date_recru = fields.Date(string="Date de recrutement - تاريخ التوظيف", required=False, )
+
+    lab_id = fields.Many2one(comodel_name="stages.laboratoire", string="Laboratoire - المخبر", required=False, )
+    grade_id = fields.Many2one(comodel_name="stages.grade", string="Grade scientifique - الرتبة العلمية", required=False, )
 
     # specialite = fields.Char(string="Spécialité - التخصص", required=False,)
     # diplome_actu = fields.Char(string="Diplôme actuel - الشهادة الحالية", required=False,)
@@ -31,7 +35,6 @@ class StagesEnseignant(models.Model):
 
     # user_id = fields.Many2one('res.users', string="Utilisateur - إسم المستخدم", required=False,)
     # dpte_id = fields.Many2one(comodel_name="stages.departement", string="Département - القسم", required=False, )
-    lab_id = fields.Many2one(comodel_name="stages.laboratoire", string="Laboratoire - المخبر", required=False, )
-    grade_id = fields.Many2one(comodel_name="stages.grade", string="Grade scientifique - الرتبة العلمية", required=False, )
+
 
 
