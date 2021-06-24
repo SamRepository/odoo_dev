@@ -8,5 +8,6 @@ class StagesDocsRetour(models.Model):
     _rec_name = 'name'
 
     name = fields.Char(string="Intitulé - إسم الوثيقة", required=True)
-    type = fields.Selection(string="Type - نوع الوثيقة", selection=[('rapport', 'Rapport de stage visé'), ('ordre', 'Ordre de mission visé'), ], required=True, )
+    type = fields.Selection(string="Type - نوع الوثيقة", selection=[('rapport', 'Rapport de stage visé'), ('ordre', 'Ordre de mission visé'), ('resultat ', 'Résultats Scientifiques'),], required=True, )
     piece_joint = fields.Binary(string="Piece joint - ملحقة الوثيقة", attachment=True)
+    candidature_id = new_field_id = fields.Many2one(comodel_name="stages.candidature", string="Candidature Stage - طلب الترشح", required=True, )
