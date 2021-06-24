@@ -9,19 +9,14 @@ class StagesCandidature(models.Model):
     session_id= fields.Many2one(comodel_name="event.event", string="Session Stage - فترة التربص", required=True, )
     type_stage_id = fields.Many2one(comodel_name="stages.type_stage", string="Type Stage - نوع التربص", required=True,)
     state = fields.Selection(string="Etat Candidature",selection=[
-            ('draft', 'Brouillon'),
-            ('confirm', 'Confirmée'),
-            ('chg_period', 'Période changée'),
-            ('done', 'Réalisée'),
-            ('cancel', 'Annulée'),
-        ], readonly=True, default='draft')
+            ('draft', 'Brouillon'), ('confirm', 'Confirmée'), ('chg_period', 'Période changée'),
+            ('done', 'Réalisée'), ('cancel', 'Annulée'), ], readonly=True, default='draft')
     dernier_stage = fields.Date(string="Date dernier Stage - تاريخ أخر تربص", required=True, )
     date_depart = fields.Date(string="Date de départ - تاريخ الذهاب", required=True, )
     date_retour = fields.Date(string="Date de retour - تاريخ الرجوع ", required=True, )
     duree = fields.Integer(string="Durée du Stage - مدة التربص", required=False, )
     cause_chg_period = fields.Char(string="Cause changement période - سبب تغيير التاريخ", required=False, )
     montant_bourse = fields.Float(string="Montant bourse - قيمة التربص",  required=False, )
-#   cadre_formation = fields.Text(string="Cadre de formation - مشروع العمل", required=False, )
     objectifs_stage = fields.Text(string="Objectifs du stage - الهدف من التربص", required=False, )
     Methodologie = fields.Text(string="Méthodologie - المنهجية", required=False, )
     Impacts_attendus  = fields.Text(string="Impacts attendus - التأثيرات المنتظرة", required=False, )
