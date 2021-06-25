@@ -15,8 +15,13 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
+        'views/views_main.xml',
         'views/templates.xml',
+        'views/stages_candidature_views.xml',
+        'views/stages_enseignant_views.xml',
+        'views/stages_departement_views.xml',
+        'views/stages_organisme_views.xml',
+        'views/stages_session_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

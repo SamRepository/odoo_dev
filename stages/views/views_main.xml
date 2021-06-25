@@ -1,0 +1,59 @@
+<odoo>
+
+<!--creating root menu stages  -->
+    <menuitem id="stages_root" name="Stages" sequence="1" web_icon="om_hospital,static/description/icon.png"/>
+
+  <!--creating sub_menu  configuration -->
+      <menuitem id="stages_configuration"
+        name="Configuration"
+        parent="stages_root"
+        sequence="16"/>
+
+        <menuitem id="menu_partner_contact"
+        name="Contacts"
+        parent="stages_configuration"
+        sequence="4"/>
+        <menuitem id="menu_partner_title_contact"
+        action="base.action_partner_title_contact"
+        name="Civilités" parent="menu_partner_contact"
+        sequence="1"/>
+        <menuitem id="menu_partner_category_form"
+        action="base.action_partner_category_form"
+        name="Étiquettes" parent="menu_partner_contact"
+        sequence="2" />
+    <menuitem id="res_partner_industry_menu"
+        action="base.res_partner_industry_action"
+        name="Secteurs d'activité" parent="menu_partner_contact"
+        sequence="3"/>
+
+    <menuitem id="menu_localisation" name="Localisation"
+        parent="stages_configuration" sequence="5"/>
+
+    <menuitem id="menu_country_group"
+        action="base.action_country_group"
+        name="Zones" parent="menu_localisation"
+        sequence="1"/>
+    <menuitem id="menu_country_partner"
+        action="base.action_country"
+        name="Pays" parent="menu_localisation"
+        sequence="2"/>
+    <menuitem id="menu_country_state_partner"
+        action="base.action_country_state"
+        name="Wilayas" parent="menu_localisation"
+        sequence="2"/>
+
+    <menuitem id="menu_config_bank_accounts"
+        name="Comptes bancaires"
+        parent="stages_configuration"
+        sequence="6"/>
+
+    <menuitem id="menu_action_res_bank_form"
+        action="base.action_res_bank_form"
+        name="Banques" parent="menu_config_bank_accounts"
+        sequence="1"/>
+
+    <menuitem id="menu_action_res_partner_bank_form"
+        action="base.action_res_partner_bank_account_form"
+        name="Comptes" parent="menu_config_bank_accounts"
+        sequence="2"/>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--action of the departements menu-->
+    <record id="action_departement" model="ir.actions.act_window">
+        <field name="name">Départements</field>
+        <field name="Type">ir.actions.act_window</field>
+        <field name="res_model">hr.department</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Créez votre premier département !
+          </p>
+        </field>
+    </record> 
+   <!--creating departements sub_menu -->
+    <menuitem id="stages_departement" name="Départements" parent="stages_root" action="action_departement" sequence="13"/>
+</odoo>

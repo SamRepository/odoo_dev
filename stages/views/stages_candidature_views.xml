@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--action of the candidature_perfectionnement menu-->
+    <record id="action_candidature_perfectionnement" model="ir.actions.act_window">
+        <field name="name">Stages Perfectionnement - تربص تحسين المستوى بالخارج</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stages.candidature.perfectionnement</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Créez votre premier stage de perfectionnement !
+          </p>
+        </field>
+    </record>
+
+    <!--action of the candidature_perfectionnement menu-->
+    <record id="action_candidature_manifestation" model="ir.actions.act_window">
+        <field name="name">Manifestation Scientifique - تظاهرة علمية بالخارج</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stages.candidature.manifestation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Créez votre premiere manifestation scientifique !
+          </p>
+        </field>
+    </record>
+
+        <record id="action_candidature_sejour" model="ir.actions.act_window">
+        <field name="name">Séjour scientifique de haut niveau - إقامة علمية رفيعة المستوى بالخارج</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stages.candidature.sejour</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Créez votre premier sejour scientifique !
+          </p>
+        </field>
+    </record>
+
+   <!--creating sub_menu candidature  -->
+
+    <menuitem id="stages_cadidature"
+        name="Candidatures"
+        parent="stages_root"
+        sequence="10"/>
+    <menuitem id="menu_stages_cadidature_perfectionnement"
+        action="action_candidature_perfectionnement"
+        name="Stages Perfectionnement" parent="stages_cadidature"
+        sequence="1"/>
+    <menuitem id="menu_stages_cadidature_manifestation"
+        name="Manifestation Scientifique" parent="stages_cadidature"
+        action="action_candidature_manifestation"
+        sequence="2"/>
+    <menuitem id="menu_stages_cadidature_sejour"
+        name="Séjour scientifique de haut niveau" parent="stages_cadidature"
+        action="action_candidature_sejour"
+        sequence="3"/>
+</odoo>

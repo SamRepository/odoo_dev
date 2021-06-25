@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!--action of the sessions menu-->
+<!--    <record id="action_event_session" model="ir.actions.act_window">
+        <field name="name">Sessions stage</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">event.event</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Créez votre premier session !
+          </p>
+        </field>
+    </record>-->
+
+ <!--creating session sub_menu -->
+
+       <menuitem id="stages_session"
+        name="Sessions"
+        parent="stages_root"
+        sequence="15"/>
+
+        <menuitem id="menu_session_stage"
+        name="Événements"
+        parent="stages_session"
+        sequence="4"/>
+
+        <menuitem id="menu_event_session"
+        name="Sessions stage"
+        parent="menu_session_stage" action="event.action_event_view"
+        sequence="1"/>
+
+        <menuitem id="menu_event_type"
+        name="Catégories d'événements"
+        parent="menu_session_stage" action="event.action_event_type"
+        sequence="2"/>
+
+       <menuitem id="menu_account_compta"
+        name="Comptabilité"
+        parent="stages_session"
+        sequence="5"/>
+
+        <menuitem id="menu_account_budget"
+        name="Budgets"
+        parent="menu_account_compta" action="om_account_budget.act_crossovered_budget_view"
+        sequence="1"/>
+
+        <menuitem id="menu_account_budget_positions"
+        name="Positions budgétaires"
+        parent="menu_account_compta" action="om_account_budget.open_budget_post_form"
+        sequence="2"/>
+
+</odoo>
