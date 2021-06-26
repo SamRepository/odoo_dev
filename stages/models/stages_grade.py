@@ -7,7 +7,12 @@ class StagesGrade(models.Model):
     _description = 'Grade Scientifique - الرتب العلمية'
     _rec_name = 'name'
 
-    name = fields.Char(string="Intitulé grade - إسم الرتبة", required=True)
-    categories = fields.Char(string="Catégories - الفئة", required=False)
-    corps = fields.Char(string="Corps - السلك", required=False)
 
+    # - الرتبة إسم
+    name = fields.Char(string="Intitulé grade", required=True)
+    # - الفئة
+    categories = fields.Char(string="Catégories", required=False)
+    # - السلك
+    corps = fields.Char(string="Corps", required=False)
+    # - درجة
+    indice_min = fields.Integer(string="Indice minimal", required=False)

@@ -1,39 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-     <!--action of the sessions menu-->
-<!--    <record id="action_event_session" model="ir.actions.act_window">
-        <field name="name">Sessions stage</field>
+
+<!--     action of the session_grades menu-->
+    <record id="action_session_grades" model="ir.actions.act_window">
+        <field name="name">Grade Scientifique - الرتب العلمية</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">event.event</field>
+        <field name="res_model">stages.grade</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
-            Créez votre premier session !
+            Créez votre premier grade scientifique !
           </p>
         </field>
-    </record>-->
+    </record>
 
- <!--creating session sub_menu -->
+    <record id="action_session_type_stage" model="ir.actions.act_window">
+        <field name="name">Catégories Stages - انواع التربصات</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stages.type_stage</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Créez votre première catégorie de stage !
+          </p>
+        </field>
+    </record>
+<!--  Indemnite Stage Tree view   -->
+   <record id="stages.type_stage_indemnite_tree" model="ir.ui.view">
+        <field name="name">stages.type_stage.indemnite.tree</field>
+        <field name="model">stages.type_stage.indemnite</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="type_stage_id"/>
+                <field name="zone_id"/>
+                <field name="nombre_jour"/>
+                <field name="montant"/>
+                <field name="montant_lettre_fr"/>
+                <field name="montant_lettre_ar"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_session_indemnite_stage" model="ir.actions.act_window">
+        <field name="name">Indemnite Stage par zone - علاوات التربص حسب المنطقة</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stages.type_stage.indemnite</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Créez votre première indemnite stage !
+          </p>
+        </field>
+    </record>
+
+<!-- creating session sub_menus -->
 
        <menuitem id="stages_session"
         name="Sessions"
         parent="stages_root"
         sequence="15"/>
 
-        <menuitem id="menu_session_stage"
+       <menuitem id="menu_session_stage"
+        name="Stages"
+        parent="stages_session"
+        sequence="3"/>
+
+        <menuitem id="menu_session_grade"
+        name="Grades"
+        parent="menu_session_stage" action="action_session_grades"
+        sequence="1"/>
+
+        <menuitem id="menu_session_type_stage"
+        name="Type de stages"
+        parent="menu_session_stage" action="action_session_type_stage"
+        sequence="2"/>
+
+        <menuitem id="menu_session_indemnite_stage"
+        name="Indemnite stages"
+        parent="menu_session_stage" action="action_session_indemnite_stage"
+        sequence="3"/>
+
+        <menuitem id="menu_session_event"
         name="Événements"
         parent="stages_session"
         sequence="4"/>
 
         <menuitem id="menu_event_session"
         name="Sessions stage"
-        parent="menu_session_stage" action="event.action_event_view"
+        parent="menu_session_event" action="event.action_event_view"
         sequence="1"/>
 
         <menuitem id="menu_event_type"
         name="Catégories d'événements"
-        parent="menu_session_stage" action="event.action_event_type"
+        parent="menu_session_event" action="event.action_event_type"
         sequence="2"/>
 
        <menuitem id="menu_account_compta"
