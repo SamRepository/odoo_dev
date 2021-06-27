@@ -27,7 +27,7 @@
           </p>
         </field>
     </record>
-<!--  Indemnite Stage Tree view   -->
+<!--Tree view for the type_stage.indemnite-->
    <record id="stages.type_stage_indemnite_tree" model="ir.ui.view">
         <field name="name">stages.type_stage.indemnite.tree</field>
         <field name="model">stages.type_stage.indemnite</field>
@@ -42,12 +42,36 @@
             </tree>
         </field>
     </record>
+    <!--search view for the type_stage.indemnite-->
+    <record id="stages.type_stage_indemnite_search" model="ir.ui.view">
+        <field name="name">stages.type_stage.indemnite.search</field>
+        <field name="model">stages.type_stage.indemnite</field>
+        <field name="arch" type="xml">
+            <search string="Indemnite Stage par zone">
+                <field name="type_stage_id"/>
+                <field name="zone_id"/>
+                <field name="nombre_jour"/>
+                <field name="montant"/>
+                <separator />
+                <filter string="Stages Perfectionnement" name="stages_perfectionnement" domain="[('type_stage_id', '=', 'Stages Perfectionnement - تربص تحسين المستوى بالخارج')]"/>
+                 <filter string="Manifestation Scientifique" name="manifestation_scientifique" domain="[('type_stage_id', '=', 'Manifestation Scientifique - تظاهرة علمية بالخارج')]"/>
+                 <filter string="Séjour scientifique de haut niveau" name="séjour_scientifique_haut_niveau" domain="[('type_stage_id', '=', 'Séjour scientifique de haut niveau - إقامة علمية رفيعة المستوى بالخارج')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Type Stage" name="type_stage" context="{'group_by':'type_stage_id'}"/>
+                    <filter string="Zone" name="zone" context="{'group_by':'zone_id'}"/>
+                    <filter string="Nombre Jour" name="nombre_jour" context="{'group_by':'nombre_jour'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <record id="action_session_indemnite_stage" model="ir.actions.act_window">
-        <field name="name">Indemnite Stage par zone - علاوات التربص حسب المنطقة</field>
+        <field name="name">Indemnite stage par zone et type - علاوات التربص حسب المنطقة و النوع</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">stages.type_stage.indemnite</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{"search_default_type_stage":1,"search_default_zone":1}</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             Créez votre première indemnite stage !
