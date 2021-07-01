@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<!--     action of the session_grades menu-->
+    <!--     action of the session_grades menu-->
     <record id="action_session_grades" model="ir.actions.act_window">
         <field name="name">Grade Scientifique - الرتب العلمية</field>
         <field name="type">ir.actions.act_window</field>
@@ -9,9 +9,9 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-            Créez votre premier grade scientifique !
-          </p>
+            <p class="o_view_nocontent_smiling_face">
+                Créez votre premier grade scientifique !
+            </p>
         </field>
     </record>
 
@@ -22,13 +22,13 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-            Créez votre première catégorie de stage !
-          </p>
+            <p class="o_view_nocontent_smiling_face">
+                Créez votre première catégorie de stage !
+            </p>
         </field>
     </record>
-<!--Tree view for the type_stage.indemnite-->
-   <record id="stages.type_stage_indemnite_tree" model="ir.ui.view">
+    <!--Tree view for the type_stage.indemnite-->
+    <record id="stages.type_stage_indemnite_tree" model="ir.ui.view">
         <field name="name">stages.type_stage.indemnite.tree</field>
         <field name="model">stages.type_stage.indemnite</field>
         <field name="arch" type="xml">
@@ -52,10 +52,13 @@
                 <field name="zone_id"/>
                 <field name="nombre_jour"/>
                 <field name="montant"/>
-                <separator />
-                <filter string="Stages Perfectionnement" name="stages_perfectionnement" domain="[('type_stage_id', '=', 'Stages Perfectionnement - تربص تحسين المستوى بالخارج')]"/>
-                 <filter string="Manifestation Scientifique" name="manifestation_scientifique" domain="[('type_stage_id', '=', 'Manifestation Scientifique - تظاهرة علمية بالخارج')]"/>
-                 <filter string="Séjour scientifique de haut niveau" name="séjour_scientifique_haut_niveau" domain="[('type_stage_id', '=', 'Séjour scientifique de haut niveau - إقامة علمية رفيعة المستوى بالخارج')]"/>
+                <separator/>
+                <filter string="Stages Perfectionnement" name="stages_perfectionnement"
+                        domain="[('type_stage_id', '=', 'Stages Perfectionnement - تربص تحسين المستوى بالخارج')]"/>
+                <filter string="Manifestation Scientifique" name="manifestation_scientifique"
+                        domain="[('type_stage_id', '=', 'Manifestation Scientifique - تظاهرة علمية بالخارج')]"/>
+                <filter string="Séjour scientifique de haut niveau" name="séjour_scientifique_haut_niveau"
+                        domain="[('type_stage_id', '=', 'Séjour scientifique de haut niveau - إقامة علمية رفيعة المستوى بالخارج')]"/>
                 <group expand="0" string="Group By">
                     <filter string="Type Stage" name="type_stage" context="{'group_by':'type_stage_id'}"/>
                     <filter string="Zone" name="zone" context="{'group_by':'zone_id'}"/>
@@ -73,67 +76,67 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{"search_default_type_stage":1,"search_default_zone":1}</field>
         <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-            Créez votre première indemnite stage !
-          </p>
+            <p class="o_view_nocontent_smiling_face">
+                Créez votre première indemnite stage !
+            </p>
         </field>
     </record>
 
-<!-- creating session sub_menus -->
+    <!-- creating session sub_menus -->
 
-       <menuitem id="stages_session"
-        name="Sessions"
-        parent="stages_root"
-        sequence="15"/>
+    <menuitem id="stages_session"
+              name="Sessions"
+              parent="stages_root"
+              sequence="15"/>
 
-       <menuitem id="menu_session_stage"
-        name="Stages"
-        parent="stages_session"
-        sequence="3"/>
+    <menuitem id="menu_session_stage"
+              name="Stages"
+              parent="stages_session"
+              sequence="3"/>
 
-        <menuitem id="menu_session_grade"
-        name="Grades"
-        parent="menu_session_stage" action="action_session_grades"
-        sequence="1"/>
+    <menuitem id="menu_session_grade"
+              name="Grades"
+              parent="menu_session_stage" action="action_session_grades"
+              sequence="1"/>
 
-        <menuitem id="menu_session_type_stage"
-        name="Type de stages"
-        parent="menu_session_stage" action="action_session_type_stage"
-        sequence="2"/>
+    <menuitem id="menu_session_type_stage"
+              name="Type de stages"
+              parent="menu_session_stage" action="action_session_type_stage"
+              sequence="2"/>
 
-        <menuitem id="menu_session_indemnite_stage"
-        name="Indemnite stages"
-        parent="menu_session_stage" action="action_session_indemnite_stage"
-        sequence="3"/>
+    <menuitem id="menu_session_indemnite_stage"
+              name="Indemnite stages"
+              parent="menu_session_stage" action="action_session_indemnite_stage"
+              sequence="3"/>
 
-        <menuitem id="menu_session_event"
-        name="Événements"
-        parent="stages_session"
-        sequence="4"/>
+    <menuitem id="menu_session_event"
+              name="Événements"
+              parent="stages_session"
+              sequence="4"/>
 
-        <menuitem id="menu_event_session"
-        name="Sessions stage"
-        parent="menu_session_event" action="event.action_event_view"
-        sequence="1"/>
+    <menuitem id="menu_event_session"
+              name="Sessions stage"
+              parent="menu_session_event" action="event.action_event_view"
+              sequence="1"/>
 
-        <menuitem id="menu_event_type"
-        name="Catégories d'événements"
-        parent="menu_session_event" action="event.action_event_type"
-        sequence="2"/>
+    <menuitem id="menu_event_type"
+              name="Catégories d'événements"
+              parent="menu_session_event" action="event.action_event_type"
+              sequence="2"/>
 
-       <menuitem id="menu_account_compta"
-        name="Comptabilité"
-        parent="stages_session"
-        sequence="5"/>
+    <menuitem id="menu_account_compta"
+              name="Comptabilité"
+              parent="stages_session"
+              sequence="5"/>
 
-        <menuitem id="menu_account_budget"
-        name="Budgets"
-        parent="menu_account_compta" action="om_account_budget.act_crossovered_budget_view"
-        sequence="1"/>
+    <menuitem id="menu_account_budget"
+              name="Budgets"
+              parent="menu_account_compta" action="om_account_budget.act_crossovered_budget_view"
+              sequence="1"/>
 
-        <menuitem id="menu_account_budget_positions"
-        name="Positions budgétaires"
-        parent="menu_account_compta" action="om_account_budget.open_budget_post_form"
-        sequence="2"/>
+    <menuitem id="menu_account_budget_positions"
+              name="Positions budgétaires"
+              parent="menu_account_compta" action="om_account_budget.open_budget_post_form"
+              sequence="2"/>
 
 </odoo>

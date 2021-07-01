@@ -6,6 +6,7 @@ class StagesCandidature(models.Model):
     _rec_name = 'name'
 
     name = fields.Char(string="Référence - المرجع", required=True)
+    employee_id =fields.Many2one(comodel_name="hr.employee", string="Enseignant - الاستاذ", required=True,)
     session_id= fields.Many2one(comodel_name="event.event", string="Session Stage - فترة التربص", required=True, )
     type_stage_id = fields.Many2one(comodel_name="stages.type_stage", string="Type Stage - نوع التربص", required=True,)
     state = fields.Selection(string="Etat Candidature",selection=[
@@ -18,8 +19,8 @@ class StagesCandidature(models.Model):
     cause_chg_period = fields.Char(string="Cause changement période - سبب تغيير التاريخ", required=False, )
     montant_bourse = fields.Float(string="Montant bourse - قيمة التربص",  required=False, )
     objectifs_stage = fields.Text(string="Objectifs du stage - الهدف من التربص", required=False, )
-    Methodologie = fields.Text(string="Méthodologie - المنهجية", required=False, )
-    Impacts_attendus  = fields.Text(string="Impacts attendus - التأثيرات المنتظرة", required=False, )
+    methodologie = fields.Text(string="Méthodologie - المنهجية", required=False, )
+    impacts_attendus  = fields.Text(string="Impacts attendus - التأثيرات المنتظرة", required=False, )
     engagement = fields.Boolean(string="Engagement - تعهد :", )
     doc_depart_ids = fields.One2many(comodel_name="stages.docs_depart", inverse_name="candidature_id", string="Documents de Départ - وثائق الذهاب  ", required=False, )
     doc_retour_ids = fields.One2many(comodel_name="stages.docs_retour", inverse_name="candidature_id", string="Documents de Retour - وثائق الرجوع  ", required=False, )
