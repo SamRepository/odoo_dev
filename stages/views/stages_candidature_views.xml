@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!--From view for the stages.candidatures-->
+    <!--Tree view for the stages.candidatures_perfectionnement-->
+    <record id="stages_candidature_perfectionnement_view_tree" model="ir.ui.view">
+        <field name="name">stages_candidature_perfectionnement_tree</field>
+        <field name="model">stages.candidature.perfectionnement</field>
+        <field name="arch" type="xml">
+            <tree string="Stages Perfectionnement - تربص تحسين المستوى بالخارج">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="session_id"/>
+                <field name="dernier_stage"/>
+                <field name="date_depart"/>
+                <field name="date_retour"/>
+                <field name="duree"/>
+            </tree>
+        </field>
+    </record>
+    <!--From view for the stages.candidatures_perfectionnement-->
     <record id="stages_candidature_perfectionnement_view_form" model="ir.ui.view">
-        <field name="name">stages_candidature_perfectionnement</field>
+        <field name="name">stages_candidature_perfectionnement_from</field>
         <field name="model">stages.candidature.perfectionnement</field>
         <field name="arch" type="xml">
             <form string="Stages Perfectionnement - تربص تحسين المستوى بالخارج">
@@ -15,28 +31,36 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="name"/>
+                            <field name="name" readonly="1"/>
                         </h1>
                     </div>
+                    <group>
                     <group>
                         <field name="employee_id"/>
                         <field name="session_id"/>
                         <field name="type_stage_id"/>
+                        <field name="cause_chg_period"/>
                     </group>
                     <group>
                         <field name="dernier_stage"/>
                         <field name="date_depart"/>
                         <field name="date_retour"/>
                         <field name="duree"/>
-                        <field name="cause_chg_period"/>
                     </group>
-                     <group>
+                    </group>
+                    <group>
+                    <group>
                         <field name="objectifs_stage"/>
                         <field name="methodologie"/>
                         <field name="impacts_attendus"/>
                         <field name="engagement"/>
                     </group>
-                     <group>
+                    <group>
+                        <field name="montant_bourse"/>
+                        <field name="intitule_these"/>
+                        <field name="date_1er_inscription"/>
+                        <field name="nbr_inscription"/>
+                    </group>
                         <field name="doc_depart_ids"/>
                         <field name="doc_retour_ids"/>
                     </group>
@@ -44,7 +68,7 @@
             </form>
         </field>
     </record>
-    <!--action of the candidature_perfectionnement menu-->
+    <!--action of the candidature_perfectionnement -->
     <record id="action_candidature_perfectionnement" model="ir.actions.act_window">
         <field name="name">Stages Perfectionnement - تربص تحسين المستوى بالخارج</field>
         <field name="type">ir.actions.act_window</field>
@@ -58,7 +82,7 @@
         </field>
     </record>
 
-    <!--action of the candidature_perfectionnement menu-->
+    <!--action of the candidature_manifestation menu-->
     <record id="action_candidature_manifestation" model="ir.actions.act_window">
         <field name="name">Manifestation Scientifique - تظاهرة علمية بالخارج</field>
         <field name="type">ir.actions.act_window</field>

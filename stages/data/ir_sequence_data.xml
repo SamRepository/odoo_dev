@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Sequences for stages.candidature -->
+        <record id="seq_stages_candidature" model="ir.sequence">
+            <field name="name">Stages Candidature</field>
+            <field name="code">stages.candidature</field>
+            <field name="prefix">DC/%(range_year)s/</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

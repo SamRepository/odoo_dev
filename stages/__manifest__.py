@@ -15,6 +15,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
         'views/views_main.xml',
         'views/templates.xml',
         'views/stages_candidature_views.xml',
