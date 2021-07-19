@@ -1,5 +1,5 @@
 from odoo import models, fields, api,  _
-from datetime import datetime
+from datetime import datetime, timedelta
 from odoo.exceptions import UserError
 
 
@@ -8,27 +8,6 @@ class StagesCandidature(models.Model):
     _description = 'Candidatures Stages - طلبات الترشح للتكوين'
     _rec_name = 'name'
 
-
-    name = fields.Char(string='Référence', required=True, copy=False, readonly=True, default=lambda self: _('New'))
-    employee_id =fields.Many2one(comodel_name="hr.employee", string="Enseignant", required=True,)
-    session_id= fields.Many2one(comodel_name="event.event", string="Session Stage", required=True, )
-    type_stage_id = fields.Many2one(comodel_name="stages.type_stage", string="Type Stage", required=True,)
-    state = fields.Selection(string="Etat Candidature",selection=[
-            ('draft', 'Brouillon'), ('confirm', 'Confirmée'), ('chg_period', 'Période changée'),
-            ('done', 'Réalisée'), ('cancel', 'Annulée'), ], readonly=True, default='draft')
-    dernier_stage = fields.Date(string="Date dernier Stage", required=True, )
-    date_depart = fields.Date(string="Date de départ", required=True, )
-    date_retour = fields.Date(string="Date de retour ", required=True, )
-    duree = fields.Integer(string="Durée du Stage", compute= 'set_durre', store=True )
-    cause_chg_period = fields.Char(string="Cause changement période", required=False, )
-    montant_bourse = fields.Float(string="Montant bourse",  required=False, )
-    objectifs_stage = fields.Text(string="Objectifs du stage", required=False, )
-    methodologie = fields.Text(string="Méthodologie", required=False, )
-    impacts_attendus  = fields.Text(string="Impacts attendus", required=False, )
-    engagement = fields.Boolean(string="Engagement", )
-    doc_depart_ids = fields.One2many(comodel_name="stages.docs_depart", inverse_name="candidature_id", string="Documents de Départ", required=False, )
-    doc_retour_ids = fields.One2many(comodel_name="stages.docs_retour", inverse_name="candidature_id", string="Documents de Retour", required=False, )
-
     @api.model
     def create(self, vals):
         if vals.get('name', _('New')) == _('New'):
@@ -36,15 +15,40 @@ class StagesCandidature(models.Model):
         res = super(StagesCandidature, self).create(vals)
         return res
 
-    @api.multi
     @api.depends('date_depart', 'date_retour')
     def set_durre(self):
-        d1 = self.date_depart
-        d2 = self.date_retour
-        if d2 > d1:
-            self.duree = (d2 - d1).days
-        else:
-            raise UserError('La date de retour doit être supérieure à la date de départ')
+        for rec in self:
+            if rec.date_depart:
+                if rec.date_retour:
+                    if rec.date_retour > rec.date_depart:
+                        rec.duree = (rec.date_retour - rec.date_depart).days
+                    else:
+                     raise UserError('La date de retour doit être supérieure à la date de départ')
+
+    name = fields.Char(string='Référence', required=True, copy=False, readonly=True, default=lambda self: _('New'))
+    employee_id =fields.Many2one(comodel_name="hr.employee", string="Enseignant", required=True,)
+    session_id= fields.Many2one(comodel_name="event.event", string="Session Stage", required=True, )
+    type_stage_id = fields.Many2one(comodel_name="stages.type_stage", string="Type Stage", required=True,)
+    partner_id  = fields.Many2one(comodel_name="res.partner", string="Organisme d'accuiel", required=True, )
+    state = fields.Selection(string="Etat Candidature",selection=[
+            ('draft', 'Brouillon'), ('confirm', 'Confirmée'), ('chg_period', 'Période changée'),
+            ('done', 'Réalisée'), ('cancel', 'Annulée'), ], readonly=True, default='draft')
+    dernier_stage = fields.Date(string="Date dernier Stage", required=True, )
+    date_depart = fields.Date(string="Date de départ", required=True, )
+    date_retour = fields.Date(string="Date de retour ", required=True, )
+    duree = fields.Integer(string = "Durée du Stage", compute= 'set_durre', store=True,)
+    # string = "Durée du Stage",
+    cause_chg_period = fields.Char(string="Cause changement période", required=False, )
+   # montant_bourse = fields.Float(string="Montant bourse",  required=False, )
+    montant_bourse = fields.Float(related="type_stage_id.indemnite_stage_ids.montant" ,string="Montant bourse", )
+    objectifs_stage = fields.Text(string="Objectifs du stage", required=False, )
+    methodologie = fields.Text(string="Méthodologie", required=False, )
+    impacts_attendus  = fields.Text(string="Impacts attendus", required=False, )
+    engagement = fields.Boolean(string="Engagement", )
+    doc_depart_ids = fields.One2many(comodel_name="stages.docs_depart", inverse_name="candidature_id", string="Documents de Départ", required=False, )
+    doc_retour_ids = fields.One2many(comodel_name="stages.docs_retour", inverse_name="candidature_id", string="Documents de Retour", required=False, )
+
+
 
 class StagesCandidaturePerfectionnement(models.Model):
     _name = 'stages.candidature.perfectionnement'
@@ -56,6 +60,17 @@ class StagesCandidaturePerfectionnement(models.Model):
     nbr_inscription  = fields.Selection(string="Nbr d'inscription", selection=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'),('5', '5'), ('6', '6'),('+', 'plus de 6'),], required=False, )
 
     candidature_id = fields.Many2one(comodel_name="stages.candidature", string="Candidature", )
+    duree_bis = fields.Integer(compute='set_durre', readonly=True, store=False, )
+
+    @api.depends('date_retour', 'date_depart')
+    def set_durre(self):
+        for rec in self:
+            if rec.date_depart:
+                if rec.date_retour:
+                    if rec.date_retour > rec.date_depart:
+                        rec.duree = (rec.date_retour - rec.date_depart).days
+                    else:
+                     raise UserError('La date de retour doit être supérieure à la date de départ')
 
 
 class StagesCandidatureManifestation(models.Model):

@@ -39,13 +39,14 @@
                         <field name="employee_id"/>
                         <field name="session_id"/>
                         <field name="type_stage_id"/>
+                        <field name="partner_id"/>
                         <field name="cause_chg_period"/>
                     </group>
                     <group>
                         <field name="dernier_stage"/>
                         <field name="date_depart"/>
                         <field name="date_retour"/>
-                        <field name="duree"/>
+                        <field name="duree" readonly="1"/>
                     </group>
                     </group>
                     <group>
@@ -59,6 +60,7 @@
                         <field name="montant_bourse"/>
                         <field name="intitule_these"/>
                         <field name="date_1er_inscription"/>
+                        <field name="duree_bis" invisible="1"/>
                         <field name="nbr_inscription"/>
                     </group>
                         <field name="doc_depart_ids"/>
