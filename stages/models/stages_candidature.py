@@ -25,11 +25,20 @@ class StagesCandidature(models.Model):
                     else:
                      raise UserError('La date de retour doit être supérieure à la date de départ')
 
+    @api.depends('partner_id')
+    def _set_pays(self):
+        for rec in self:
+            if rec.partner_id:
+               rec.pays = rec.partner_id.country_id.name
+
     name = fields.Char(string='Référence', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     employee_id =fields.Many2one(comodel_name="hr.employee", string="Enseignant", required=True,)
     session_id= fields.Many2one(comodel_name="event.event", string="Session Stage", required=True, )
-    type_stage_id = fields.Many2one(comodel_name="stages.type_stage", string="Type Stage", required=True,)
-    partner_id  = fields.Many2one(comodel_name="res.partner", string="Organisme d'accuiel", required=True, )
+    type_stage_id = fields.Many2one(comodel_name="stages.type_stage", string="Type Stage", required=True, readonly=True,)
+    partner_id  = fields.Many2one(comodel_name="res.partner", string="Organisme d'accueil", required=True, )
+    # pays = fields.Char(related="partner_id.country_id.name", string="Pays", )
+    pays = fields.Char(compute= '_set_pays', string="Pays", )
+    contact = fields.Char(related="partner_id.child_ids.name", string="Contact", readonly=False, )
     state = fields.Selection(string="Etat Candidature",selection=[
             ('draft', 'Brouillon'), ('confirm', 'Confirmée'), ('chg_period', 'Période changée'),
             ('done', 'Réalisée'), ('cancel', 'Annulée'), ], readonly=True, default='draft')
@@ -61,6 +70,7 @@ class StagesCandidaturePerfectionnement(models.Model):
 
     candidature_id = fields.Many2one(comodel_name="stages.candidature", string="Candidature", )
     duree_bis = fields.Integer(compute='set_durre', readonly=True, store=False, )
+    pays_bis = fields.Char(compute='_set_pays', readonly=True, store=False, )
 
     @api.depends('date_retour', 'date_depart')
     def set_durre(self):
@@ -71,6 +81,12 @@ class StagesCandidaturePerfectionnement(models.Model):
                         rec.duree = (rec.date_retour - rec.date_depart).days
                     else:
                      raise UserError('La date de retour doit être supérieure à la date de départ')
+
+    @api.depends('partner_id')
+    def _set_pays(self):
+        for rec in self:
+            if rec.partner_id:
+               rec.pays = rec.partner_id.country_id.name
 
 
 class StagesCandidatureManifestation(models.Model):
