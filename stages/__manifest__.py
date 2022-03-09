@@ -14,8 +14,10 @@
     'sequence': 1,
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
+        'reports/report_departement_list.xml',
+        'reports/departement_list_report.xml',
         'views/views_main.xml',
         'views/templates.xml',
         'views/stages_candidature_views.xml',

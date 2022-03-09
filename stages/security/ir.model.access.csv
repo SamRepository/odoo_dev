@@ -1,2 +1,14 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_stages_stages,stages.stages,model_stages_stages,,1,0,0,0
+access_stages_candidature,access_stages_candidature,model_stages_candidature,base.group_user,1,1,1,1
+access_stages_candidature_perfectionnement,access_stages_candidature_perfectionnement,model_stages_candidature_perfectionnement,base.group_user,1,1,1,1
+access_stages_candidature_sejour,access_stages_candidature_sejour,model_stages_candidature_sejour,base.group_user,1,1,1,1
+access_stages_candidature_manifestation,access_stages_candidature_manifestation,model_stages_candidature_manifestation,base.group_user,1,1,1,1
+access_stages_grade,access_stages_grade,model_stages_grade,base.group_user,1,1,1,1
+access_stages_type_stage,access_stages_type_stage,model_stages_type_stage,base.group_user,1,1,1,1
+access_stages_type_stage_indemnite,access_stages_type_stage_indemnite,model_stages_type_stage_indemnite,base.group_user,1,1,1,1
+access_stages_conseil,access_stages_conseil,model_stages_conseil,base.group_user,1,1,1,1
+access_stages_conseil_members,access_stages_conseil_members,model_stages_conseil_members,base.group_user,1,1,1,1
+access_stages_docs_retour,access_stages_docs_retour,model_stages_docs_retour,base.group_user,1,1,1,1
+access_stages_docs_depart,access_stages_docs_depart,model_stages_docs_depart,base.group_user,1,1,1,1
+access_stages_frais_stages,access_stages_frais_stages,model_stages_frais_stages,base.group_user,1,1,1,1
+access_stages_exercice,access_stages_exercice,model_stages_exercice,base.group_user,1,1,1,1
