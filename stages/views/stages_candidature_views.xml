@@ -31,15 +31,22 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" readonly="1"/>
+                            <field name="name" string= "Référence" readonly="1"/>
+                        </h1>
+                    </div>
+                    <div class="o_row">
+                        <h1>
+                            <field name="type_stage_id" readonly="1"/>
                         </h1>
                     </div>
                     <group>
                     <group>
                         <field name="employee_id"/>
                         <field name="session_id"/>
-                        <field name="type_stage_id"/>
-                        <field name="partner_id"/>
+                        <field name="partner_id" domain="[('is_company', '=', 'True')]"/>
+                        <field name="pays"/>
+                        <field name="pays_bis" invisible="1"/>
+                        <field name="contact"/>
                         <field name="cause_chg_period"/>
                     </group>
                     <group>
@@ -47,6 +54,7 @@
                         <field name="date_depart"/>
                         <field name="date_retour"/>
                         <field name="duree" readonly="1"/>
+                        <field name="duree_bis" invisible="1"/>
                     </group>
                     </group>
                     <group>
@@ -60,7 +68,6 @@
                         <field name="montant_bourse"/>
                         <field name="intitule_these"/>
                         <field name="date_1er_inscription"/>
-                        <field name="duree_bis" invisible="1"/>
                         <field name="nbr_inscription"/>
                     </group>
                         <field name="doc_depart_ids"/>
@@ -77,6 +84,7 @@
         <field name="res_model">stages.candidature.perfectionnement</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'default_type_stage_id': 1,}</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             Créez votre premier stage de perfectionnement !
@@ -91,6 +99,7 @@
         <field name="res_model">stages.candidature.manifestation</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'default_type_stage_id': 2,}</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             Créez votre premiere manifestation scientifique !
@@ -104,6 +113,7 @@
         <field name="res_model">stages.candidature.sejour</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'default_type_stage_id': 2,}</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             Créez votre premier sejour scientifique !
