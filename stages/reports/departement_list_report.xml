@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- QWeb Reports -->
+       <!-- NAME & FILE_NAME should be the same -->
+               <report
+                   id="report_departement_list_declaration"
+                   model="hr.department"
+                   report_type="qweb-pdf"
+                   string="Departements List"
+                   name="stages.report_departement_list"
+                   file="stages.report_departement_list"
+               />
+    </data>
+</odoo>
