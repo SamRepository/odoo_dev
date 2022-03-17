@@ -45,7 +45,9 @@
                         <field name="session_id"/>
                         <field name="partner_id" domain="[('is_company', '=', 'True')]"/>
                         <field name="pays"/>
-                        <field name="pays_bis" invisible="1"/>
+                        <field name="zone"/>
+<!--                        <field name="pays_bis" invisible="1"/>-->
+<!--                        <field name="zone_bis" invisible="1"/>-->
                         <field name="contact"/>
                         <field name="cause_chg_period"/>
                     </group>
@@ -54,7 +56,7 @@
                         <field name="date_depart"/>
                         <field name="date_retour"/>
                         <field name="duree" readonly="1"/>
-                        <field name="duree_bis" invisible="1"/>
+<!--                        <field name="duree_bis" invisible="1"/>-->
                     </group>
                     </group>
                     <group>

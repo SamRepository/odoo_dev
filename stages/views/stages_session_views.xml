@@ -32,7 +32,7 @@
         <field name="name">stages.type_stage.indemnite.tree</field>
         <field name="model">stages.type_stage.indemnite</field>
         <field name="arch" type="xml">
-            <tree string="">
+            <tree>
                 <field name="type_stage_id"/>
                 <field name="zone_id"/>
                 <field name="nombre_jour"/>
