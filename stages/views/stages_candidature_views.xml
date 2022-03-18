@@ -46,8 +46,6 @@
                         <field name="partner_id" domain="[('is_company', '=', 'True')]"/>
                         <field name="pays"/>
                         <field name="zone"/>
-<!--                        <field name="pays_bis" invisible="1"/>-->
-<!--                        <field name="zone_bis" invisible="1"/>-->
                         <field name="contact"/>
                         <field name="cause_chg_period"/>
                     </group>
@@ -56,7 +54,6 @@
                         <field name="date_depart"/>
                         <field name="date_retour"/>
                         <field name="duree" readonly="1"/>
-<!--                        <field name="duree_bis" invisible="1"/>-->
                     </group>
                     </group>
                     <group>
@@ -67,7 +64,7 @@
                         <field name="engagement"/>
                     </group>
                     <group>
-                        <field name="montant_bourse"/>
+                        <field name="montant"/>
                         <field name="intitule_these"/>
                         <field name="date_1er_inscription"/>
                         <field name="nbr_inscription"/>
@@ -115,7 +112,7 @@
         <field name="res_model">stages.candidature.sejour</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{'default_type_stage_id': 2,}</field>
+        <field name="context">{'default_type_stage_id': 3,}</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
             Créez votre premier sejour scientifique !
