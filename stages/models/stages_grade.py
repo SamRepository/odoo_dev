@@ -7,7 +7,6 @@ class StagesGrade(models.Model):
     _description = 'Grade Scientifique - الرتب العلمية'
     _rec_name = 'name'
 
-
     # - الرتبة إسم
     name = fields.Char(string="Intitulé grade", required=True)
     # - الفئة
