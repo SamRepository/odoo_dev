@@ -51,7 +51,7 @@ class StagesCandidature(models.Model):
     dernier_stage = fields.Date(string="Date dernier Stage", required=True, )
     date_depart = fields.Date(string="Date de départ", required=True, )
     date_retour = fields.Date(string="Date de retour ", required=True, )
-    duree = fields.Integer(string = "Durée du Stage", compute= 'set_durre', store=True,)
+    duree = fields.Integer(string = "Durée en jours", compute= 'set_durre', store=True,)
     cause_chg_period = fields.Char(string="Cause changement période", required=False, )
     montant = fields.Float(string="Montant bourse", compute="set_montant", )
     objectifs_stage = fields.Text(string="Objectifs du stage", required=False, )
@@ -60,7 +60,7 @@ class StagesCandidature(models.Model):
     engagement = fields.Boolean(string="Engagement", )
     doc_depart_ids = fields.One2many(comodel_name="stages.docs_depart", inverse_name="candidature_id", string="Documents de Départ", required=False, )
     doc_retour_ids = fields.One2many(comodel_name="stages.docs_retour", inverse_name="candidature_id", string="Documents de Retour", required=False, )
-
+    active = fields.Boolean(string="Active", default=True)
 
 class StagesCandidaturePerfectionnement(models.Model):
     _name = 'stages.candidature.perfectionnement'
