@@ -9,7 +9,7 @@
     'category': 'Education',
     'version': '12.0.0.2',
     # any module necessary for this one to work correctly
-    'depends': ['base','contacts','hr','event','account',],
+    'depends': ['base','contacts','hr','event','account','mail'],
     'application': ['True'],
     'sequence': 1,
     # always loaded

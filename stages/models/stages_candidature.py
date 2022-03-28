@@ -5,6 +5,7 @@ from odoo.exceptions import UserError
 
 class StagesCandidature(models.Model):
     _name = 'stages.candidature'
+    _inherit = ['mail.thread','mail.activity.mixin']
     _description = 'Candidatures Stages - طلبات الترشح للتكوين'
     _rec_name = 'name'
 
@@ -64,8 +65,8 @@ class StagesCandidature(models.Model):
             ('draft', 'Brouillon'), ('confirm', 'Confirmée'), ('chg_period', 'Période changée'),
             ('cancel', 'Annulée'), ('done', 'Réalisée'), ], readonly=True, default='draft')
     dernier_stage = fields.Date(string="Date dernier Stage", required=True, )
-    date_depart = fields.Date(string="Date de départ", required=True, )
-    date_retour = fields.Date(string="Date de retour ", required=True, )
+    date_depart = fields.Date(string="Date de départ", track_visibility='always', required=True, )
+    date_retour = fields.Date(string="Date de retour ", track_visibility='always', required=True, )
     duree = fields.Integer(string = "Durée en jours", compute= 'set_durre', store=True,)
     cause_chg_period = fields.Char(string="Cause changement période", required=False, )
     montant = fields.Float(string="Montant bourse", compute="set_montant", )
