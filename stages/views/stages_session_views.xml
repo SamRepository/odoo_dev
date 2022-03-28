@@ -54,9 +54,9 @@
                 <field name="montant"/>
                 <separator/>
                 <filter string="Stages Perfectionnement" name="stages_perfectionnement"
-                        domain="[('type_stage_id', '=', 'Stages Perfectionnement - تربص تحسين المستوى بالخارج')]"/>
+                        domain="[('type_stage_id', '=', 'Stages Perfectionnement - تكوين تحسين المستوى بالخارج')]"/>
                 <filter string="Manifestation Scientifique" name="manifestation_scientifique"
-                        domain="[('type_stage_id', '=', 'Manifestation Scientifique - تظاهرة علمية بالخارج')]"/>
+                        domain="[('type_stage_id', '=', 'Manifestation Scientifique - مشاركة في تظاهرة علمية بالخارج')]"/>
                 <filter string="Séjour scientifique de haut niveau" name="séjour_scientifique_haut_niveau"
                         domain="[('type_stage_id', '=', 'Séjour scientifique de haut niveau - إقامة علمية رفيعة المستوى بالخارج')]"/>
                 <group expand="0" string="Group By">

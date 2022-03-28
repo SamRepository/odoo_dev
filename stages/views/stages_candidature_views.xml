@@ -24,7 +24,13 @@
             <form string="Stages Perfectionnement - تربص تحسين المستوى بالخارج">
                 <header>
                     <button name="action_confirm" string="Confirmer" class="oe_highlight" states="draft" type="object"/>
+                    <button name="action_draft" states="cancel,done" type="object" string="Invalider"
+                            attrs="{'invisible': [('state','!=', 'confirm')]}"/>
+                    <button name="action_chg_period" type="object" string="Changer périod"
+                            attrs="{'invisible': [('state','!=', 'confirm')]}"/>
                     <button name="action_done" type="object" string="Réalisée" class="oe_highlight"
+                            attrs="{'invisible': [('state','!=', 'confirm')]}"/>
+                    <button name="action_cancel" type="object" string="Annuler" class="oe_highlight"
                             attrs="{'invisible': [('state','!=', 'confirm')]}"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,chg_period,cancel,done"/>
                 </header>

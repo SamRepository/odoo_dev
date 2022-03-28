@@ -37,6 +37,21 @@ class StagesCandidature(models.Model):
                obj = self.env['stages.type_stage.indemnite'].search([('type_stage_id', '=',self.type_stage_id.name), ('zone_id.name', '=', self.zone), ('nombre_jour', '=', self.duree)])
                rec.montant = obj.montant
 
+    def action_confirm(self):
+        for rec in self:
+            rec.state ='confirm'
+    def action_draft(self):
+        for rec in self:
+            rec.state ='draft'
+    def action_done(self):
+        for rec in self:
+            rec.state ='done'
+    def action_cancel(self):
+        for rec in self:
+            rec.state ='cancel'
+
+
+
     name = fields.Char(string='Référence', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     employee_id =fields.Many2one(comodel_name="hr.employee", string="Enseignant", required=True,)
     session_id = fields.Many2one(comodel_name="event.event", string="Session Stage", required=True, )
@@ -47,7 +62,7 @@ class StagesCandidature(models.Model):
     zone = fields.Char(related="partner_id.country_id.country_group_ids.name", string="Zone", )
     state = fields.Selection(string="Etat Candidature",selection=[
             ('draft', 'Brouillon'), ('confirm', 'Confirmée'), ('chg_period', 'Période changée'),
-            ('done', 'Réalisée'), ('cancel', 'Annulée'), ], readonly=True, default='draft')
+            ('cancel', 'Annulée'), ('done', 'Réalisée'), ], readonly=True, default='draft')
     dernier_stage = fields.Date(string="Date dernier Stage", required=True, )
     date_depart = fields.Date(string="Date de départ", required=True, )
     date_retour = fields.Date(string="Date de retour ", required=True, )
