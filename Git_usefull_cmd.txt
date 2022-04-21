@@ -38,9 +38,9 @@ Configure Pycharm to push attached multiple Odoo versions  source code from one 
     -Create a new branch in Github;
     -Clone the main Github repository into the corresponding project folder;
     -Add this folder to VCS directory in File->Setting->Version Control;
-    -Close and reopen Pycharm to ensure that Git appears in the folder context menu and Git branches in the right_button;
+    -Close and reopen Pycharm to ensure that Git appears in the folder context menu and Git branches in the bottom right;
     -Make Git->Fetch to get the new remote branch;
     -Perform a Checkout to the corresponding remote branch;
-    -Commit and push changes ensuring the correct folder is checked in the UI.
+    -Commit and Push changes ensuring the correct folder is checked in the UI.
 
  
