@@ -72,8 +72,11 @@ class StagesCandidature(models.Model):
     contact = fields.Char(related="partner_id.child_ids.name", string="Contact", )
     zone = fields.Char(related="partner_id.country_id.country_group_ids.name", string="Zone", )
     state = fields.Selection(string="Etat Candidature", selection=[
-        ('draft', 'Brouillon'), ('confirm', 'Confirmée'), ('chg_period', 'Période changée'),
-        ('cancel', 'Annulée'), ('done', 'Réalisée'), ], readonly=True, default='draft')
+        ('draft', 'Brouillon'),
+        ('confirm', 'Confirmée'),
+        # ('chg_period', 'Période changée'),
+        ('cancel', 'Annulée'),
+        ('done', 'Réalisée'), ], readonly=True, default='draft')
     dernier_stage = fields.Date(string="Date dernier Stage", required=True, )
     date_depart = fields.Date(string="Date de départ", track_visibility='always', required=True, )
     date_retour = fields.Date(string="Date de retour ", track_visibility='always', required=True, )
