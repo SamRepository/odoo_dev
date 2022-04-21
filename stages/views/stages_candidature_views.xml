@@ -7,13 +7,40 @@
         <field name="arch" type="xml">
             <tree string="Stages Perfectionnement - تربص تحسين المستوى بالخارج">
                 <field name="name"/>
-                <field name="employee_id"/>
+                <field name="employee_id" widget="many2one_avatar"/>
                 <field name="session_id"/>
-                <field name="dernier_stage"/>
+                <field name="dernier_stage" optional="hide"/>
+                <field name="duree"/>
                 <field name="date_depart"/>
                 <field name="date_retour"/>
-                <field name="duree"/>
+                <field name="montant" />
+                <field name="partner_id" widget="many2one_avatar"/>
+                <field name="pays" optional="show"/>
+                <field name="zone" optional="hide"/>
+                <field name="type_stage_id" invisible="1"/>
+                <field name="activity_ids" widget="list_activity"/>
+                <field name="state" decoration-muted="state == 'draft'"
+                       decoration-success="state == 'confirm'"
+                       decoration-warning="state == 'chg_period'"
+                       decoration-danger="state == 'cancel'"
+                       decoration-info="state == 'done'" widget="badge"/>
+                <field name="active" optional="show"/>
+                <field name="intitule_these" optional="hide"/>
+                <field name="date_1er_inscription" optional="hide"/>
+                <field name="nbr_inscription" optional="hide"/>
             </tree>
+        </field>
+    </record>
+    <!--Search view for the stages.candidatures_perfectionnement-->
+    <record id="stages_candidature_perfectionnement_view_search" model="ir.ui.view">
+        <field name="name">stages_candidature_perfectionnement_search</field>
+        <field name="model">stages.candidature.perfectionnement</field>
+        <field name="arch" type="xml">
+            <search string="Rechercher Candidatures Perfectionnement">
+                <separator/>
+                <filter string="Archivé" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+            </search>
         </field>
     </record>
     <!--From view for the stages.candidatures_perfectionnement-->
@@ -26,8 +53,8 @@
                     <button name="action_confirm" string="Confirmer" class="oe_highlight" states="draft" type="object"/>
                     <button name="action_draft" states="cancel,done" type="object" string="Invalider"
                             attrs="{'invisible': [('state','!=', 'confirm')]}"/>
-                    <button name="action_chg_period" type="object" string="Changer périod"
-                            attrs="{'invisible': [('state','!=', 'confirm')]}"/>
+                    <!--                    <button name="action_chg_period" type="object" string="Changer périod"-->
+                    <!--                            attrs="{'invisible': [('state','!=', 'confirm')]}"/>-->
                     <button name="action_done" type="object" string="Réalisée" class="oe_highlight"
                             attrs="{'invisible': [('state','!=', 'confirm')]}"/>
                     <button name="action_cancel" type="object" string="Annuler" class="oe_highlight"
@@ -36,14 +63,14 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
-                            <field name="active" widget="boolean_button"
-                                   options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                        <button name="toggle_active" string="Archiver" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" />
                         </button>
                     </div>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" string= "Référence" readonly="1"/>
+                            <field name="name" string="Référence" readonly="1"/>
                         </h1>
                     </div>
                     <div class="o_row">
@@ -52,39 +79,85 @@
                         </h1>
                     </div>
                     <group>
-                    <group>
-                        <field name="employee_id"/>
-                        <field name="session_id"/>
-                        <field name="partner_id" domain="[('is_company', '=', 'True')]"/>
-                        <field name="pays"/>
-                        <field name="zone"/>
-                        <field name="contact"/>
-                        <field name="cause_chg_period" invisible="1"/>
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="employee_id" widget="many2one_avatar"/>
+                            <field name="session_id"/>
+                            <field name="partner_id" domain="[('is_company', '=', 'True')]" widget="many2one_avatar"/>
+                            <field name="pays"/>
+                            <field name="zone"/>
+                            <field name="contact"/>
+                            <field name="cause_chg_period" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="dernier_stage"/>
+                            <field name="date_depart"/>
+                            <field name="date_retour"/>
+                            <field name="duree" readonly="1"/>
+                            <field name="montant"/>
+                        </group>
                     </group>
                     <group>
-                        <field name="dernier_stage"/>
-                        <field name="date_depart"/>
-                        <field name="date_retour"/>
-                        <field name="duree" readonly="1"/>
-                        <field name="montant"/>
+                        <group>
+                            <field name="intitule_these"/>
+                            <field name="date_1er_inscription"/>
+                            <field name="nbr_inscription"/>
+                        </group>
                     </group>
-                    </group>
-                    <group>
-                    <group>
-                        <field name="objectifs_stage"/>
-                        <field name="methodologie"/>
-                        <field name="impacts_attendus"/>
-                        <field name="engagement"/>
-                    </group>
-                    <group>
-
-                        <field name="intitule_these"/>
-                        <field name="date_1er_inscription"/>
-                        <field name="nbr_inscription"/>
-                    </group>
-                        <field name="doc_depart_ids"/>
-                        <field name="doc_retour_ids"/>
-                    </group>
+                    <group col="1">
+                            <field name="engagement"/>
+                            <p>
+                                Je m’engage à : <br> </br>
+                                1.Effectuer le stage conformément au projet de travail avec l’obligation de ma présence
+                                au sein de l’organisme d’accueil,<br> </br>
+                                2.Ramener le rapport de stage signé par l’intéressé (et visé par l’organisme d’accueil,
+                                et par l’encadreur),<br> </br>
+                                3.Respecter les dates de départ et de retour mentionnées dans l’attestation de
+                                l’allocation du stage,<br> </br>
+                                4.Faire un exposé devant le CSD après mon retour.
+                            </p>
+                        </group>
+                    <notebook>
+                        <page string="Projet de travail" name="projet_travail">
+                            <group>
+                                <field name="objectifs_stage" widget="pad"/>
+                                <field name="methodologie" />
+                                <field name="impacts_attendus"/>
+                            </group>
+                        </page>
+                        <page string="Documents de départ" name="doc_depart">
+                            <field name="doc_depart_ids">
+                                <tree editable="bottom">
+                                    <field name="type"/>
+                                    <field name="name"/>
+                                    <field name="piece_joint"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="type"/>
+                                        <field name="name"/>
+                                        <field name="piece_joint"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Documents de retour" name="doc_retour">
+                            <field name="doc_retour_ids">
+                                <tree editable="bottom">
+                                    <field name="type"/>
+                                    <field name="name"/>
+                                    <field name="piece_joint"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="type"/>
+                                        <field name="name"/>
+                                        <field name="piece_joint"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
                 <!-- Chatter-->
                 <div class="oe_chatter">
@@ -100,13 +173,13 @@
         <field name="name">Stages Perfectionnement - تربص تحسين المستوى بالخارج</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">stages.candidature.perfectionnement</field>
-        <field name="view_type">form</field>
+        <!--        <field name="view_type">form</field>-->
         <field name="view_mode">tree,form</field>
-        <field name="context">{'default_type_stage_id': 1,}</field>
+        <field name="context">{'default_type_stage_id': 4,}</field>
         <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-            Créez votre premier stage de perfectionnement !
-          </p>
+            <p class="o_view_nocontent_smiling_face">
+                Créez votre premier stage de perfectionnement !
+            </p>
         </field>
     </record>
 
@@ -115,46 +188,46 @@
         <field name="name">Manifestation Scientifique - تظاهرة علمية بالخارج</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">stages.candidature.manifestation</field>
-        <field name="view_type">form</field>
+        <!--        <field name="view_type">form</field>-->
         <field name="view_mode">tree,form</field>
-        <field name="context">{'default_type_stage_id': 2,}</field>
+        <field name="context">{'default_type_stage_id': 5,}</field>
         <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-            Créez votre premiere manifestation scientifique !
-          </p>
+            <p class="o_view_nocontent_smiling_face">
+                Créez votre premiere manifestation scientifique !
+            </p>
         </field>
     </record>
 
-        <record id="action_candidature_sejour" model="ir.actions.act_window">
+    <record id="action_candidature_sejour" model="ir.actions.act_window">
         <field name="name">Séjour scientifique de haut niveau - إقامة علمية رفيعة المستوى بالخارج</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">stages.candidature.sejour</field>
-        <field name="view_type">form</field>
+        <!--        <field name="view_type">form</field>-->
         <field name="view_mode">tree,form</field>
-        <field name="context">{'default_type_stage_id': 3,}</field>
+        <field name="context">{'default_type_stage_id': 6,}</field>
         <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
-            Créez votre premier sejour scientifique !
-          </p>
+            <p class="o_view_nocontent_smiling_face">
+                Créez votre premier sejour scientifique !
+            </p>
         </field>
     </record>
 
-   <!--creating sub_menus for candidature  -->
+    <!--creating sub_menus for candidature  -->
 
     <menuitem id="stages_cadidature"
-        name="Candidatures"
-        parent="stages_root"
-        sequence="10"/>
+              name="Candidatures"
+              parent="stages_root"
+              sequence="10"/>
     <menuitem id="menu_stages_cadidature_perfectionnement"
-        action="action_candidature_perfectionnement"
-        name="Stages Perfectionnement" parent="stages_cadidature"
-        sequence="1"/>
+              action="action_candidature_perfectionnement"
+              name="Stages Perfectionnement" parent="stages_cadidature"
+              sequence="1"/>
     <menuitem id="menu_stages_cadidature_manifestation"
-        name="Manifestation Scientifique" parent="stages_cadidature"
-        action="action_candidature_manifestation"
-        sequence="2"/>
+              name="Manifestation Scientifique" parent="stages_cadidature"
+              action="action_candidature_manifestation"
+              sequence="2"/>
     <menuitem id="menu_stages_cadidature_sejour"
-        name="Séjour scientifique de haut niveau" parent="stages_cadidature"
-        action="action_candidature_sejour"
-        sequence="3"/>
+              name="Séjour scientifique de haut niveau" parent="stages_cadidature"
+              action="action_candidature_sejour"
+              sequence="3"/>
 </odoo>
