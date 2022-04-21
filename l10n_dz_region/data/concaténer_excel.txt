@@ -1,0 +1,1 @@
+=CONCATENER("<record id=""";A2;""" model=""res.commune""> <field name=""code"">";A2;"</field> <field name=""state_id"" ref=""";F2;"""/> <field name=""name"">";C2;"</field> </record>")

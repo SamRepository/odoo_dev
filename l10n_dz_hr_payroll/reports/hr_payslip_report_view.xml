@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_payslip_report_pivot" model="ir.ui.view">
+         <field name="name">hr.payslip.report.pivot</field>
+         <field name="model">hr.payslip.report</field>
+         <field name="arch" type="xml">
+             <pivot string="Payslip Analysis" disable_linking="True">
+                 <field name="employee_id" type="row"/>
+                 <field name="total" type="measure"/>
+             </pivot>
+         </field>
+    </record>
+
+    <record id="view_hr_payslip_report_graph" model="ir.ui.view">
+         <field name="name">hr.payslip.report.graph</field>
+         <field name="model">hr.payslip.report</field>
+         <field name="arch" type="xml">
+             <graph string="Payslip Analysis">
+                 <field name="employee_id"/>
+                 <field name="total" type="measure"/>
+             </graph>
+         </field>
+    </record>
+
+    <!-- reports (aka filters) -->
+    <record id="filter_hr_rule" model="ir.filters">
+        <field name="name">By employee</field>
+        <field name="model_id">hr.payslip.report</field>
+        <field name="domain">[]</field>
+        <field name="user_id" eval="False"/>
+        <field name="context">{'group_by': ['date:month', 'employee_id'], 'set_visible':True}</field>
+    </record>
+
+    <record id="view_hr_payslip_report_search" model="ir.ui.view">
+        <field name="name">hr.payslip.report.search</field>
+        <field name="model">hr.payslip.report</field>
+        <field name="arch" type="xml">
+            <search string="Payslip Analysis">
+                <field name="date"/>
+                <filter string="This Year" name="thisyear" domain="['|', ('date', '=', False), '&amp;',('date','&lt;=', time.strftime('%%Y-12-31')),('date','&gt;=',time.strftime('%%Y-01-01'))]"/>
+                <separator/>
+                <filter string="Attente" domain="[('state','=','draft')]"/>
+                <filter string="Valider" name="valid" domain="[('state','=', 'done')]"/>
+
+                <separator/>
+                <field name="employee_id" operator="child_of"/>
+                <group expand="1" string="Group By">
+                    <filter string="Employee" name="employee_id" context="{'group_by':'employee_id'}"/>
+                    <filter string="rule" name="salary_rule_id" context="{'group_by':'salary_rule_id'}"/>
+                    <filter string="category" name="category_id" context="{'group_by':'category_id'}"/>
+                    <filter string="Status" context="{'group_by':'state'}"/>
+                    <filter string="Company" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+                    <separator orientation="vertical" />
+                    <filter string="Date" context="{'group_by':'date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_payslip_report_all" model="ir.actions.act_window">
+        <field name="name">Payslip Analysis</field>
+        <field name="res_model">hr.payslip.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">pivot,graph</field>
+        <field name="context">{'group_by':[], 'group_by_no_leaf':1, 'search_default_thisyear': 1, 'search_default_valid': 1}</field>
+        <field name="search_view_id" ref="view_hr_payslip_report_search"/>
+    </record>
+
+   <menuitem id="menu_hr_payroll_reports" name="Reports" parent="hr_payroll.menu_hr_payroll_root"
+            sequence="200" groups="hr_payroll.group_hr_payroll_manager"/>
+
+    <menuitem name="Payslip Analysis" action="action_hr_payslip_report_all" id="menu_action_hr_payslip_report_all" parent="menu_hr_payroll_reports" sequence="20"/>
+
+
+</odoo>

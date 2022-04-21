@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <!-- Salary Structure -->
+    <record id="hr_payroll_salary_structure_base" model="hr.payroll.structure">
+        <field name="code">Base</field>
+        <field name="name">Base paie Algérienne</field>
+        <field eval="[(6, 0, [ref('hr_payroll.hr_rule_basic'), ref('hr_rule_base_g'), ref('hr_rule_base_r'),
+        ref('hr_rule_abs_j'), ref('hr_rule_abs_h'),
+        ref('hr_rule_new_worked_days'), ref('hr_rule_new_base'), ref('hr_rule_new_hours'),
+        ref('hr_rule_ss_sal'), ref('hr_rule_ss_pat'), ref('hr_rule_ss_pat1'), ref('hr_rule_ss_pat2'),
+        ref('hr_rule_poste'),
+        ref('hr_rule_IRG'),
+        ref('hr_rule_pret'),
+        ref('hr_rule_conge'),
+        ref('hr_payroll.hr_rule_taxable'), ref('hr_payroll.hr_rule_net')])]" name="rule_ids"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="parent_id" ref="hr_payroll.structure_base"/>
+    </record>
+</odoo>

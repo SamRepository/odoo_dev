@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- HR Employee Form -->
+        <record id="view_employee_form_inherit_l10n_dz_payroll" model="ir.ui.view">
+            <field name="name">hr.employee.view.form.inherit.l10n_dz_payroll</field>
+            <field name="model">hr.employee</field>
+            <field name="priority">10</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Cnas" name='Cnas' groups="hr.group_hr_user">
+                        <group>
+                            <field name="ss"/>
+                        </group>
+                        <group  attrs="{'invisible': [('ss','=', False)]}" >
+                         <group>
+                            <field name="ss_num"  attrs="{'required': [('ss','=',True)]}" />
+                            <field name="ss_since" attrs="{'required': [('ss','=',True)]}" />
+                            <field name="ss_mutual"/>
+                         </group>
+                          <group>
+                            <field name="cnas" attrs="{'required': [('ss','=',True)]}"/>
+                            <field name="cnasp" />
+                            <field name="cnasp1"/>
+                            <field name="cnasp2"/>
+                         </group>
+                        </group>
+                    </page>
+                    <page string="Rubriques Fixes" name='rubriques' groups="hr.group_hr_user">
+		                <group string="Rubriques Imposables" col="4">
+                                <div>
+                                    <label for="ppanier"/>
+                                        <field name="ppanier" class="oe_inline"/>Jour
+                                </div>
+                                <div>
+                                    <label for="ptransport"/>
+                                    <field name="ptransport" class="oe_inline"/>Jour
+                                </div>
+                                <div>
+                                    <label for="itelephone"/>
+                                    <field name="itelephone" class="oe_inline"/>Mois
+                                </div>
+                                <div>
+                                    <label for="iuvp"/>
+                                    <field name="iuvp" class="oe_inline"/>Jour
+                                 </div>
+                            </group>
+                            <group string="&amp; Cotisables" col="4">
+                                <div>
+                                    <label for="iep"/>
+                                        <field name="iep" class="oe_inline"/> %
+                                    </div>
+                                 <div>
+                                    <label for="inuisance_p"/>
+                                 <field name="inuisance_p" class="oe_inline"/> %
+                                </div>
+                                <div>
+                                    <label for="inuisance_m"/>
+                                 <field name="inuisance_m" class="oe_inline"/>Montant/J
+                                </div>
+                            </group>
+                            <group col="4">
+                                <div>
+                                  <label for="ifonction"/>
+                                  <field name="ifonction"/>Jour
+                                </div>
+                                <div>
+                                  <label for="icaisse"/>
+                                  <field name="icaisse"/>Jour
+                                </div>
+                                <div>
+                                  <label for="iastreinte"/>
+                                  <field name="iastreinte"/>Jour
+                                </div>
+                            </group>
+
+                            <group string="Autre" col="4">
+                                 <div>
+                                    <label for="sunique"/>
+                                    <field name="sunique" class="oe_inline"/> Mois
+                                </div>
+                                 <div>
+                                    <label for="echouhadas"/>
+                                    <field name="echouhadas" class="oe_inline"/> Mois
+                                </div>
+                                 <div>
+                                    <label for="irg_imp_10"/>
+                                    <field name="irg_imp_10" class="oe_inline"/> Mois
+                                </div>
+                                 <div>
+                                    <label for="irg_cot_10"/>
+                                    <field name="irg_cot_10" class="oe_inline"/> Mois
+                                </div>
+                            </group>
+                    </page>
+                </notebook>
+                <field name="name" position="after">
+                        <div class="oe_title">
+                            <label for="first_name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="first_name" placeholder="First name"/>
+                            </h1>
+                        </div>
+                </field>
+                <field name="marital" position="attributes">
+                  <attribute name='required'>1</attribute>
+                </field>
+                <field name="gender" position="attributes">
+                  <attribute name='required'>1</attribute>
+                </field>
+                <field name="marital" position="after">
+                    <group name="female" colspan="4" attrs="{'invisible': ['|',('gender','in',(False,'male'))]}">
+                        <field name="housewife"/>
+                        <field name="maiden_name"  attrs="{'required': [('gender','=','female'),('marital','=','married')],
+                                                           'invisible': [('marital','!=','married')]}"/>
+                        <field name="spouse_name"  attrs="{'required': [('gender','=','female'),('marital','=','married')],
+                                                           'invisible': [('marital','!=','married')]}"/>
+                    </group>
+                </field>
+                <field name="address_home_id" position="after">
+ 	                <field name="address_home" required="1"/>
+                </field>
+		        <field name="address_home_id" position="attributes">
+		            <attribute name='invisible'>1</attribute>
+		        </field>
+                <field name="address_id" position="attributes">
+                    <attribute name='required'>1</attribute>
+                </field>
+                <field name="department_id" position="attributes">
+                    <attribute name='required'>1</attribute>
+                </field>
+                <field name="department_id" position="after">
+                  <field name="matricule" required="1"/>
+                </field>
+                <field name="birthday" position="attributes">
+                  <attribute name='required'>1</attribute>
+                </field>
+               <field name="country_id" position="attributes">
+                  <attribute name='required'>1</attribute>
+               </field>
+            </field>
+        </record>
+
+        <!-- HR Employee Tree -->
+        <record id="hr.view_employee_tree" model="ir.ui.view">
+            <field name="name">hr.employee.tree</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <tree string="Employees" decoration-bf="message_needaction==True">
+                    <field name="name"/>
+                    <field name="first_name"/>
+                    <field name="matricule"/>
+                    <field name="ss_num"/>
+                    <field name="work_phone"/>
+                    <field name="work_email"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="department_id"/>
+                    <field name="job_id"/>
+                    <field name="parent_id"/>
+                    <field name="coach_id" invisible="1"/>
+                    <field name="message_needaction" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- HR Employee Kanban -->
+        <record model="ir.ui.view" id="hr_kanban_view_employees_inherit_l10n_dz_payroll">
+            <field name="name">HR - Employess Kanban inherit_l10n_dz_payroll</field>
+            <field name="model">hr.employee</field>
+            <field name="priority">10</field>
+            <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <strong>
+                        <field name="first_name"/>
+                    </strong>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,712 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_dz_hr_payroll
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-30 12:54+0000\n"
+"PO-Revision-Date: 2016-11-30 12:54+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_nbr
+msgid "# of Lines"
+msgstr "Nb. de lignes"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_employee_form_inherit_l10n_dz_payroll
+msgid "& Cotisables"
+msgstr "& Cotisables"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.actions.report.xml,name:l10n_dz_hr_payroll.action_report_report_l10ndzfichepaye
+msgid "(DZ) Fiche de paye"
+msgstr "(DZ) Fiche de paye"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "<strong>Adresse</strong>"
+msgstr "<strong>Adresse</strong>"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "<strong>Entrée</strong>"
+msgstr "<strong>Entrée</strong>"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "<strong>Fonction</strong>"
+msgstr "<strong>Fonction</strong>"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "<strong>Matricule</strong>"
+msgstr "<strong>Matricule</strong>"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "<strong>Net à payer </strong>:"
+msgstr "<strong>Net à payer </strong>:"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "<strong>Nom</strong>"
+msgstr "<strong>Nom</strong>"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "<strong>N° Compte</strong>"
+msgstr "<strong>N° Compte</strong>"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "<strong>N° Sécurité Sociale</strong>"
+msgstr "<strong>N° Sécurité Sociale</strong>"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "<strong>Payé</strong>"
+msgstr "<strong>Payé</strong>"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "<strong>Sortie</strong>"
+msgstr "<strong>Sortie</strong>"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_amount
+msgid "Amount"
+msgstr "Montant"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_search
+msgid "Approved"
+msgstr "Approved"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_employee_form_inherit_l10n_dz_payroll
+msgid "Autre"
+msgstr "Autre"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_quantity
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_form_dz_payroll
+msgid "Base"
+msgstr "Base"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_echouhadas
+msgid "Bonification enfants de chouhadas"
+msgstr "Bonification enfants de chouhadas"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Bulletin de paie"
+msgstr "Bulletin de paie"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.filters,name:l10n_dz_hr_payroll.filter_hr_rule
+msgid "By employee"
+msgstr "By employee"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_hr_irg
+msgid "Calcul IRG"
+msgstr "Calcul IRG"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_category_id
+msgid "Category"
+msgstr "Catégorie"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_cnas
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_employee_form_inherit_l10n_dz_payroll
+msgid "Cnas"
+msgstr "Cnas"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_ss_num
+msgid "Cnas number"
+msgstr "Cnas number"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Code"
+msgstr "Code"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_company_id
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_search
+msgid "Company"
+msgstr "Société"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payroll_configuration_l10n_dz_payroll
+msgid "Congé"
+msgstr "Congé"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Congés"
+msgstr "Congés"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_ss
+msgid "Contributes to cnas ?"
+msgstr "Contributes to cnas ?"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_cnasp2
+msgid "Cot part Logement sociale 0.5%"
+msgstr "Cot part Logement sociale 0.5%"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_cnasp
+msgid "Cotisation Patronale"
+msgstr "Cotisation Patronale"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_irg_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_irg_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_res_company_leave
+msgid "Cumul conge / Mois"
+msgstr "Cumul conge / Mois"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_account_config_settings_leave
+msgid "Cumul conge / Mois *"
+msgstr "Cumul conge / Mois *"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "DANS VOTRE INTERET ET POUR VOUS AIDER A FAIRE VALOIR VOS DROITS, CONSERVEZ CE \n"
+"BULLETIN DE PAIE SANS LIMITATION DE DUREE"
+msgstr "DANS VOTRE INTERET ET POUR VOUS AIDER A FAIRE VALOIR VOS DROITS, CONSERVEZ CE \n"
+"BULLETIN DE PAIE SANS LIMITATION DE DUREE"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_res_company_director_id
+msgid "DG"
+msgstr "DG"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_account_config_settings_director_id
+msgid "DG *"
+msgstr "DG *"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_date
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_search
+msgid "Date"
+msgstr "Date "
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_irg_display_name
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_display_name
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_report_l10n_dz_hr_payroll_report_l10ndzfichepaye_display_name
+msgid "Display Name"
+msgstr "Afficher le nom"
+
+#. module: l10n_dz_hr_payroll
+#: selection:hr.payslip.report,state:0
+msgid "Done"
+msgstr "Terminer"
+
+#. module: l10n_dz_hr_payroll
+#: selection:hr.payslip.report,state:0
+msgid "Draft"
+msgstr "brouillon"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Désignation"
+msgstr "Désignation"
+
+#. module: l10n_dz_hr_payroll
+#: selection:hr.employee,cnas:0
+msgid "Emploi Jeune 7%"
+msgstr "Emploi Jeune 7%"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_employee_id
+msgid "Employe"
+msgstr "Employé"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_hr_employee
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_search
+msgid "Employee"
+msgstr "Employé"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_first_name
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_employee_form_inherit_l10n_dz_payroll
+msgid "First name"
+msgstr "Prénom"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Gain"
+msgstr "Gain"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Gains"
+msgstr "Gains"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_search
+msgid "Group By"
+msgstr "Grouper par"
+
+#. module: l10n_dz_hr_payroll
+#: selection:hr.employee,cnas:0
+msgid "Handicapé 5%"
+msgstr "Handicapé 5%"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_yearly_salary_detail
+msgid "Hr Salary Employee By Category Report"
+msgstr "Hr Salary Employee By Category Report"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_hr_salary_employee_month
+msgid "Hr Salary Employee By Month Report"
+msgstr "Hr Salary Employee By Month Report"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_irg_id
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_id
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_report_l10n_dz_hr_payroll_report_l10ndzfichepaye_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_account_config_settings_imm_ss
+msgid "Immatriculation sociale *"
+msgstr "Immatriculation sociale *"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_iep
+msgid "Ind. experience professionnelle"
+msgstr "Ind. experience professionnelle"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_iuvp
+msgid "Ind. véhicule personnel"
+msgstr "Ind. véhicule personnel"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_icaisse
+msgid "Indémnité de caisse"
+msgstr "Indémnité de caisse"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_iastreinte
+msgid "Indémnité de d'astreinte"
+msgstr "Indémnité de d'astreinte"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_ifonction
+msgid "Indémnité de fonction"
+msgstr "Indémnité de fonction"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_inuisance_m
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_inuisance_p
+msgid "Indémnité de nuisance"
+msgstr "Indémnité de nuisance"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_employee_form_inherit_l10n_dz_payroll
+msgid "Jour"
+msgstr "Jour"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payroll_configuration_l10n_dz_payroll
+msgid "Jours de travail"
+msgstr "Jours de travail"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_irg___last_update
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report___last_update
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_report_l10n_dz_hr_payroll_report_l10ndzfichepaye___last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_irg_write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_irg_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_maiden_name
+msgid "Maiden name"
+msgstr "Maiden name"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_line_function
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_salary_rule_function
+msgid "Method"
+msgstr "Méthode"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,help:l10n_dz_hr_payroll.field_hr_payslip_line_model
+#: model:ir.model.fields,help:l10n_dz_hr_payroll.field_hr_salary_rule_model
+msgid "Model name on which the method to be called is located, e.g. 'res.partner'."
+msgstr "Nom du modèle sur lequel la méthode à appeler est située, Ex : \"res.partner\"."
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_employee_form_inherit_l10n_dz_payroll
+msgid "Mois"
+msgstr "Mois"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Montant / Taux"
+msgstr "Montant / Taux"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_employee_form_inherit_l10n_dz_payroll
+msgid "Montant/J"
+msgstr "Montant/J"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_form_dz_payroll
+msgid "Montant/Taux"
+msgstr "Montant/Taux"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_ss_mutual
+msgid "Mutual"
+msgstr "Mutuelle"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,help:l10n_dz_hr_payroll.field_hr_payslip_line_function
+#: model:ir.model.fields,help:l10n_dz_hr_payroll.field_hr_salary_rule_function
+msgid "Name of the method to be called when this job is processed."
+msgstr "Nom de la méthode à appeler quand l'action est lancée."
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_net
+msgid "Net à payer"
+msgstr "Net à payer"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_res_company_hours
+msgid "Nombre Heures"
+msgstr "Nombre Heures"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_account_config_settings_hours
+msgid "Nombre Heures *"
+msgstr "Nombre Heures *"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_res_company_days
+msgid "Nombre Jours"
+msgstr "Nombre Jours"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_account_config_settings_days
+msgid "Nombre Jours *"
+msgstr "Nombre Jours *"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_line_model
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_salary_rule_model
+msgid "Object"
+msgstr "Objet"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_cnasp1
+msgid "Oeuvre Sociale 0.5%"
+msgstr "Oeuvre Sociale 0.5%"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payroll_configuration_l10n_dz_payroll
+msgid "Paie"
+msgstr "Paie"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Paie du"
+msgstr "Paie du"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_hr_payslip
+msgid "Pay Slip"
+msgstr "Feuille de paie"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.actions.act_window,name:l10n_dz_hr_payroll.action_hr_payslip_report_all
+#: model:ir.ui.menu,name:l10n_dz_hr_payroll.menu_action_hr_payslip_report_all
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_graph
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_pivot
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_search
+msgid "Payslip Analysis"
+msgstr "Analyse paies"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_hr_payslip_line
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_form_dz_payroll
+msgid "Payslip Line"
+msgstr "Ligne de bulletin de salaire"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_state
+msgid "Payslip Status"
+msgstr "Etats"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_address_home
+msgid "Personal Address"
+msgstr "Adresse personnelle"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_ppanier
+msgid "Prime de panier"
+msgstr "Prime de panier"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_ptransport
+msgid "Prime de transport"
+msgstr "Prime de transport"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "RC:"
+msgstr "RC:"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_matricule
+msgid "Registration number"
+msgstr "Registration number"
+
+#. module: l10n_dz_hr_payroll
+#: selection:hr.payslip.report,state:0
+msgid "Rejected"
+msgstr "Rejected"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.menu,name:l10n_dz_hr_payroll.menu_hr_payroll_reports
+msgid "Reports"
+msgstr "Rapports"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Retenue"
+msgstr "Retenue"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Retenues"
+msgstr "Retenues"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_irg_cot_10
+msgid "Rubrique Cotisable IRG 10%"
+msgstr "Rubrique Cotisable IRG 10%"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_irg_imp_10
+msgid "Rubrique Imposable IRG 10%"
+msgstr "Rubrique Imposable IRG 10%"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_employee_form_inherit_l10n_dz_payroll
+msgid "Rubriques Fixes"
+msgstr "Rubriques Fixes"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_employee_form_inherit_l10n_dz_payroll
+msgid "Rubriques Imposables"
+msgstr "Rubriques Imposables"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_salary_rule_id
+msgid "Rule"
+msgstr "Règle"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Salaire Brut"
+msgstr "Salaire Brut"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "Salaire De Poste"
+msgstr "Salaire De Poste"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_sunique
+msgid "Salaire unique"
+msgstr "Salaire unique"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_form_dz_payroll
+msgid "Salary Computation"
+msgstr "Calcul de salaire"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_form_dz_payroll
+msgid "Salary Structure"
+msgstr "Structure salariale"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_ss_since
+msgid "Since"
+msgstr "Depuis"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_spouse_name
+msgid "Spouse name"
+msgstr "Epouse"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_search
+msgid "This Year"
+msgstr "Cette année"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_search
+msgid "To Approved"
+msgstr "To Approved"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_payslip_report_total
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_tree_dz_payroll
+msgid "Total"
+msgstr "Total"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_itelephone
+msgid "Téléphone"
+msgstr "Téléphone"
+
+#. module: l10n_dz_hr_payroll
+#: selection:hr.payslip.report,state:0
+msgid "Waiting"
+msgstr "Attente"
+
+#. module: l10n_dz_hr_payroll
+#: code:addons/l10n_dz_hr_payroll/models/hr_payroll.py:104
+#, python-format
+msgid "Wrong function defined for salary rule %s (%s)."
+msgstr "Wrong function defined for salary rule %s (%s)."
+
+#. module: l10n_dz_hr_payroll
+#: code:addons/l10n_dz_hr_payroll/models/hr_payroll.py:97
+#, python-format
+msgid "Wrong percentage base or quantity defined for salary rule %s (%s)."
+msgstr "Wrong percentage base or quantity defined for salary rule %s (%s)."
+
+#. module: l10n_dz_hr_payroll
+#: code:addons/l10n_dz_hr_payroll/models/hr_payroll.py:110
+#, python-format
+msgid "Wrong python code defined for salary rule %s (%s)."
+msgstr "Wrong python code defined for salary rule %s (%s)."
+
+#. module: l10n_dz_hr_payroll
+#: code:addons/l10n_dz_hr_payroll/models/hr_payroll.py:90
+#, python-format
+msgid "Wrong quantity defined for salary rule %s (%s)."
+msgstr "Wrong quantity defined for salary rule %s (%s)."
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_account_config_settings
+msgid "account.config.settings"
+msgstr "account.config.settings"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "au"
+msgstr "au"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_search
+msgid "category"
+msgstr "categorie"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_hr_employee_housewife
+msgid "housewife"
+msgstr "Femme au foyer"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_hr_salary_rule
+msgid "hr.salary.rule"
+msgstr "hr.salary.rule"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model.fields,field_description:l10n_dz_hr_payroll.field_res_company_imm_ss
+msgid "immatriculation sociale"
+msgstr "immatriculation sociale"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_hr_payslip_report
+msgid "payslip Statistics"
+msgstr "Statistique"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_report_l10n_dz_hr_payroll_report_hrsalarybymonth
+msgid "report.l10n_dz_hr_payroll.report_hrsalarybymonth"
+msgstr "report.l10n_dz_hr_payroll.report_hrsalarybymonth"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_report_l10n_dz_hr_payroll_report_hryearlysalary
+msgid "report.l10n_dz_hr_payroll.report_hryearlysalary"
+msgstr "report.l10n_dz_hr_payroll.report_hryearlysalary"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_report_l10n_dz_hr_payroll_report_l10ndzfichepaye
+msgid "report.l10n_dz_hr_payroll.report_l10ndzfichepaye"
+msgstr "report.l10n_dz_hr_payroll.report_l10ndzfichepaye"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.model,name:l10n_dz_hr_payroll.model_report_l10n_in_hr_payroll_report_hryearlysalary
+msgid "report.l10n_in_hr_payroll.report_hryearlysalary"
+msgstr "report.l10n_in_hr_payroll.report_hryearlysalary"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.view_hr_payslip_report_search
+msgid "rule"
+msgstr "Rubrique"
+
+#. module: l10n_dz_hr_payroll
+#: model:ir.ui.view,arch_db:l10n_dz_hr_payroll.report_l10ndzfichepaye
+msgid "| NIF:"
+msgstr "| NIF:"
+

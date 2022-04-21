@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="res_company_form_l10n_dz" model="ir.ui.view">
+            <field name="name">res.company.form.l10n.dz</field>
+            <field name="model">res.company</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+	    		<data>
+ 				 <xpath expr="//field[@name='company_registry']" position="after">
+					<field name="rc"/>
+					<field name="nif"/>
+					<field name="nis"/>
+					<field name="ai"/>
+				 </xpath>
+				 <xpath expr="//field[@name='website']" position="after">
+					<field name="code_activite"/>
+					<field name="activite"/>
+					<field name="impot_dir"/>
+					<field name="impot_rec"/>
+					<field name="impot_com"/>
+				 </xpath>
+	       		</data>
+            </field>
+        </record>
+
+		<record id="res_partner_form_l10n_dz" model="ir.ui.view">
+		    <field name="name">res.partner.form.l10n.dz</field>
+		    <field name="model">res.partner</field>
+			<field name="priority">20</field>
+		    <field name="inherit_id" ref="account.view_partner_property_form"/>
+		    <field name="arch" type="xml">
+		    	<data>
+			 		<xpath expr="//field[@name='property_account_position_id']" position="after">
+						<field name="rc"/>
+						<field name="nif"/>
+						 <field name="nis"/>
+						 <field name="ai"/>
+					 </xpath>
+
+	       		</data>
+		    </field>
+		</record>
+</odoo>

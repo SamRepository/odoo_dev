@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+     <record id="view_hr_payroll_configuration_l10n_dz_payroll" model="ir.ui.view">
+            <field name="name">Configure Payroll l10n_dz_payroll</field>
+            <field name="model">account.config.settings</field>
+            <field name="inherit_id" ref="account.view_account_config_settings"/>
+            <field name="arch" type="xml">
+                   <xpath expr="//group[@name='followup']" position="before">
+                        <group string="Paie">
+                            <label for="hours"/>
+                            <div>
+                                <field name="hours" class="oe_inline"/>
+                            </div>
+                            <label for="nombre_employes"/>
+                            <div>
+                                <field name="days" class="oe_inline"/> Jours de travail
+                                <field name="leave" class="oe_inline"/> Congé
+                            </div>
+                            <label for="director_id"/>
+                            <div>
+                                <field name="director_id" class="oe_inline"/>
+                            </div>
+                            <label for="imm_ss"/>
+                            <div>
+                                <field name="imm_ss" class="oe_inline"/>
+                            </div>
+                        </group>
+                    </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="report_invoice_amount_to_text_fr" model="ir.ui.view">
+            <field name="name">account.report_invoice_document_amount_to_text_fr</field>
+            <field name="inherit_id" ref="account.report_invoice_document"/>
+            <field eval="10" name="priority"/>
+            <field name="type">qweb</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//div/div[@class='row']" position="replace">
+                        <div class="row">
+                            <div name="invoice_address" class="col-xs-5 col-xs-offset-7">
+                                <address t-field="o.partner_id"
+                                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                                <div>
+                                    <span t-if="o.partner_id.rc">RC:
+                                        <span t-field="o.partner_id.rc"/>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span t-if="o.partner_id.nif">NIF:
+                                        <span t-field="o.partner_id.nif"/>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span t-if="o.partner_id.nis">NIS:
+                                        <span t-field="o.partner_id.nis"/>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span t-if="o.partner_id.ai">AI:
+                                        <span t-field="o.partner_id.ai"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </xpath>
+                    <xpath expr="//div/div/table[@class='table table-condensed']" position="replace">
+                        <table class="table table-condensed">
+                            <tr class="border-black">
+                                <td>
+                                    <strong>HT</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.amount_untaxed"
+                                          t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>TVA</td>
+                                <td class="text-right">
+                                    <span t-field="o.amount_tax"
+                                          t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Timbre</td>
+                                <td class="text-right">
+                                    <span t-field="o.timbre"
+                                          t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                </td>
+                            </tr>
+                            <tr class="border-black">
+                                <td>
+                                    <strong>TTC</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.amount_total"
+                                          t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                </td>
+                            </tr>
+                        </table>
+                    </xpath>
+                    <xpath expr="//p[@t-if='o.comment']" position="before">
+                        <p>
+                            <strong>ARRETEE LA PRESENTE FACTURE A LA SOMME DE:</strong>
+                            <span t-field="o.amount_to_text"/>
+                        </p>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="report_saleorder_amount_to_text_fr" model="ir.ui.view">
+            <field name="name">sale.report_saleorder_document_amount_to_text_fr</field>
+            <field name="inherit_id" ref="sale.report_saleorder_document"/>
+            <field eval="16" name="priority"/>
+            <field name="type">qweb</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//div[@name='total']" position="replace">
+                        <div class="row" name="total">
+                            <div class="col-xs-4 pull-right">
+                                <table class="table table-condensed">
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>HT</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="doc.amount_untaxed"
+                                                  t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                        </td>
+
+                                    </tr>
+                                    <t t-foreach="doc._get_tax_amount_by_group()" t-as="amount_by_group">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="amount_by_group[0] or 'Taxes'"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="amount_by_group[1]"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td>
+                                            <strong>Timbre</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="doc.timbre"
+                                                  t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-black">
+                                        <td>
+                                            <strong>TTC</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="doc.amount_total"
+                                                  t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </xpath>
+                    <xpath expr="//p[@t-field='doc.note']" position="before">
+                        <p>
+                            <strong>ARRETEE LE PRESENT DEVIS/COMMANDE A LA SOMME DE:</strong>
+                            <span t-field="doc.amount_to_text"/>
+                        </p>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

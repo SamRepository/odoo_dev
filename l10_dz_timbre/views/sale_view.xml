@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+       <!-- Sale Order: Form-->
+       <record model="ir.ui.view" id="sale_order_dz">
+           <field name="name">sale order view form dz</field>
+           <field name="model">sale.order</field>
+           <field name="inherit_id" ref="sale.view_order_form"/>
+           <field name="arch" type="xml">
+                 <field name="payment_term_id" position="after">
+                     <field name="payment_type" invisible="1"/>
+                 </field>
+                 <field name="amount_tax" position="after">
+                    <field name="timbre" widget='monetary' options="{'currency_field': 'currency_id'}"
+                           attrs="{'invisible': [('payment_type', '!=', 'cash')]}"/>
+                 </field>
+
+            </field>
+       </record>
+
+   </data>
+</odoo>

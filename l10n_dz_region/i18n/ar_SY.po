@@ -1,0 +1,111 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_dz_region
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-18 20:00+0000\n"
+"PO-Revision-Date: 2016-11-18 20:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_dz_region
+#: model:ir.model.fields,field_description:l10n_dz_region.field_res_commune_code
+msgid "Code Commune"
+msgstr "رمز البلدية"
+
+#. module: l10n_dz_region
+#: model:ir.model.fields,field_description:l10n_dz_region.field_res_commune_name
+#: model:ir.model.fields,field_description:l10n_dz_region.field_res_partner_commune_id
+#: model:ir.ui.menu,name:l10n_dz_region.menu_commune
+#: model:ir.ui.view,arch_db:l10n_dz_region.res_partner_form_commune
+msgid "البلدية"
+msgstr "Commune"
+
+#. module: l10n_dz_region
+#: model:ir.actions.act_window,name:l10n_dz_region.action_commune
+msgid "Communes"
+msgstr "البلدية"
+
+#. module: l10n_dz_region
+#: model:ir.ui.view,arch_db:l10n_dz_region.res_partner_form_commune
+msgid "Country"
+msgstr "دولة"
+
+#. module: l10n_dz_region
+#: model:ir.model.fields,field_description:l10n_dz_region.field_res_commune_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: l10n_dz_region
+#: model:ir.model.fields,field_description:l10n_dz_region.field_res_commune_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: l10n_dz_region
+#: model:ir.model.fields,field_description:l10n_dz_region.field_res_commune_display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: l10n_dz_region
+#: model:ir.model.fields,field_description:l10n_dz_region.field_res_commune_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: l10n_dz_region
+#: model:ir.model.fields,field_description:l10n_dz_region.field_res_commune___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: l10n_dz_region
+#: model:ir.model.fields,field_description:l10n_dz_region.field_res_commune_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: l10n_dz_region
+#: model:ir.model.fields,field_description:l10n_dz_region.field_res_commune_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: l10n_dz_region
+#: model:ir.model.fields,help:l10n_dz_region.field_res_commune_code
+msgid "Le code de la commune sur deux positions"
+msgstr "رمز البلدية على موقعين"
+
+#. module: l10n_dz_region
+#: model:ir.model,name:l10n_dz_region.model_res_partner
+msgid "Partner"
+msgstr "شريك"
+
+#. module: l10n_dz_region
+#: model:ir.ui.view,arch_db:l10n_dz_region.res_partner_form_commune
+msgid "Street 2..."
+msgstr "شارع 2..."
+
+#. module: l10n_dz_region
+#: model:ir.ui.view,arch_db:l10n_dz_region.res_partner_form_commune
+msgid "Street..."
+msgstr "الشارع..."
+
+#. module: l10n_dz_region
+#: model:ir.model.fields,field_description:l10n_dz_region.field_res_commune_state_id
+#: model:ir.ui.view,arch_db:l10n_dz_region.res_partner_form_commune
+msgid "Wilaya"
+msgstr "ولاية"
+
+#. module: l10n_dz_region
+#: model:ir.ui.view,arch_db:l10n_dz_region.res_partner_form_commune
+msgid "ZIP"
+msgstr "الرمز البريدي"
+
+#. module: l10n_dz_region
+#: model:ir.model,name:l10n_dz_region.model_res_commune
+msgid "res.commune"
+msgstr "res.commune"
+

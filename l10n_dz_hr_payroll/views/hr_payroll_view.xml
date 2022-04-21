@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+	<record id="hr_salary_rule_form_function" model="ir.ui.view">
+		    <field name="name">hr.salary.rule.form</field>
+		    <field name="model">hr.salary.rule</field>
+		    <field name="inherit_id" ref="hr_payroll.hr_salary_rule_form"/>
+		    <field name="arch" type="xml">
+			<field name="amount_percentage" position="after"><newline/>
+				<field name="model" attrs="{'invisible':[('amount_select','&lt;&gt;','function')], 'required':[('amount_select','=','function')]}"/><newline/>
+				<field name="function" attrs="{'invisible':[('amount_select','&lt;&gt;','function')], 'required':[('amount_select','=','function')]}"/>
+		      </field>
+		            
+		    </field>
+		</record>
+
+    <record id="view_hr_payslip_tree_dz_payroll" model="ir.ui.view">
+	    <field name="name">view.hr.payslip.tree</field>
+	    <field name="model">hr.payslip</field>
+        <field name="priority">100</field>
+	    <field name="inherit_id" ref="hr_payroll.view_hr_payslip_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <field name="net" string="Total" sum="Total"/>
+            </field>
+        </field>
+	</record>
+
+	<record id="view_hr_payslip_form_dz_payroll" model="ir.ui.view">
+	    <field name="name">view.hr.payslip.form</field>
+	    <field name="model">hr.payslip</field>
+        <field name="priority">100</field>
+	    <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+	    <field name="arch" type="xml">
+            <xpath expr="//field[@name='worked_days_line_ids']/tree" position="attributes">
+                <attribute name="colors">blue:code in ('WORK100')</attribute>
+            </xpath>
+            <xpath expr="//field[@name='input_line_ids']/tree" position="attributes">
+                <attribute name="colors">red:code in ('I010','I015');
+                        Brown:code in ('red','I250','I255','I260'); GoldenRod:code in ('I750','I755')
+                </attribute>
+            </xpath>
+
+            <xpath expr="//notebook/page[2]" position="replace">
+                <page string="Salary Computation" name="computation">
+                    <field name="line_ids" colspan="4" nolabel="1">
+                        <tree string="Salary Structure" editable="bottom" colors="white:total == 0;
+                        green:code in ('R660','R690','R661') ; orange:code in ('R510','R511');
+                        blue:code in ('R999','R001','R050'); red:code in ('R010','R015');
+                        Brown:code in ('red','R250','R255','R260'); GoldenRod:code in ('R750','R755') ">
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="category_id" invisible="1"/>
+                            <field name="sequence" invisible="1"/>
+                            <field name="quantity" string="Base"/>
+                            <field name="rate" invisible="1"/>
+                            <field name="amount" string="Montant/Taux"/>
+                            <field name="total"/>
+                        </tree>
+                        <form string="Payslip Line">
+                            <group col="4">
+                                <field name="code"/>
+                                <field name="name" string="Base"/>
+                                <field name="category_id" invisible="1"/>
+                                <field name="sequence"/>
+                                <field name="quantity" string="Base"/>
+                                <field name="rate" invisible="1"/>
+                                <field name="amount" string="Montant/Taux"/>
+                                <field name="total"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+
+          <xpath expr="//notebook/page[3]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+	</record>
+
+    </data>
+</odoo>

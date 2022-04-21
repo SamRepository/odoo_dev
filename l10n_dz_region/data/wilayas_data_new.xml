@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wilaya_01" model="res.country.state">
+            <field name="name">ADRAR</field>
+            <field name="code">01</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_02" model="res.country.state">
+            <field name="name">CHLEF</field>
+            <field name="code">02</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_03" model="res.country.state">
+            <field name="name">LAGHOUAT</field>
+            <field name="code">03</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_04" model="res.country.state">
+            <field name="name">OUM EL BOUAGHI</field>
+            <field name="code">04</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_05" model="res.country.state">
+            <field name="name">BATNA</field>
+            <field name="code">05</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_06" model="res.country.state">
+            <field name="name">BEJAIA</field>
+            <field name="code">06</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_07" model="res.country.state">
+            <field name="name">BISKRA</field>
+            <field name="code">07</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_08" model="res.country.state">
+            <field name="name">BECHAR</field>
+            <field name="code">08</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_09" model="res.country.state">
+            <field name="name">BLIDA</field>
+            <field name="code">09</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_10" model="res.country.state">
+            <field name="name">BOUIRA</field>
+            <field name="code">10</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_11" model="res.country.state">
+            <field name="name">TAMANRASSET</field>
+            <field name="code">11</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_12" model="res.country.state">
+            <field name="name">TEBESSA</field>
+            <field name="code">12</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_13" model="res.country.state">
+            <field name="name">TLEMCEN</field>
+            <field name="code">13</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_14" model="res.country.state">
+            <field name="name">TIARET</field>
+            <field name="code">14</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_15" model="res.country.state">
+            <field name="name">TIZI OUZOU</field>
+            <field name="code">15</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_16" model="res.country.state">
+            <field name="name">ALGER</field>
+            <field name="code">16</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_17" model="res.country.state">
+            <field name="name">DJELFA</field>
+            <field name="code">17</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_18" model="res.country.state">
+            <field name="name">JIJEL</field>
+            <field name="code">18</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_19" model="res.country.state">
+            <field name="name">SETIF</field>
+            <field name="code">19</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_20" model="res.country.state">
+            <field name="name">SAIDA</field>
+            <field name="code">20</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_21" model="res.country.state">
+            <field name="name">SKIKDA</field>
+            <field name="code">21</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_22" model="res.country.state">
+            <field name="name">SIDI BEL ABBES</field>
+            <field name="code">22</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_23" model="res.country.state">
+            <field name="name">ANNABA</field>
+            <field name="code">23</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_24" model="res.country.state">
+            <field name="name">GUELMA</field>
+            <field name="code">24</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_25" model="res.country.state">
+            <field name="name">CONSTANTINE</field>
+            <field name="code">25</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_26" model="res.country.state">
+            <field name="name">MEDEA</field>
+            <field name="code">26</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_27" model="res.country.state">
+            <field name="name">MOSTAGANEM</field>
+            <field name="code">27</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_28" model="res.country.state">
+            <field name="name">M'SILA</field>
+            <field name="code">28</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_29" model="res.country.state">
+            <field name="name">MASCARA</field>
+            <field name="code">29</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_30" model="res.country.state">
+            <field name="name">OUARGLA</field>
+            <field name="code">30</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_31" model="res.country.state">
+            <field name="name">ORAN</field>
+            <field name="code">31</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_32" model="res.country.state">
+            <field name="name">EL BAYADH</field>
+            <field name="code">32</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_33" model="res.country.state">
+            <field name="name">ILLIZI</field>
+            <field name="code">33</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_34" model="res.country.state">
+            <field name="name">BORDJ BOU ARRERIDJ</field>
+            <field name="code">34</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_35" model="res.country.state">
+            <field name="name">BOUMERDES</field>
+            <field name="code">35</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_36" model="res.country.state">
+            <field name="name">EL TARF</field>
+            <field name="code">36</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_37" model="res.country.state">
+            <field name="name">TINDOUF</field>
+            <field name="code">37</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_38" model="res.country.state">
+            <field name="name">TISSEMSILT</field>
+            <field name="code">38</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_39" model="res.country.state">
+            <field name="name">EL OUED</field>
+            <field name="code">39</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_40" model="res.country.state">
+            <field name="name">KHENCHELA</field>
+            <field name="code">40</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_41" model="res.country.state">
+            <field name="name">SOUK AHRAS</field>
+            <field name="code">41</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_42" model="res.country.state">
+            <field name="name">TIPAZA</field>
+            <field name="code">42</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_43" model="res.country.state">
+            <field name="name">MILA</field>
+            <field name="code">43</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_44" model="res.country.state">
+            <field name="name">AIN DEFLA</field>
+            <field name="code">44</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_45" model="res.country.state">
+            <field name="name">NAAMA</field>
+            <field name="code">45</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_46" model="res.country.state">
+            <field name="name">AIN TEMOUCHENT</field>
+            <field name="code">46</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_47" model="res.country.state">
+            <field name="name">GHARDAIA</field>
+            <field name="code">47</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_48" model="res.country.state">
+            <field name="name">RELIZANE</field>
+            <field name="code">48</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_49" model="res.country.state">
+            <field name="name">TIMIMOUN</field>
+            <field name="code">49</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_50" model="res.country.state">
+            <field name="name">BORDJ BADJI MOKHTAR</field>
+            <field name="code">50</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_51" model="res.country.state">
+            <field name="name">OULED DJELLAL</field>
+            <field name="code">51</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_52" model="res.country.state">
+            <field name="name">BÉNI ABBÈS</field>
+            <field name="code">52</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_53" model="res.country.state">
+            <field name="name">IN SALAH</field>
+            <field name="code">53</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_54" model="res.country.state">
+            <field name="name">IN GUEZZAM</field>
+            <field name="code">54</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_55" model="res.country.state">
+            <field name="name">TOUGGOURT</field>
+            <field name="code">55</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_56" model="res.country.state">
+            <field name="name">DJANET</field>
+            <field name="code">56</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_57" model="res.country.state">
+            <field name="name">EL MEGHAIER</field>
+            <field name="code">57</field>
+            <field name="country_id">63</field>
+        </record>
+        <record id="wilaya_58" model="res.country.state">
+            <field name="name">EL MENIA</field>
+            <field name="code">58</field>
+            <field name="country_id">63</field>
+        </record>
+    </data>
+</odoo>

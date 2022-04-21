@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_l10ndzfichepaye">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="report.internal_layout">
+                <div class="page" style="font-size:11px">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h2>Bulletin de paie</h2>
+                            <h4>Paie du <span t-field="o.date_from"/> au <span t-field="o.date_to"/></h4>
+                        </div>
+                        <div class="col-xs-4 pull-right">
+                            <table class="table table-bordered" stype="border: 2px solid black;">
+                                <tr>
+                                    <td>
+                                        <div t-field="o.employee_id.company_id.partner_id"  
+                                    t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />RC:
+                                        <span t-esc="o.employee_id.company_id.rc or '_'"/> | NIF:
+                                        <span t-esc="o.employee_id.company_id.nif or '_'"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div t-field="o.employee_id.address_home_id"
+                                          t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+    
+               		<table class="table table-condensed table-bordered">
+                        <tr>
+                            <td><strong>Nom</strong></td>
+                            <td><span t-field="o.employee_id"/></td>
+                            <td><strong>Matricule</strong></td>
+                            <td><span t-field="o.employee_id.matricule"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adresse</strong></td>
+                            <td colspan="3">
+                                <div t-field="o.employee_id.address_home"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fonction</strong></td>
+                            <td><span t-field="o.employee_id.job_id"/></td>
+                            <td><strong>N° Sécurité Sociale</strong></td>
+                            <td><span t-field="o.employee_id.ss_num"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>N° Compte</strong></td>
+                            <td colspan="3">
+                            	<span t-field="o.employee_id.bank_account_id.bank_name"/>
+				<span t-field="o.employee_id.bank_account_id.acc_number"/>
+			    </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Entrée</strong></td>
+                            <td><span t-field="o.contract_id.date_start"/></td>
+                            <td><strong>Sortie</strong></td>
+                            <td><span t-field="o.contract_id.date_end"/></td>
+                        </tr>
+                    </table>
+  
+                    <table class="table table-condensed table-bordered ">
+                        <thead  style="background-color:#A9E2F3;">
+                            <tr>
+                                <th class="text-center">Code</th>
+                                <th>Désignation</th>
+                                <th class="text-center">Base</th>
+                                <th class="text-center">Montant / Taux</th>
+                                <th class="text-center">Retenue</th>
+                                <th class="text-center">Gain</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="get_payslip_lines(o.line_ids)" t-as="p">
+                                <td>
+                                    <span t-esc="p.code or ''"/>
+                                </td>
+                                <td>
+                                     <span t-esc="p.name or ''"/>
+                                </td>
+                                <td class="text-right">
+			     	   <t t-if="p.quantity &lt; 0">
+                                       <span t-esc="'{0:,.2f}'.format(p.quantity * -1)"/>
+                                   </t>
+                                     <t t-if="p.quantity &gt; 0">
+                                       <span t-esc="'{0:,.2f}'.format(p.quantity)"/>
+                                   </t>
+                                </td>
+                                <td class="text-right">
+                                     <t t-if="p.amount &lt; 0">
+                                        <span t-esc="'{0:,.2f}'.format(p.amount * -1)"/>
+                                    </t>
+                                     <t t-if="p.amount &gt; 0">
+                                        <span t-esc="'{0:,.2f}'.format(p.amount)"/>
+                                    </t>
+                                </td>
+                                
+                                <td class="text-right">
+				     <t t-if="p.total &lt; 0">
+                                        <span t-esc="'{0:,.2f}'.format(p.total * -1)"/>
+                                    </t>
+                                </td>
+				<td class="text-right">
+                                     <t t-if="p.total &gt; 0">
+                                        <span t-esc="'{0:,.2f}'.format(p.total)"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-condensed table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Salaire De Poste</th>
+                                <th class="text-center">Salaire Brut</th>
+                                <th class="text-center">Congés</th>
+                                <th class="text-center">Retenues</th>
+                                <th class="text-center">Gains</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span t-esc="'{0:,.2f}'.format(get_total_by_rule_category(o, 'POSTE'))"/></td>
+                                <td><span t-esc="'{0:,.2f}'.format(get_total_by_rule_category(o, 'BRUT'))"/></td>
+                                <td><span t-esc="''"/></td>
+                                <td><span t-esc="'{0:,.2f}'.format(get_total_by_rule_category(o, 'DED')*-1)"/></td>
+                                <td><span t-esc="'{0:,.2f}'.format(get_total_by_rule_category(o, 'INDM'))"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                     <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table  table-round-border">
+                                <tr>
+                                    <td>
+                                        <div class="pull-right" style="font-size:15px">         
+                                        <strong>Net à payer </strong>: <span t-esc="get_total_by_rule_category(o, 'TOTAL')" t-esc-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'/>
+                                        </div>
+                                        <div class="mt15">
+                                             <strong></strong>
+                                        </div>
+                                        <div class="mt15">
+                                             <t t-if="o.paid is True"><strong>Payé</strong></t>
+                                        </div>
+                                        
+                                   </td>
+                                </tr>   
+                            </table>
+                        </div>
+                     </div>   
+                  
+
+                    <p class="mt32">DANS VOTRE INTERET ET POUR VOUS AIDER A FAIRE VALOIR VOS DROITS, CONSERVEZ CE 
+BULLETIN DE PAIE SANS LIMITATION DE DUREE</p>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+</odoo>

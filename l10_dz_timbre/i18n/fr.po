@@ -1,0 +1,171 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_dz_timbre
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-29 11:30+0000\n"
+"PO-Revision-Date: 2019-03-29 11:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_dz_timbre
+#: selection:account.payment.term,payment_type:0
+msgid "Cash"
+msgstr "Espèce"
+
+#. module: l10n_dz_timbre
+#: model:ir.actions.act_window,help:l10n_dz_timbre.action_timbre
+msgid "Click to create a calcul of timbre."
+msgstr "Cliquer pour créer le calcul de timbre."
+
+#. module: l10n_dz_timbre
+#: model:ir.actions.act_window,name:l10n_dz_timbre.action_timbre
+#: model:ir.ui.menu,name:l10n_dz_timbre.menu_timbre
+#: model:ir.ui.view,arch_db:l10n_dz_timbre.config_timbre_form
+#: model:ir.ui.view,arch_db:l10n_dz_timbre.config_timbre_tree
+msgid "Timbre Configuration"
+msgstr "Configuration Timbre"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre_display_name
+msgid "Display Name"
+msgstr "Afficher le nom"
+
+#. module: l10n_dz_timbre
+#: model:account.payment.term,note:l10n_dz_timbre.account_payment_term_cash
+msgid "Espèce"
+msgstr "Espèce"
+
+#. module: l10n_dz_timbre
+#: model:account.payment.term,name:l10n_dz_timbre.account_payment_term_cash
+msgid "Espèce (Timbre)"
+msgstr "Espèce (Timbre)"
+
+#. module: l10n_dz_timbre
+#: model:ir.model,name:l10n_dz_timbre.model_config_timbre
+msgid "Fiscal Timbre configuration"
+msgstr "Configuration Timbre Fiscal"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_dz_timbre
+#: model:ir.model,name:l10n_dz_timbre.model_account_invoice
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre___last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre_write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre_name
+msgid "Nom"
+msgstr "Nom"
+
+#. module: l10n_dz_timbre
+#: selection:account.payment.term,payment_type:0
+msgid "Other"
+msgstr "Autre"
+
+#. module: l10n_dz_timbre
+#: code:addons/l10n_dz_timbre/models/timbre.py:33
+#, python-format
+msgid "No Fiscal Timbre Configuration"
+msgstr "Pas de configuration du calcul Timbre."
+
+#. module: l10n_dz_timbre
+#: model:ir.model,name:l10n_dz_timbre.model_account_payment_term
+msgid "Payment Term"
+msgstr "Conditions De Paiement"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre_max_value
+msgid "Plafond"
+msgstr "Plafond"
+
+#. module: l10n_dz_timbre
+#: model:ir.model,name:l10n_dz_timbre.model_sale_order
+msgid "Sale Order"
+msgstr "Bon de commande"
+
+#. module: l10n_dz_timbre
+#: code:addons/l10n_dz_timbre/old/data/sale.py:108
+#: code:addons/l10n_dz_timbre/old/sale.py:127
+#, python-format
+msgid "Text amount"
+msgstr "Montant en lettre"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_account_invoice_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_sale_order_timbre
+msgid "Timbre"
+msgstr "Timbre"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_account_invoice_amount_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_sale_order_amount_timbre
+msgid "Total Amount With Timbre"
+msgstr "Total avec Timbre"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre_tranche
+msgid "Tranche"
+msgstr "Tranche"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_account_payment_term_payment_type
+msgid "Type"
+msgstr "Type"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_account_invoice_payment_type
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_sale_order_payment_type
+msgid "Payment Type"
+msgstr "Type de paiement"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre_min_value
+msgid "Minimum Value"
+msgstr "Valeur Minimum"
+
+#. module: l10n_dz_timbre
+#: model:ir.model.fields,field_description:l10n_dz_timbre.field_config_timbre_valeur
+msgid "Timbre Value"
+msgstr "Valeur Du Timbre"
+
+#. module: l10n_dz_timbre
+#: sql_constraint:config.timbre:0
+msgid "name must be unique per Company!"
+msgstr "le nom doit être unique!"
+

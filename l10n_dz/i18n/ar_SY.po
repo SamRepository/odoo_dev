@@ -1,0 +1,151 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_dz
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-18 14:13+0000\n"
+"PO-Revision-Date: 2016-11-18 14:13+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_dz
+#: model:account.tax,description:l10n_dz.1_tva_normale
+msgid "17.0"
+msgstr "17.0"
+
+#. module: l10n_dz
+#: model:account.tax,description:l10n_dz.1_tva_specifique
+msgid "7.0"
+msgstr "7.0"
+
+#. module: l10n_dz
+#: model:account.tax,description:l10n_dz.1_tva_acq_normale
+msgid "ACH-17.0"
+msgstr "ACH-17.0"
+
+#. module: l10n_dz
+#: model:account.tax,description:l10n_dz.1_tva_acq_specifique
+msgid "ACH-7.0"
+msgstr "ACH-7.0"
+
+#. module: l10n_dz
+#: model:account.tax,description:l10n_dz.1_tva_exo_0
+msgid "ACHAT-0"
+msgstr "ACHAT-0"
+
+#. module: l10n_dz
+#: model:ir.model.fields,field_description:l10n_dz.field_res_company_ai
+#: model:ir.model.fields,field_description:l10n_dz.field_res_partner_ai
+msgid "Article d'imposition"
+msgstr "Article d'imposition"
+
+#. module: l10n_dz
+#: model:ir.model,name:l10n_dz.model_res_company
+msgid "Companies"
+msgstr "المؤسسات"
+
+#. module: l10n_dz
+#: model:account.tax,description:l10n_dz.1_tva_0
+msgid "EXO-0"
+msgstr "EXO-0"
+
+#. module: l10n_dz
+#: model:account.tax,description:l10n_dz.1_tva_export_0
+msgid "EXPORT-0"
+msgstr "EXPORT-0"
+
+#. module: l10n_dz
+#: model:account.tax,description:l10n_dz.1_tva_imm_normale
+msgid "IMMO-17.0"
+msgstr "IMMO-17.0"
+
+#. module: l10n_dz
+#: model:account.tax,description:l10n_dz.1_tva_imm_specifique
+msgid "IMMO-7.0"
+msgstr "IMMO-7.0"
+
+#. module: l10n_dz
+#: model:account.tax,description:l10n_dz.1_tva_import_0
+msgid "IMPORT-0"
+msgstr "IMPORT-0"
+
+#. module: l10n_dz
+#: model:ir.model.fields,field_description:l10n_dz.field_res_company_nif
+#: model:ir.model.fields,field_description:l10n_dz.field_res_partner_nif
+msgid "N.I.F"
+msgstr "N.I.F"
+
+#. module: l10n_dz
+#: model:ir.model.fields,field_description:l10n_dz.field_res_company_nis
+#: model:ir.model.fields,field_description:l10n_dz.field_res_partner_nis
+msgid "N.I.S"
+msgstr "N.I.S"
+
+#. module: l10n_dz
+#: model:ir.model,name:l10n_dz.model_res_partner
+msgid "Partner"
+msgstr "شريك"
+
+#. module: l10n_dz
+#: model:ir.model.fields,field_description:l10n_dz.field_res_company_rc
+#: model:ir.model.fields,field_description:l10n_dz.field_res_partner_rc
+msgid "R.C"
+msgstr "R.C"
+
+#. module: l10n_dz
+#: model:account.tax,name:l10n_dz.1_tva_acq_normale
+msgid "TVA (achat) 17,0%"
+msgstr "TVA (achat) 17,0%"
+
+#. module: l10n_dz
+#: model:account.tax,name:l10n_dz.1_tva_acq_specifique
+msgid "TVA (achat) 7,0%"
+msgstr "TVA (achat) 7,0%"
+
+#. module: l10n_dz
+#: model:account.tax,name:l10n_dz.1_tva_normale
+msgid "TVA (vente) 17,0%"
+msgstr "TVA (vente) 17,0%"
+
+#. module: l10n_dz
+#: model:account.tax,name:l10n_dz.1_tva_specifique
+msgid "TVA (vente) 7,0%"
+msgstr "TVA (vente) 7,0%"
+
+#. module: l10n_dz
+#: model:account.tax,name:l10n_dz.1_tva_0
+msgid "TVA 0% (vente)"
+msgstr "TVA 0% (vente)"
+
+#. module: l10n_dz
+#: model:account.tax,name:l10n_dz.1_tva_exo_0
+msgid "TVA 0% EXO (achat)"
+msgstr "TVA 0% EXO (achat)"
+
+#. module: l10n_dz
+#: model:account.tax,name:l10n_dz.1_tva_export_0
+msgid "TVA 0% export (vente)"
+msgstr "TVA 0% export (vente)"
+
+#. module: l10n_dz
+#: model:account.tax,name:l10n_dz.1_tva_import_0
+msgid "TVA 0% import (achat)"
+msgstr "TVA 0% import (achat)"
+
+#. module: l10n_dz
+#: model:account.tax,name:l10n_dz.1_tva_imm_normale
+msgid "TVA immobilisation (achat) 17,0%"
+msgstr "TVA immobilisation (achat) 17,0%"
+
+#. module: l10n_dz
+#: model:account.tax,name:l10n_dz.1_tva_imm_specifique
+msgid "TVA immobilisation (achat) 7,0%"
+msgstr "TVA immobilisation (achat) 7,0%"
+

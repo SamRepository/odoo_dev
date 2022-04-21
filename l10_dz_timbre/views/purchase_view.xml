@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+       <!-- purchase: Form-->
+       <record model="ir.ui.view" id="purchase_order_dz">
+           <field name="name">purchase order view form dz</field>
+           <field name="model">purchase.order</field>
+           <field name="inherit_id" ref="purchase.purchase_order_form"/>
+           <field name="arch" type="xml">
+
+
+                 <field name="amount_tax" position="after">
+                    <field name="timbre" widget='monetary' options="{'currency_field': 'currency_id'}"
+                           attrs="{'invisible': [('payment_type', '!=', 'cash')]}"/>
+                 </field>
+                <xpath expr="//notebook/page[2]/group/group[1]" position="inside">
+                    <field name="payment_type" invisible="1"/>
+                </xpath>
+            </field>
+ 
+       </record>
+
+	</data>
+</odoo>

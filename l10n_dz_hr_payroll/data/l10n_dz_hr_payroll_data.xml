@@ -1,0 +1,1041 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Decimal Precision -->
+        <record id="hr_payroll.decimal_payroll" model="decimal.precision">
+            <field name="digits">8</field>
+            <field name="display_digits">2</field>
+        </record>
+
+        <record id="paperformat_dz" model="report.paperformat">
+            <field name="name">European A4 (top )</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">20</field>
+            <field name="margin_bottom">23</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+
+	<!--Account Journal -->
+	<record id="journal_employee" model="account.journal">
+	    <field name="name">Payroll employee</field>
+	    <field name="code">PYEM</field>
+	    <field name="type">general</field>
+	    <field name="default_credit_account_id" ref="l10n_dz.pcg_421"/>
+	    <field name="default_debit_account_id" ref="l10n_dz.pcg_421"/>
+	    <field name="refund_sequence" eval="True"/>
+	</record>
+
+	<record id="journal_patronal" model="account.journal">
+	    <field name="name">Payroll patronal</field>
+	    <field name="code">PYPT</field>
+	    <field name="type">general</field>
+	    <field name="default_credit_account_id" ref="l10n_dz.pcg_431"/>
+	    <field name="default_debit_account_id" ref="l10n_dz.pcg_431"/>
+	    <field name="refund_sequence" eval="True"/>
+	</record>
+
+<!-- Base config -->
+    <record id="base.main_company" model="res.company">
+        <field name="hours">173.33</field>
+    </record>
+
+    <record id="base.main_company" model="res.company">
+        <field name="days">22</field>
+    </record>
+
+    <record id="base.main_company" model="res.company">
+        <field name="leave">2.5</field>
+    </record>
+
+    <record id="base.main_company" model="res.company">
+        <field name="imm_ss">0000000000000</field>
+    </record>
+
+    <record id="base.main_company" model="res.company">
+        <field name="payroll_journal_employee_id" ref="journal_employee"/>
+        <field name="payroll_journal_patronal_id" ref="journal_patronal"/>
+    </record>
+
+    <!-- Rule Category -->
+    <record id="total" model="hr.salary.rule.category">
+        <field name="name">TOTAL</field>
+        <field name="code">TOTAL</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+   <record id="basecnas" model="hr.salary.rule.category">
+        <field name="name">BASECNAS</field>
+        <field name="code">BASECNAS</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+    <record id="totalcnas" model="hr.salary.rule.category">
+        <field name="name">TOATALCNAS</field>
+        <field name="code">TOATALCNAS</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+    <record id="hr_payroll.NET" model="hr.salary.rule.category">
+        <field name="name">Salaire Net</field>
+        <field name="code">NET</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+	    <record id="hr_payroll.ALW" model="hr.salary.rule.category">
+            <field name="name">Gain</field>
+            <field name="code">INDM</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+	    </record>
+
+        <record id="hr_payroll.DED" model="hr.salary.rule.category">
+            <field name="name">Retenue</field>
+            <field name="code">DED</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+                <record id="base_irg" model="hr.salary.rule.category">
+                    <field name="name">BASE IRG</field>
+                    <field name="code">BASEIRG</field>
+                </record>
+
+                <record id="base_irg10" model="hr.salary.rule.category">
+                    <field name="name">BASE IRG10</field>
+                    <field name="code">BASEIRG10</field>
+                </record>
+
+                <record id="retenue_irg_bareme" model="hr.salary.rule.category">
+                    <field name="name">retenue barème IRG</field>
+                    <field name="code">RIRG_B</field>
+                    <field name="parent_id" ref="hr_payroll.DED"/>
+                </record>
+
+                <record id="base_irg_rappel" model="hr.salary.rule.category">
+                    <field name="name">Base IRG rappel</field>
+                    <field name="code">IRG_R</field>
+                    <field name="parent_id" ref="hr_payroll.DED"/>
+                </record>
+
+                <record id="retenue_irg_10" model="hr.salary.rule.category">
+                    <field name="name">Retenue SS 10%</field>
+                    <field name="code">retenue_irg_10</field>
+                    <field name="parent_id" ref="hr_payroll.DED"/>
+                </record>
+
+                    <!--Base de calcul de l'irg 10%-->
+                    <record id="base_irg10" model="hr.salary.rule.category">
+                        <field name="name">Base IRG 10%</field>
+                        <field name="code">base_irg10</field>
+                        <field name="parent_id" ref="hr_payroll.ALW"/>
+                     </record>
+                    <!--Je dois enlever les 9% cortisés pour l'irg de 10%-->
+                    <record id="retenue_irg_10_cot" model="hr.salary.rule.category">
+                        <field name="name">Retenue IRG 10% COT </field>
+                        <field name="code">CIRG10</field>
+                        <field name="parent_id" ref="hr_payroll.DED"/>
+                    </record>
+                            <!-- Les Rubriques Imposables et non cotisables dont un IRG 10%
+                            Je cumul dans base_irg10-->
+                            <record id="base_irg_10_imp" model="hr.salary.rule.category">
+                                <field name="name">Base IRG 10% IMP </field>
+                                <field name="code">IRG10</field>
+                                <field name="parent_id" ref="base_irg10"/>
+                            </record>
+                                    <record id="C_IMP_G_IRG10" model="hr.salary.rule.category">
+                                        <field name="name">Cumul Imposable IRG 10% (+)</field>
+                                        <field name="code">C_IMP_G_IRG10</field>
+                                        <field name="parent_id" ref="base_irg_10_imp"/>
+                                    </record>
+                                    <record id="C_IMP_R_IRG10" model="hr.salary.rule.category">
+                                        <field name="name">Cumul Imposable IRG 10% (-)</field>
+                                        <field name="code">C_IMP_R_IRG10</field>
+                                        <field name="parent_id" ref="base_irg_10_imp"/>
+                                    </record>
+
+                            <!--cette base est pour cumuler cnas dont les rubriques a 10%-->
+                            <record id="base_irg_10_cot" model="hr.salary.rule.category">
+                                <field name="name">Base IRG 10% COT </field>
+                                <field name="code">BIRG10</field>
+                                <field name="parent_id" ref="base_irg10"/>
+                            </record>
+                                <!-- IRG10 Cotisabable-->
+                                <record id="C_COT_G_IRG10" model="hr.salary.rule.category">
+                                    <field name="name">Cumul Cotisable IRG 10% (+)</field>
+                                    <field name="code">C_COT_G_IRG10</field>
+                                    <field name="parent_id" ref="base_irg_10_cot"/>
+                                </record>
+                                <record id="C_COT_R_IRG10" model="hr.salary.rule.category">
+                                    <field name="name">Cumul Cotisable IRG 10% (-)</field>
+                                    <field name="code">C_COT_R_IRG10</field>
+                                    <field name="parent_id" ref="base_irg_10_cot"/>
+                                </record>
+
+    <!-- Rubriques Imposables -->
+    <!-- Total Imposable-->
+    <record id="T_IMP_G" model="hr.salary.rule.category">
+        <field name="name">Total Imposable (+)</field>
+        <field name="code">T_IMP_G</field>
+        <field name="parent_id" ref="hr_payroll.ALW"/>
+    </record>
+    <record id="T_IMP_R" model="hr.salary.rule.category">
+        <field name="name">Total Imposable (-)</field>
+        <field name="code">T_IMP_G</field>
+        <field name="parent_id" ref="hr_payroll.DED"/>
+    </record>
+
+	    <!-- Cumul Imposable-->
+	    <record id="C_IMP_G" model="hr.salary.rule.category">
+            <field name="name">Imposable (+)</field>
+            <field name="code">C_IMP_G</field>
+            <field name="parent_id" ref="T_IMP_G"/>
+	    </record>
+	    <record id="C_IMP_R" model="hr.salary.rule.category">
+            <field name="name">Imposable (-)</field>
+            <field name="code">C_IMP_R</field>
+            <field name="parent_id" ref="T_IMP_R"/>
+	    </record>
+
+<!-- Rubriques Imposables et Cotisables-->
+    <!-- Total Cotisable-->
+    <record id="T_COT_G" model="hr.salary.rule.category">
+        <field name="name">Total Cotisable (+)</field>
+        <field name="code">T_COT_G</field>
+        <field name="parent_id" ref="hr_payroll.ALW"/>
+    </record>
+    <record id="T_COT_R" model="hr.salary.rule.category">
+        <field name="name">Total Cotisable (-)</field>
+        <field name="code">T_COT_R</field>
+        <field name="parent_id" ref="hr_payroll.DED"/>
+    </record>
+
+    <record id="T_COT_G" model="hr.salary.rule.category">
+        <field name="name">Total Cotisable (+)</field>
+        <field name="code">T_COT_G</field>
+        <field name="parent_id" ref="hr_payroll.ALW"/>
+    </record>
+    <record id="T_COT_R" model="hr.salary.rule.category">
+        <field name="name">Total Cotisable (-)</field>
+        <field name="code">T_COT_R</field>
+        <field name="parent_id" ref="hr_payroll.DED"/>
+    </record>
+
+	    <!-- Cumul Cotisable-->
+	    <record id="hr_payroll.BASIC" model="hr.salary.rule.category">
+            <field name="name">Salaire de base</field>
+            <field name="code">BASE</field>
+            <field name="parent_id" ref="T_COT_G"/>
+	    </record>
+	    <record id="BASE_G" model="hr.salary.rule.category">
+            <field name="name">Rappel Salaire de base (+)</field>
+            <field name="code">BASE_G</field>
+            <field name="parent_id" ref="T_COT_G"/>
+	    </record>
+	    <record id="BASE_R" model="hr.salary.rule.category">
+            <field name="name">Rappel Salaire de base (-)</field>
+            <field name="code">BASE_R</field>
+            <field name="parent_id" ref="T_COT_R"/>
+	    </record>
+
+	    <record id="C_COT_G" model="hr.salary.rule.category">
+            <field name="name">Cotisable (+)</field>
+            <field name="code">C_COT_G</field>
+            <field name="parent_id" ref="T_COT_G"/>
+	    </record>
+	    <record id="C_COT_R" model="hr.salary.rule.category">
+            <field name="name">Cotisable (-)</field>
+            <field name="code">C_COT_R</field>
+            <field name="parent_id" ref="T_COT_R"/>
+	    </record>
+	    <record id="R_COT_G" model="hr.salary.rule.category">
+            <field name="name">Rappel Cotisable (+)</field>
+            <field name="code">R_COT_G</field>
+            <field name="parent_id" ref="T_COT_G"/>
+	    </record>
+	    <record id="R_COT_R" model="hr.salary.rule.category">
+            <field name="name">Rappel Cotisable (-)</field>
+            <field name="code">C_COT_R</field>
+            <field name="parent_id" ref="T_COT_G"/>
+	    </record>
+
+    <!-- Cnas-->
+    <record id="base_cnas" model="hr.salary.rule.category">
+        <field name="name">Base CNAS</field>
+        <field name="code">CNAS</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+    <record id="hr_payroll.COMP" model="hr.salary.rule.category">
+        <field name="name">Cotisations Patronales</field>
+        <field name="code">COMP</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+    <record id="sala" model="hr.salary.rule.category">
+        <field name="name">Cotisations Salariales</field>
+        <field name="code">SALA</field>
+        <field name="parent_id" ref="hr_payroll.DED"/>
+    </record>
+
+    <record id="irg" model="hr.salary.rule.category">
+        <field name="name">IRG</field>
+        <field name="code">IRG</field>
+        <field name="parent_id" ref="hr_payroll.DED"/>
+    </record>
+
+    <record id="hr_payroll.GROSS" model="hr.salary.rule.category">
+        <field name="name">Salaire Brut</field>
+        <field name="code">BRUT</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+    <record id="poste" model="hr.salary.rule.category">
+        <field name="name">Salaire de poste</field>
+        <field name="code">POSTE</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+    <record id="CONGE" model="hr.salary.rule.category">
+        <field name="name">Cumul CONGES</field>
+        <field name="code">CONGE</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+    <record id="autre_gain" model="hr.salary.rule.category">
+        <field name="name">Autres Gain</field>
+        <field name="code">O_GAIN</field>
+        <field name="parent_id" ref="hr_payroll.ALW"/>
+    </record>
+
+    <record id="autre_retenue" model="hr.salary.rule.category">
+        <field name="name">Autres Retenue</field>
+        <field name="code">O_RENU</field>
+        <field name="parent_id" ref="hr_payroll.DED"/>
+    </record>
+
+    <record id="new_worked_days" model="hr.salary.rule.category">
+        <field name="name">New worked days</field>
+        <field name="code">NEWD</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+    <record id="new_base" model="hr.salary.rule.category">
+        <field name="name">New basic</field>
+        <field name="code">NEWB</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+    <record id="new_hours" model="hr.salary.rule.category">
+        <field name="name">New hours</field>
+        <field name="code">NEWH</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+    <record id="autre_retenue" model="hr.salary.rule.category">
+        <field name="name">Autres Retenue</field>
+        <field name="code">O_RETENUE</field>
+        <field name="parent_id" ref="hr_payroll.DED"/>
+    </record>
+
+    <record id="conge" model="hr.salary.rule.category">
+        <field name="name">Congé</field>
+        <field name="code">CONGE</field>
+        <field name="parent_id" eval="False"/>
+    </record>
+
+    <record id="pret" model="hr.salary.rule.category">
+        <field name="name">Pret</field>
+        <field name="code">PRET</field>
+        <field name="parent_id" ref="hr_payroll.DED"/>
+    </record>
+
+<!-- Contribution Register -->
+    <record id="hr_base_cnass_register" model="hr.contribution.register">
+        <field name="name">BASE CNAS</field>
+    </record>
+
+
+    <record id="hr_cnasp_register" model="hr.contribution.register">
+        <field name="name">CNAS PATRONALE</field>
+    </record>
+
+    <record id="hr_cnass_register" model="hr.contribution.register">
+        <field name="name">CNAS SALARIALE</field>
+    </record>
+
+    <record id="hr_irg_register" model="hr.contribution.register">
+        <field name="name">IRG</field>
+    </record>
+
+    <record id="hr_conge_register" model="hr.contribution.register">
+        <field name="name">CONGE</field>
+    </record>
+
+<!-- HR SALARY RULES-->
+    <!-- Salaire de base-->
+    <record id="hr_payroll.hr_rule_basic" model="hr.salary.rule">
+        <field name="name">Salaire de base</field>
+        <field name="code">R001</field>
+        <field name="sequence">1</field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">worked_days.WORK100.number_of_days</field>
+        <field name="amount_percentage_base">(contract.wage / worked_days.WORK100.number_of_days)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_base_g" model="hr.salary.rule">
+        <field name="name">Regul. Salaire de base (+)</field>
+        <field name="category_id" ref="BASE_G"/>
+        <field name="code">R002</field>
+        <field name="sequence">2</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (inputs.I002 and inputs.I002.amount) != 0.0</field>
+    	<field name="amount_select">code</field>
+        <field name="amount_python_compute">result = inputs.I002.amount</field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+        <record id="hr_rule_input_rsbg" model="hr.rule.input">
+            <field name="code">I002</field>
+            <field name="name">Regul. salaire de base (+)</field>
+            <field name="input_id" ref="hr_rule_base_g"/>
+        </record>
+
+    <record id="hr_rule_base_r" model="hr.salary.rule">
+        <field name="name">Regul. Salaire de base (-)</field>
+        <field name="category_id" ref="BASE_R"/>
+        <field name="code">R003</field>
+        <field name="sequence">3</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (inputs.I003 and inputs.I003.amount) != 0.0 </field>
+    	<field name="amount_select">code</field>
+        <field name="amount_python_compute">result = -(inputs.I003.amount)</field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+       <record id="hr_rule_input_rsbr" model="hr.rule.input">
+            <field name="code">I003</field>
+            <field name="name">Regul. salaire de base (-)</field>
+            <field name="input_id" ref="hr_rule_base_r"/>
+        </record>
+
+    <!-- Abesences/H-->
+    <record id="hr_rule_abs_j" model="hr.salary.rule">
+        <field name="name">Retenue absences</field>
+        <field name="category_id" ref="hr_payroll.BASIC"/>
+        <field name="code">R010</field>
+        <field name="sequence">10</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (inputs.I010 and inputs.I010.amount) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">-(inputs.I010.amount)</field>
+        <field name="amount_percentage_base">(contract.wage / worked_days.WORK100.number_of_days)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+       <record id="hr_rule_input_absj" model="hr.rule.input">
+            <field name="code">I010</field>
+            <field name="name">Retenue absences</field>
+            <field name="input_id" ref="hr_rule_abs_j"/>
+        </record>
+
+    <!-- Abesences/H-->
+    <record id="hr_rule_abs_h" model="hr.salary.rule">
+        <field name="name">Retenue absences / H</field>
+        <field name="category_id" ref="hr_payroll.BASIC"/>
+        <field name="code">R015</field>
+        <field name="sequence">15</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (inputs.I015 and inputs.I015.amount) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">-(inputs.I015.amount)</field>
+        <field name="amount_percentage_base">(contract.wage / worked_days.WORK100.number_of_hours)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+       <record id="hr_rule_input_absh" model="hr.rule.input">
+            <field name="code">I015</field>
+            <field name="name">Retenue absences / H</field>
+            <field name="input_id" ref="hr_rule_abs_h"/>
+        </record>
+
+    <record id="hr_rule_new_worked_days" model="hr.salary.rule">
+        <field name="name">New worked days</field>
+        <field name="category_id" ref="new_worked_days"/>
+        <field name="code">R050</field>
+        <field name="sequence">50</field>
+        <field name="appears_on_payslip" eval="False"/>
+    	<field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (worked_days.WORK100 and worked_days.WORK100.number_of_days - inputs.I010.amount)</field>
+    </record>
+
+    <record id="hr_rule_new_base" model="hr.salary.rule">
+        <field name="name">New Salaire de base</field>
+        <field name="category_id" ref="new_base"/>
+        <field name="code">R051</field>
+        <field name="sequence">51</field>
+        <field name="appears_on_payslip" eval="False"/>
+    	<field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (categories.BASE_G + categories.BASE_R + categories.BASE)</field>
+    </record>
+
+    <record id="hr_rule_new_hours" model="hr.salary.rule">
+        <field name="name">New Hours</field>
+        <field name="category_id" ref="new_hours"/>
+        <field name="code">R060</field>
+        <field name="sequence">60</field>
+        <field name="appears_on_payslip" eval="False"/>
+    	<field name="amount_select">code</field>
+        <field name="amount_python_compute">result=(worked_days.WORK100 and worked_days.WORK100.number_of_hours)</field>
+    </record>
+
+    <!-- IEP-->
+    <record id="hr_rule_iep" model="hr.salary.rule">
+        <field name="name">I.E.P</field>
+        <field name="category_id" ref="C_COT_G"/>
+        <field name="code">R100</field>
+        <field name="sequence">100</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.iep) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.NEWB)</field>
+        <field name="amount_percentage_base">(employee.iep/100.0)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_nuisancep" model="hr.salary.rule">
+        <field name="name">Indémnité de Nuisance %</field>
+        <field name="category_id" ref="C_COT_G"/>
+        <field name="code">R110</field>
+        <field name="sequence">110</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.inuisance_p) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.NEWB)</field>
+        <field name="amount_percentage_base">(employee.inuisance_p/100.0)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_nuisancem" model="hr.salary.rule">
+        <field name="name">Indémnité de Nuisance</field>
+        <field name="category_id" ref="C_COT_G"/>
+        <field name="code">R120</field>
+        <field name="sequence">120</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.inuisance_m) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.NEWD)</field>
+        <field name="amount_percentage_base">employee.inuisance_m</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_ifonction" model="hr.salary.rule">
+        <field name="name">Indémnité de fonction</field>
+        <field name="category_id" ref="C_COT_G"/>
+        <field name="code">R130</field>
+        <field name="sequence">130</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.ifonction) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.NEWD)</field>
+        <field name="amount_percentage_base">(employee.ifonction)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_icaisse" model="hr.salary.rule">
+        <field name="name">Indémnité de caisse</field>
+        <field name="category_id" ref="C_COT_G"/>
+        <field name="code">R140</field>
+        <field name="sequence">140</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.icaisse) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.NEWD)</field>
+        <field name="amount_percentage_base">(employee.icaisse)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_iastreinte" model="hr.salary.rule">
+        <field name="name">Indémnité de d'astreinte</field>
+        <field name="category_id" ref="C_COT_G"/>
+        <field name="code">R150</field>
+        <field name="sequence">150</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.iastreinte) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.NEWD)</field>
+        <field name="amount_percentage_base">(employee.iastreinte)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_itelephone" model="hr.salary.rule">
+        <field name="name">Téléphone</field>
+        <field name="category_id" ref="C_COT_G"/>
+        <field name="code">R160</field>
+        <field name="sequence">160</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.itelephone) != 0.0 </field>
+    	<field name="amount_select">code</field>
+        <field name="amount_python_compute">result=(employee.itelephone)</field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_H100" model="hr.salary.rule">
+        <field name="name">Heures Supp. 100%</field>
+        <field name="category_id" ref="C_COT_G"/>
+        <field name="code">R250</field>
+        <field name="sequence">250</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result =(inputs.I250 and inputs.I250.amount) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.NEWH) * 2</field>
+        <field name="amount_percentage_base">(inputs.I250.amount)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+       <record id="hr_rule_input_h100" model="hr.rule.input">
+            <field name="code">I250</field>
+            <field name="name">Heures Supp. 100%</field>
+            <field name="input_id" ref="hr_rule_H100"/>
+        </record>
+
+    <record id="hr_rule_H75" model="hr.salary.rule">
+        <field name="name">Heures Supp. 75%</field>
+        <field name="category_id" ref="C_COT_G"/>
+        <field name="code">R255</field>
+        <field name="sequence">255</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result =(inputs.I255 and inputs.I255.amount) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.NEWH) * 1.75</field>
+        <field name="amount_percentage_base">(inputs.I255.amount)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+       <record id="hr_rule_input_h75" model="hr.rule.input">
+            <field name="code">I255</field>
+            <field name="name">Heures Supp. 75%</field>
+            <field name="input_id" ref="hr_rule_H75"/>
+        </record>
+
+    <record id="hr_rule_H50" model="hr.salary.rule">
+        <field name="name">Heures Supp. 50%</field>
+        <field name="category_id" ref="C_COT_G"/>
+        <field name="code">R260</field>
+        <field name="sequence">260</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result =(inputs.I260 and inputs.I260.amount) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.NEWH)  * 1.50</field>
+        <field name="amount_percentage_base">(inputs.I260.amount)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+       <record id="hr_rule_input_h50" model="hr.rule.input">
+            <field name="code">I260</field>
+            <field name="name">Heures Supp. 50%</field>
+            <field name="input_id" ref="hr_rule_H50"/>
+        </record>
+
+    <!-- IRG_COT_10%-->
+    <record id="hr_rule_cirg10" model="hr.salary.rule">
+        <field name="name">Rubrique IRG 10%</field>
+        <field name="category_id" ref="C_COT_G_IRG10"/>
+        <field name="code">R470</field>
+        <field name="sequence">470</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.irg_cot_10) != 0.0 </field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (employee.irg_cot_10)</field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+<!-- BASE CNAS -->
+    <!-- BASE CNAS 9%-->
+    <record id="base_ss_normal" model="hr.salary.rule">
+        <field name="name">BASE SS TAUX 9%</field>
+        <field name="appears_on_payslip" eval="False"/>
+        <field name="code">R490</field>
+        <field name="sequence">490</field>
+        <field name="category_id" ref="basecnas"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.cnas == 9)</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (categories.T_COT_G + categories.T_COT_R + categories.BIRG10)</field>
+        <field name="register_id" ref="hr_base_cnass_register"/>
+    </record>
+    <!-- BASE CNAS 7%-->
+    <record id="base_ss_anem" model="hr.salary.rule">
+        <field name="name">BASE SS TAUX 7%</field>
+        <field name="appears_on_payslip" eval="False"/>
+        <field name="code">R491</field>
+        <field name="sequence">491</field>
+        <field name="category_id" ref="basecnas"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.cnas == 7)</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (categories.T_COT_G + categories.T_COT_R + categories.BIRG10)</field>
+        <field name="register_id" ref="hr_base_cnass_register"/>
+    </record>
+    <!-- BASE CNAS 5%-->
+    <record id="base_ss_special" model="hr.salary.rule">
+        <field name="name">BASE SS TAUX 5%</field>
+        <field name="appears_on_payslip" eval="False"/>
+        <field name="code">R492</field>
+        <field name="sequence">492</field>
+        <field name="category_id" ref="basecnas"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.cnas == 5)</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (categories.T_COT_G + categories.T_COT_R + categories.BIRG10)</field>
+        <field name="register_id" ref="hr_base_cnass_register"/>
+    </record>
+    <!-- CUMUL BASES SS-->
+    <record id="base_ss" model="hr.salary.rule">
+        <field name="name">BASE SS</field>
+        <field name="appears_on_payslip" eval="False"/>
+        <field name="code">R493</field>
+        <field name="sequence">493</field>
+        <field name="category_id" ref="totalcnas"/>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (categories.BASECNAS)</field>
+        <field name="register_id" ref="hr_base_cnass_register"/>
+    </record>
+
+    <!-- CNAS SALARIALE -->
+    <record id="hr_rule_ss_sal7" model="hr.salary.rule">
+        <field name="name">Retenue SECU.SLE 7%</field>
+        <field name="category_id" ref="sala"/>
+        <field name="code">R501</field>
+        <field name="sequence">501</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = employee.cnas == 7</field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.T_COT_G + categories.T_COT_R)</field>
+        <field name="amount_percentage_base">-(employee.cnas/100.0)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_cnass_register"/>
+    </record>
+    <record id="hr_rule_ss_sal5" model="hr.salary.rule">
+        <field name="name">Retenue SECU.SLE 5%</field>
+        <field name="category_id" ref="sala"/>
+        <field name="code">R505</field>
+        <field name="sequence">505</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = employee.cnas == 5</field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.T_COT_G + categories.T_COT_R)</field>
+        <field name="amount_percentage_base">-(employee.cnas/100.0)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_cnass_register"/>
+    </record>
+    <record id="hr_rule_ss_sal" model="hr.salary.rule">
+        <field name="name">Retenue SECU.SLE 9%</field>
+        <field name="category_id" ref="sala"/>
+        <field name="code">R510</field>
+        <field name="sequence">510</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = employee.cnas == 9</field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.T_COT_G + categories.T_COT_R)</field>
+        <field name="amount_percentage_base">-(employee.cnas/100.0)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_cnass_register"/>
+    </record>
+    <record id="hr_rule_ss_sal10" model="hr.salary.rule">
+        <field name="name">Retenue SECU.SLE (IRG 10%)</field>
+        <field name="category_id" ref="retenue_irg_10_cot"/>
+        <field name="code">R511</field>
+        <field name="sequence">511</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result =(categories.BIRG10) !=0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.BIRG10)</field>
+        <field name="amount_percentage_base">-(employee.cnas/100.0)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_cnass_register"/>
+    </record>
+
+    <!-- CNAS PATRONALE-->
+    <record id="hr_rule_ss_pat5" model="hr.salary.rule">
+        <field name="name">Retenue SECU.SLE Patronale (ANEM) 5%</field>
+        <field name="category_id" ref="hr_payroll.COMP"/>
+        <field name="code">R515</field>
+        <field name="sequence">515</field>
+        <field name="appears_on_payslip" eval="False"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = employee.ss == 7 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">R501</field>
+        <field name="amount_percentage_base">-(7/100.0)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_cnasp_register"/>
+    </record>
+    <record id="hr_rule_ss_pat" model="hr.salary.rule">
+        <field name="name">Retenue SECU.SLE Patronale 25%</field>
+        <field name="category_id" ref="hr_payroll.COMP"/>
+        <field name="code">R520</field>
+        <field name="sequence">520</field>
+        <field name="appears_on_payslip" eval="False"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = bool(employee.ss) </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.T_COT_G + categories.T_COT_R + categories.BIRG10)</field>
+        <field name="amount_percentage_base">-(employee.cnasp/100.0)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_cnasp_register"/>
+    </record>
+    <record id="hr_rule_ss_pat1" model="hr.salary.rule">
+        <field name="name">Retenue SECU.SLE Patronale 0.5%</field>
+        <field name="category_id" ref="hr_payroll.COMP"/>
+        <field name="code">R521</field>
+        <field name="sequence">521</field>
+        <field name="appears_on_payslip" eval="False"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = bool(employee.ss) </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.T_COT_G + categories.T_COT_R + categories.BIRG10)</field>
+        <field name="amount_percentage_base">-(employee.cnasp1/100.0 )</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_cnasp_register"/>
+    </record>
+    <record id="hr_rule_ss_pat2" model="hr.salary.rule">
+        <field name="name">Retenue SECU.SLE Patronale 0.5%</field>
+        <field name="category_id" ref="hr_payroll.COMP"/>
+        <field name="code">R522</field>
+        <field name="sequence">522</field>
+        <field name="appears_on_payslip" eval="False"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = bool(employee.ss) </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.T_COT_G + categories.T_COT_R + categories.BIRG10)</field>
+        <field name="amount_percentage_base">-(employee.cnasp2/100.0)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_cnasp_register"/>
+    </record>
+
+    <record id="hr_rule_poste" model="hr.salary.rule">
+        <field name="name">Salaire de poste</field>
+        <field name="category_id" ref="poste"/>
+        <field name="code">R599</field>
+        <field name="sequence">599</field>
+        <field name="appears_on_payslip" eval="False"/>
+    	<field name="amount_select">code</field>
+        <field name="amount_python_compute">result=(categories.T_COT_G + categories.T_COT_R + categories.BIRG10)</field>
+    </record>
+
+    <!-- Panier-->
+    <record id="hr_rule_panier" model="hr.salary.rule">
+        <field name="name">Prime de panier</field>
+        <field name="category_id" ref="C_IMP_G"/>
+        <field name="code">R600</field>
+        <field name="sequence">600</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.ppanier) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.NEWD)</field>
+        <field name="amount_percentage_base">employee.ppanier</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <!-- Transport-->
+    <record id="hr_rule_transport" model="hr.salary.rule">
+        <field name="name">Prime de transport</field>
+        <field name="category_id" ref="C_IMP_G"/>
+        <field name="code">R610</field>
+        <field name="sequence">610</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.ptransport) != 0.0 </field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">(categories.NEWD)</field>
+        <field name="amount_percentage_base">employee.ptransport</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_BASEIRG" model="hr.salary.rule">
+        <field name="category_id" ref="base_irg"/>
+        <field name="appears_on_payslip" eval="False"/>
+        <field name="name">BASE IRG</field>
+        <field name="code">R660</field>
+        <field name="sequence">660</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (categories.INDM + categories.DED)</field>
+    </record>
+
+    <record id="hr_rule_IRG" model="hr.salary.rule">
+        <field name="category_id" ref="retenue_irg_bareme"/>
+        <field name="name">Retenue IRG</field>
+        <field name="code">R661</field>
+        <field name="sequence">661</field>
+        <field name="amount_select">function</field>
+        <field name="quantity">(categories.INDM + categories.DED)</field>
+        <field name="model">hr.irg</field>
+        <field name="function">irg</field>
+        <field name="register_id" ref="hr_irg_register"/>
+    </record>
+
+    <!-- IRG_IMP_10%-->
+    <record id="hr_rule_rirg10" model="hr.salary.rule">
+        <field name="name">Rubrique Imp (IRG 10%)</field>
+        <field name="category_id" ref="C_IMP_G_IRG10"/>
+        <field name="code">R670</field>
+        <field name="sequence">670</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.irg_imp_10) != 0.0 </field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (employee.irg_imp_10)</field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_IRG10" model="hr.salary.rule">
+        <field name="category_id" ref="retenue_irg_10"/>
+        <field name="name">Retenue IRG 10%</field>
+        <field name="code">R690</field>
+        <field name="sequence">690</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result= (categories.base_irg10) !=0</field>
+        <field name="amount_select">percentage</field>
+        <field name="quantity">-(categories.base_irg10 + categories.CIRG10)</field>
+        <field name="amount_percentage_base">(10/100.0)</field>
+        <field name="amount_percentage" eval="100"/>
+        <field name="register_id" ref="hr_irg_register"/>
+    </record>
+
+    <record id="hr_rule_pret" model="hr.salary.rule">
+        <field name="name">Remboursement Prêt</field>
+        <field name="category_id" ref="pret"/>
+        <field name="code">R750</field>
+        <field name="sequence">750</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result =(inputs.I750 and inputs.I750.amount) != 0.0 </field>
+    	<field name="amount_select">code</field>
+        <field name="amount_python_compute">result = -(inputs.I750.amount)</field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+       <record id="hr_rule_input_pret" model="hr.rule.input">
+            <field name="code">I750</field>
+            <field name="name">Remboursement Prêt</field>
+            <field name="input_id" ref="hr_rule_pret"/>
+        </record>
+
+    <!-- Autre-->
+    <record id="hr_rule_sunique" model="hr.salary.rule">
+        <field name="name">Salaire unique</field>
+        <field name="category_id" ref="autre_gain"/>
+        <field name="code">R850</field>
+        <field name="sequence">850</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.sunique) != 0.0 </field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (employee.sunique)</field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_echouhadas" model="hr.salary.rule">
+        <field name="name">Bonification enfants de chouhadas</field>
+        <field name="category_id" ref="autre_gain"/>
+        <field name="code">R855</field>
+        <field name="sequence">855</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (employee.echouhadas) != 0.0 </field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = (employee.echouhadas)</field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <!--Cumul congé sur la base du cotisable-->
+    <record id="hr_rule_conge" model="hr.salary.rule">
+        <field name="name">Cumul Congé</field>
+        <field name="category_id" ref="conge"/>
+        <field name="code">R950</field>
+        <field name="sequence">950</field>
+        <field name="appears_on_payslip" eval="False"/>
+    	<field name="amount_select">code</field>
+        <field name="amount_python_compute">result=(categories.T_COT_G + categories.T_COT_R + categories.BIRG10)</field>
+        <field name="register_id" ref="hr_conge_register"/>
+    </record>
+
+    <record id="hr_payroll.hr_rule_taxable" model="hr.salary.rule">
+        <field name="name">Salaire Brut</field>
+        <field name="category_id" ref="hr_payroll.GROSS"/>
+        <field name="code">BRUT</field>
+        <field name="sequence">990</field>
+        <field name="appears_on_payslip" eval="False"/>
+        <field name="amount_python_compute">result=(categories.INDM - categories.DED)</field>
+    </record>
+
+    <record id="hr_payroll.hr_rule_net" model="hr.salary.rule">
+        <field name="name">Net à payer</field>
+        <field name="code">R999</field>
+        <field name="sequence">999</field>
+        <field name="category_id" ref="total"/>
+        <field name="condition_select">python</field>
+        <field name="condition_python">result = (categories.NET) >= 0.0 </field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories.NET</field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+   <!-- Salary Structure -->
+    <record id="hr_payroll_salary_structure_base" model="hr.payroll.structure">
+        <field name="code">Base</field>
+        <field name="name">Base paie Algérienne</field>
+        <field eval="[(6, 0, [ref('hr_payroll.hr_rule_basic'), ref('hr_rule_base_g'), ref('hr_rule_base_r'),
+        ref('hr_rule_abs_j'), ref('hr_rule_abs_h'),
+        ref('hr_rule_new_worked_days'), ref('hr_rule_new_base'), ref('hr_rule_new_hours'),
+        ref('hr_rule_ss_sal'),ref('hr_rule_ss_sal5'),ref('hr_rule_ss_sal7'), ref('hr_rule_ss_pat'), ref('hr_rule_ss_pat1'), ref('hr_rule_ss_pat2'), ref('hr_rule_ss_pat5'),
+	ref('base_ss_normal'),ref('base_ss_anem'),ref('base_ss_special'),ref('base_ss'),	
+	ref('hr_rule_poste'),
+        ref('hr_rule_BASEIRG'),
+        ref('hr_rule_IRG'),
+        ref('hr_rule_pret'),
+        ref('hr_rule_conge'),
+        ref('hr_payroll.hr_rule_taxable'), ref('hr_payroll.hr_rule_net')])]" name="rule_ids"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="parent_id" ref="hr_payroll.structure_base"/>
+    </record>
+
+    <record id="hr_payroll_salary_structure_all" model="hr.payroll.structure">
+        <field name="code">ALL</field>
+        <field name="name">Employe</field>
+        <field eval="[(6, 0, [ref('hr_rule_iep'), ref('hr_rule_nuisancep'), ref('hr_rule_nuisancem'),
+        ref('hr_rule_ifonction'), ref('hr_rule_icaisse'), ref('hr_rule_iastreinte'),ref('hr_rule_itelephone'),
+        ref('hr_rule_H100'), ref('hr_rule_H75'), ref('hr_rule_H50'),
+        ref('hr_rule_cirg10'),ref('hr_rule_ss_sal10'),
+        ref('hr_rule_panier'), ref('hr_rule_transport'), ref('hr_rule_BASEIRG'), ref('hr_rule_IRG10'),
+        ref('hr_rule_rirg10'),ref('hr_rule_sunique')])]" name="rule_ids"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="parent_id" ref="hr_payroll_salary_structure_base"/>
+    </record>
+
+    <record id="hr_payroll_salary_structure_chouhadas" model="hr.payroll.structure">
+        <field name="code">E-CHD</field>
+        <field name="name">Enfant de Chouhadas</field>
+        <field eval="[(6, 0, [ref('hr_rule_echouhadas')])]" name="rule_ids"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="parent_id" ref="hr_payroll_salary_structure_all"/>
+    </record>
+
+    <record id="hr_payroll_salary_structure_chouhadas" model="hr.payroll.structure">
+        <field name="code">E-CHD</field>
+        <field name="name">Enfant de Chouhadas</field>
+        <field eval="[(6, 0, [ref('hr_rule_echouhadas')])]" name="rule_ids"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="parent_id" ref="hr_payroll_salary_structure_all"/>
+    </record>
+
+    </data>
+</odoo>
