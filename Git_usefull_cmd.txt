@@ -35,7 +35,7 @@ python ./odoo-bin -c C:\Odoo14\odoo\debian\odoo.conf -d Odoo14Test -u stages
 
 ----------------------------------------------------------
 Configure Pycharm to push attached multiple Odoo versions  source code from one Pycharm project into diffirents branches Github:
-    -Create a new branch in Github;
+    -Create a new branch on the Github repository;
     -Clone the main Github repository into the corresponding project folder;
     -Add this folder to VCS directory in File->Setting->Version Control;
     -Close and Reopen Pycharm to ensure that Git appears on this folder context menu and it appears in Git branches in the bottom right;
