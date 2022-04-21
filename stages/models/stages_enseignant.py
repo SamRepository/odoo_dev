@@ -8,7 +8,7 @@ class StagesEnseignant(models.Model):
     num_pers = fields.Char(string="Num Personel - الرقم التعريفي", required=False, )
     civilite = fields.Many2one(comodel_name="res.partner.title", string="Civilité - الهوية", required=False, )
 #   civilite = fields.Selection(string="Civilité - الهوية", selection=[('mr', 'Mr. - السيد'), ('mme', 'Mme. - السيدة'), ('melle', 'Melle. - الآنسة'),('dr', 'Dr. - الدكتور'), ('pr', 'Pr. - البروفسور'),], required=True, )
-    nom_prenom_ar = fields.Char(string=" Nom et prénom -  بالحروف العربية ", required=True, )
+    nom_prenom_ar = fields.Char(string=" Nom et prénom -  بالحروف العربية ", )
     date_recru = fields.Date(string="Date de recrutement - تاريخ التوظيف", required=False, )
 
     lab_id = fields.Many2one(comodel_name="res.partner", string="Laboratoire - المخبر", required=False, )
