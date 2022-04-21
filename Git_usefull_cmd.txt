@@ -1,0 +1,44 @@
+git clone --single-branch --branch 12.0 https://github.com/SamRepository/odoo_dev.git custom_addons
+
+git checkout -b 12.0
+
+git config user.name SamRepository
+git config user.email samir.sellami@live.fr
+
+git status
+
+git add -A
+git commit -m "[ADD] Initial commit for module Gestions des Stages"
+git push
+user and password
+
+
+git pull
+
+git clone --depth 1 --single-branch --branch 10.0 https://github.com/odoo/odoo.git
+git clone --depth 1 --single-branch --branch 14.0 https://github.com/odoo/odoo.git
+git clone --depth 1 --single-branch --branch 15.0 https://github.com/odoo/odoo.git
+
+virtualenv  -p C:\Program Files\Python27\python.exe Odoo10
+
+C:\Program Files\Python27\python.exe virtualenv Odoo10
+
+python -m venv Odoo10 -p C:\Program Files\Python27\python.exe 
+
+C:\> cd \CommunityPath
+C:\> pip install setuptools wheel
+C:\> pip install -r requirements.txt
+
+python ./odoo-bin -c C:\Odoo14\odoo\debian\odoo.conf -d Odoo14Test -u stages
+
+------------------------------
+Configure Pycharm to push attached multiple Odoo versions  source code from one Pycharm project into diffirents branches Github:
+    -Create a new branch in Github;
+    -Clone the main Github repository into the corresponding project folder;
+    -Add this folder to VCS directory in File->Setting->Version Control;
+    -Close and reopen Pycharm to ensure that Git appears in the folder context menu and Git branches in the right_button;
+    -Make Git->Fetch to get the new remote branch;
+    -Perform a Checkout to the corresponding remote branch;
+    -Commit and push changes ensuring the correct folder is checked in the UI.
+
+ 
