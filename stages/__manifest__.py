@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+#
+# Copyright (c) 2022  - samir.sellami@live.fr
+
 {
     'name': "Gestion des Stages",
     'summary': "Module Odoo pour gérer les stages de perfectionnement au niveau de l'ENSET-Skikda",
@@ -9,7 +13,7 @@
     'category': 'Education',
     'version': '14.0.0.2',
     # any module necessary for this one to work correctly
-    'depends': ['base','contacts','hr','event','account','mail'],
+    'depends': ['base','l10n_dz_regions','contacts','hr','event','account','mail'],
     'application': ['True'],
     'sequence': 1,
     # always loaded
