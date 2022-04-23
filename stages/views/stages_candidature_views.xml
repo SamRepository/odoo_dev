@@ -7,13 +7,14 @@
         <field name="arch" type="xml">
             <tree string="Stages Perfectionnement - تربص تحسين المستوى بالخارج">
                 <field name="name"/>
-                <field name="employee_id" widget="many2one_avatar"/>
+                <field name="employee_id" widget="many2one_avatar_employee"/>
                 <field name="session_id"/>
                 <field name="dernier_stage" optional="hide"/>
                 <field name="duree"/>
                 <field name="date_depart"/>
                 <field name="date_retour"/>
-                <field name="montant" />
+                <field name="montant" widget="monetary"/>
+                <field name="currency_id" invisible="1"/>
                 <field name="partner_id" string="Organisme" widget="many2one_avatar"/>
                 <field name="pays" optional="show"/>
                 <field name="zone" optional="hide"/>
@@ -60,7 +61,7 @@
                             attrs="{'invisible': [('state','!=', 'confirm')]}"/>
                     <button name="action_done" type="object" string="Réalisée" class="oe_highlight"
                             attrs="{'invisible': [('state','!=', 'confirm')]}"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,cancel,done"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
@@ -82,7 +83,7 @@
                     <group>
                         <group>
                             <field name="active" invisible="1"/>
-                            <field name="employee_id" widget="many2one_avatar"/>
+                            <field name="employee_id" widget="many2one_avatar_employee"/>
                             <field name="session_id"/>
                             <field name="partner_id" domain="[('is_company', '=', 'True')]" widget="many2one_avatar"/>
                             <field name="pays"/>
@@ -95,7 +96,8 @@
                             <field name="date_depart"/>
                             <field name="date_retour"/>
                             <field name="duree" readonly="1"/>
-                            <field name="montant"/>
+                            <field name="currency_id"/>
+                            <field name="montant" widget='monetary'/>
                         </group>
                     </group>
                     <group>
@@ -127,7 +129,7 @@
                             </group>
                         </page>
                         <page string="Documents de départ" name="doc_depart">
-                            <field name="doc_depart_ids">
+                            <field name="doc_depart_ids" widget="one2many">
                                 <tree editable="bottom">
                                     <field name="type"/>
                                     <field name="name"/>
@@ -143,7 +145,7 @@
                             </field>
                         </page>
                         <page string="Documents de retour" name="doc_retour" attrs="{'invisible': [('state', 'in', ('draft','cancel'))]}" >
-                            <field name="doc_retour_ids">
+                            <field name="doc_retour_ids" widget="one2many">
                                 <tree editable="bottom">
                                     <field name="type"/>
                                     <field name="name"/>

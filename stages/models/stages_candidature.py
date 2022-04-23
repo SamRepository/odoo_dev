@@ -62,6 +62,9 @@ class StagesCandidature(models.Model):
         for rec in self:
             rec.state = 'cancel'
 
+    # def _default_country_id(self):
+    #     return self.env.ref('base.DZD').id
+
     name = fields.Char(string='Référence', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     employee_id = fields.Many2one(comodel_name="hr.employee", string="Enseignant", required=True, )
     session_id = fields.Many2one(comodel_name="event.event", string="Session Stage", required=True, )
@@ -75,13 +78,15 @@ class StagesCandidature(models.Model):
         ('draft', 'Brouillon'),
         ('confirm', 'Confirmée'),
         # ('chg_period', 'Période changée'),
-        ('cancel', 'Annulée'),
-        ('done', 'Réalisée'), ], readonly=True, default='draft')
+        ('done', 'Réalisée'),
+        ('cancel', 'Annulée')], readonly=True, default='draft')
     dernier_stage = fields.Date(string="Date dernier Stage", required=True, )
     date_depart = fields.Date(string="Date de départ", track_visibility='always', required=True, )
     date_retour = fields.Date(string="Date de retour ", track_visibility='always', required=True, )
     duree = fields.Integer(string="Durée", compute='set_durre', store=True, )
     cause_chg_period = fields.Char(string="Cause changement période", required=False, )
+    currency_id = fields.Many2one('res.currency',default=lambda self: self.env['res.currency'].search([('name', '=', 'DZD')]).id, readonly=True)
+    # currency_id = fields.Many2one('res.currency', string='Currency', default=_default_country_id, readonly=True)
     montant = fields.Float(string="Montant", compute="set_montant", )
     objectifs_stage = fields.Html(string="Objectifs du stage", default="Entrer les objectifs du stage..." , )
     methodologie = fields.Html(string="Méthodologie", default="Entrer votre methodologie...", )
