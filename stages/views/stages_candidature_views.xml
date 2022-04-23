@@ -96,7 +96,7 @@
                             <field name="date_depart"/>
                             <field name="date_retour"/>
                             <field name="duree" readonly="1"/>
-                            <field name="currency_id"/>
+                            <field name="currency_id" invisible="1"/>
                             <field name="montant" widget='monetary'/>
                         </group>
                     </group>
