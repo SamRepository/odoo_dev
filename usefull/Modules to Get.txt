@@ -1,0 +1,82 @@
+Collectivité territoriale algérienne
+by DevNationSolutions
+$ 2.15
+https://apps.odoo.com/apps/modules/14.0/l10n_dz_collectivite_territoriale/
+------------------------------------------------------------------------------------------------
+Rapports selon les normes algérienne
+by DevNationSolutions
+$ 5.40
+https://apps.odoo.com/apps/modules/14.0/l10n_dz_reports/
+------------------------------------------------------------------------------------------------
+Plan comptable - SCF Algérien
+by DevNationSolutions
+$ 5.40
+https://apps.odoo.com/apps/modules/14.0/dns_l10n_dz_scf/
+------------------------------------------------------------------------------------------------
+Rapports comptable de contrôle
+by DevNationSolutions
+$ 118.99
+https://apps.odoo.com/apps/modules/14.0/compta_reports/
+------------------------------------------------------------------------------------------------
+Recouvrement de créances
+by DevNationSolutions
+$ 42.19
+https://apps.odoo.com/apps/modules/14.0/dns_debt_collection/
+------------------------------------------------------------------------------------------------
+Configuration des documents fiscales/comptables
+by DevNationSolutions
+$ 20.55
+https://apps.odoo.com/apps/modules/14.0/compta_reports_config/
+------------------------------------------------------------------------------------------------
+Déclaration fiscale G50 (Série G N°50)
+by DevNationSolutions
+$ 69.23
+https://apps.odoo.com/apps/modules/14.0/compta_reports_g50/
+------------------------------------------------------------------------------------------------
+All Modules:
+by DevNationSolutions
+https://apps.odoo.com/apps/modules/browse?author=DevNationSolutions
+Totale 263,91 $ ~~~ 51 990,27 DZD
+
+************************************************************************************************
+
+ Plan comptable - SCF Algérien by DevNationSolutions for version 14.0
+	
+	US$ 5,92 	
+[l10n_dz_droit_timbre] Droit de Timbre (Timbre de quittances) by DevNationSolutions for version 14.0 	
+Droit de Timbre (Timbre de quittances) by DevNationSolutions for version 14.0
+	
+	US$ 5,92 	
+[l10n_dz_collectivite_territoriale] Collectivité territoriale algérienne by DevNationSolutions for version 14.0 	
+Collectivité territoriale algérienne by DevNationSolutions for version 14.0
+	
+	US$ 2,36 	
+[l10n_dz_reports] Rapports selon les normes algérienne by DevNationSolutions for version 14.0 	
+Rapports selon les normes algérienne by DevNationSolutions for version 14.0
+	
+	US$ 5,92 	
+[compta_reports] Rapports comptable de contrôle by DevNationSolutions for version 14.0 	
+Rapports comptable de contrôle by DevNationSolutions for version 14.0
+	
+	US$ 130,50 	
+[compta_reports_aged_balance] Balance âgée des tiers by DevNationSolutions for version 14.0 	
+Balance âgée des tiers by DevNationSolutions for version 14.0
+	
+	US$ 46,27 	
+[compta_reports_config] Configuration des documents fiscales/comptables by DevNationSolutions for version 14.0 	
+Configuration des documents fiscales/comptables by DevNationSolutions for version 14.0
+	
+	US$ 22,54 	
+[compta_reports_g50] Déclaration fiscale G50 (Série G N°50) by DevNationSolutions for version 14.0 	
+Déclaration fiscale G50 (Série G N°50) by DevNationSolutions for version 14.0
+	
+	US$ 53,39 	
+[dns_debt_collection] Recouvrement de créances by DevNationSolutions for version 14.0 	
+Recouvrement de créances by DevNationSolutions for version 14.0
+	
+	US$ 46,27
+___________________________________________
+Total
+Sous-total : 	US$ 319,09  ~~~  62 860,73 DZD
+Taxes : 	US$ 0,00
+Total : 	US$ 319,09
