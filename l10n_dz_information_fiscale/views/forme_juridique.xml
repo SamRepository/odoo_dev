@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="forme_juridique_view_form_l10n_dz" model="ir.ui.view">
+        <field name="name">forme.juridique.view.form.l10n.dz</field>
+        <field name="model">forme.juridique</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="code"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="forme_juridique_view_tree_l10n_dz" model="ir.ui.view">
+        <field name="name">forme.juridique.view.tree.l10n.dz</field>
+        <field name="model">forme.juridique</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

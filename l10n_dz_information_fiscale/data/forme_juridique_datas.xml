@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data noupdate='0'>
+        <record id='fj_eurl' model='forme.juridique'>
+            <field name='code'>EURL</field>
+            <field name='name'>Entreprise unipersonnelle à responsabilité limitée</field>
+        </record>
+
+        <record id='fj_sarl' model='forme.juridique'>
+            <field name='code'>SARL</field>
+            <field name='name'>Société à responsabilité limitée</field>
+        </record>
+
+        <record id='fj_snc' model='forme.juridique'>
+            <field name='code'>SNC</field>
+            <field name='name'>Société en nom collectif</field>
+        </record>
+
+        <record id='fj_scs' model='forme.juridique'>
+            <field name='code'>SCS</field>
+            <field name='name'>Société en commandite simple</field>
+        </record>
+
+        <record id='fj_spa' model='forme.juridique'>
+            <field name='code'>SPA</field>
+            <field name='name'>Société par actions</field>
+        </record>
+
+        <record id='fj_sca' model='forme.juridique'>
+            <field name='code'>SCA</field>
+            <field name='name'>Société en commandite par actions</field>
+        </record>
+    </data>
+</odoo>

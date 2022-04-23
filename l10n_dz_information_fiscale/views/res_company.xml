@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_company_form_info_fiscal_l10n_dz" model="ir.ui.view">
+        <field name="name">res.company.form.info.fiscale.l10n.dz</field>
+        <field name="model">res.company</field>
+        <field name="priority">20</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_registry']" position="after">
+                <field name="rc"/>
+                <field name="nis"/>
+                <field name="nif"/>
+                <field name="ai"/>
+                <field name="forme_juridique"/>
+                <field name="capital_social"/>
+
+                <field name="code_activite"/>
+                <field name="activite"/>
+                <field name="impot_dir"/>
+                <field name="impot_rec"/>
+                <field name="impot_com"/>
+            </xpath>
+
+            <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="invisible">True</attribute> <!-- replacé par le champ nif -->
+            </xpath>
+            <xpath expr="//field[@name='company_registry']" position="attributes">
+                <attribute name="invisible">True</attribute> <!-- replacé par le champ rc -->
+            </xpath>
+        </field>
+    </record>
+</odoo>
