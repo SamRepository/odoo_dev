@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="01" model="res.country.state">
+            <field name="name">ADRAR</field>
+            <field name="code">01</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="02" model="res.country.state">
+            <field name="name">CHLEF</field>
+            <field name="code">02</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="03" model="res.country.state">
+            <field name="name">LAGHOUAT</field>
+            <field name="code">03</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="04" model="res.country.state">
+            <field name="name">OUM EL BOUAGHI</field>
+            <field name="code">04</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="05" model="res.country.state">
+            <field name="name">BATNA</field>
+            <field name="code">05</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="06" model="res.country.state">
+            <field name="name">BEJAIA</field>
+            <field name="code">06</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="07" model="res.country.state">
+            <field name="name">BISKRA</field>
+            <field name="code">07</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="08" model="res.country.state">
+            <field name="name">BECHAR</field>
+            <field name="code">08</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="09" model="res.country.state">
+            <field name="name">BLIDA</field>
+            <field name="code">09</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="10" model="res.country.state">
+            <field name="name">BOUIRA</field>
+            <field name="code">10</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="11" model="res.country.state">
+            <field name="name">TAMANRASSET</field>
+            <field name="code">11</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="12" model="res.country.state">
+            <field name="name">TEBESSA</field>
+            <field name="code">12</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="13" model="res.country.state">
+            <field name="name">TLEMCEN</field>
+            <field name="code">13</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="14" model="res.country.state">
+            <field name="name">TIARET</field>
+            <field name="code">14</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="15" model="res.country.state">
+            <field name="name">TIZI OUZOU</field>
+            <field name="code">15</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="16" model="res.country.state">
+            <field name="name">ALGER</field>
+            <field name="code">16</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="17" model="res.country.state">
+            <field name="name">DJELFA</field>
+            <field name="code">17</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="18" model="res.country.state">
+            <field name="name">JIJEL</field>
+            <field name="code">18</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="19" model="res.country.state">
+            <field name="name">SETIF</field>
+            <field name="code">19</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="20" model="res.country.state">
+            <field name="name">SAIDA</field>
+            <field name="code">20</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="21" model="res.country.state">
+            <field name="name">SKIKDA</field>
+            <field name="code">21</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="22" model="res.country.state">
+            <field name="name">SIDI BEL ABBES</field>
+            <field name="code">22</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="23" model="res.country.state">
+            <field name="name">ANNABA</field>
+            <field name="code">23</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="24" model="res.country.state">
+            <field name="name">GUELMA</field>
+            <field name="code">24</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="25" model="res.country.state">
+            <field name="name">CONSTANTINE</field>
+            <field name="code">25</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="26" model="res.country.state">
+            <field name="name">MEDEA</field>
+            <field name="code">26</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="27" model="res.country.state">
+            <field name="name">MOSTAGANEM</field>
+            <field name="code">27</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="28" model="res.country.state">
+            <field name="name">M'SILA</field>
+            <field name="code">28</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="29" model="res.country.state">
+            <field name="name">MASCARA</field>
+            <field name="code">29</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="30" model="res.country.state">
+            <field name="name">OUARGLA</field>
+            <field name="code">30</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="31" model="res.country.state">
+            <field name="name">ORAN</field>
+            <field name="code">31</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="32" model="res.country.state">
+            <field name="name">EL BAYADH</field>
+            <field name="code">32</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="33" model="res.country.state">
+            <field name="name">ILLIZI</field>
+            <field name="code">33</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="34" model="res.country.state">
+            <field name="name">BORDJ BOU ARRERIDJ</field>
+            <field name="code">34</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="35" model="res.country.state">
+            <field name="name">BOUMERDES</field>
+            <field name="code">35</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="36" model="res.country.state">
+            <field name="name">EL TARF</field>
+            <field name="code">36</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="37" model="res.country.state">
+            <field name="name">TINDOUF</field>
+            <field name="code">37</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="38" model="res.country.state">
+            <field name="name">TISSEMSILT</field>
+            <field name="code">38</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="39" model="res.country.state">
+            <field name="name">EL OUED</field>
+            <field name="code">39</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="40" model="res.country.state">
+            <field name="name">KHENCHELA</field>
+            <field name="code">40</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="41" model="res.country.state">
+            <field name="name">SOUK AHRAS</field>
+            <field name="code">41</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="42" model="res.country.state">
+            <field name="name">TIPAZA</field>
+            <field name="code">42</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="43" model="res.country.state">
+            <field name="name">MILA</field>
+            <field name="code">43</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="44" model="res.country.state">
+            <field name="name">AIN DEFLA</field>
+            <field name="code">44</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="45" model="res.country.state">
+            <field name="name">NAAMA</field>
+            <field name="code">45</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="46" model="res.country.state">
+            <field name="name">AIN TEMOUCHENT</field>
+            <field name="code">46</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="47" model="res.country.state">
+            <field name="name">GHARDAIA</field>
+            <field name="code">47</field>
+            <field name="country_id">62</field>
+        </record>
+        <record id="48" model="res.country.state">
+            <field name="name">RELIZANE</field>
+            <field name="code">48</field>
+            <field name="country_id">62</field>
+        </record>
+
+        <!-- new 10 wilayas since 2021-->
+
+        <record id="49" model="res.country.state">
+            <field name="name">TIMIMOUN</field>
+            <field name="code">49</field>
+            <field name="country_id">62</field>
+        </record>
+
+
+        <record id="50" model="res.country.state">
+            <field name="name">BORDJ BADJI MOKHTAR</field>
+            <field name="code">50</field>
+            <field name="country_id">62</field>
+        </record>
+
+        <record id="51" model="res.country.state">
+            <field name="name">OULED DJELLAL</field>
+            <field name="code">51</field>
+            <field name="country_id">62</field>
+        </record>
+
+        <record id="52" model="res.country.state">
+            <field name="name">BÉNI ABBÈS</field>
+            <field name="code">52</field>
+            <field name="country_id">62</field>
+        </record>
+
+        <record id="53" model="res.country.state">
+            <field name="name">IN SALAH</field>
+            <field name="code">53</field>
+            <field name="country_id">62</field>
+        </record>
+
+        <record id="54" model="res.country.state">
+            <field name="name">IN GUEZZAM</field>
+            <field name="code">54</field>
+            <field name="country_id">62</field>
+        </record>
+
+        <record id="55" model="res.country.state">
+            <field name="name">TOUGGOURT</field>
+            <field name="code">55</field>
+            <field name="country_id">62</field>
+        </record>
+
+        <record id="56" model="res.country.state">
+            <field name="name">DJANET</field>
+            <field name="code">56</field>
+            <field name="country_id">62</field>
+        </record>
+
+        <record id="57" model="res.country.state">
+            <field name="name">EL M'GHAIR</field>
+            <field name="code">57</field>
+            <field name="country_id">62</field>
+        </record>
+
+        <record id="58" model="res.country.state">
+            <field name="name">EL MENIAA</field>
+            <field name="code">58</field>
+            <field name="country_id">62</field>
+        </record>
+
+    </data>
+</odoo>

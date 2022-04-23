@@ -71,6 +71,10 @@
         action="base.action_country_state"
         name="Wilayas" parent="menu_localisation"
         sequence="3"/>
+    <menuitem id="menu_commune_staction_country_stateate_partner"
+        action="l10n_dz_regions.action_commune"
+        name="Communes" parent="menu_localisation"
+        sequence="4"/>
 
     <menuitem id="menu_config_bank_accounts"
         name="Comptes bancaires"
