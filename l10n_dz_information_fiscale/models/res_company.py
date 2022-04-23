@@ -21,10 +21,10 @@ class ResCompany(models.Model):
     forme_juridique = fields.Many2one(comodel_name='forme.juridique',string="Forme juridique")
     capital_social = fields.Monetary(string="Capital social",)
 
-    code_activite = fields.Char(string="Code d'activité")
-    activite = fields.Char(string="Activité")
-    impot_dir = fields.Many2one('res.country.state', string="Direction des impôrts")
-    impot_rec = fields.Char(string="Recette des impôts")
+    code_activite = fields.Char(string="Code Activité")
+    activite = fields.Char(string="Activité/Proffesion")
+    impot_dir = fields.Many2one('res.country.state', string="Direction Impôrts")
+    impot_rec = fields.Char(string="Recette Impôts")
     impot_com = fields.Many2one('res.commune', string="Commune")
 
     def valid_pattern(self, pattern, field, msg):
