@@ -22,6 +22,7 @@
         'data/ir_sequence_data.xml',
         'reports/report_departement_list.xml',
         'reports/departement_list_report.xml',
+        'wizard/stages_candidature_chg_period_view.xml',
         'views/views_main.xml',
         'views/templates.xml',
         'views/stages_candidature_views.xml',

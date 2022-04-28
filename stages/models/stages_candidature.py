@@ -67,7 +67,7 @@ class StagesCandidature(models.Model):
 
     name = fields.Char(string='Référence', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     employee_id = fields.Many2one(comodel_name="hr.employee", string="Enseignant", required=True, )
-    session_id = fields.Many2one(comodel_name="event.event", string="Session Stage", required=True, )
+    session_id = fields.Many2one(comodel_name="event.event", string="Session stage", required=True, )
     type_stage_id = fields.Many2one(comodel_name="stages.type_stage", string="Type Stage", required=True,
                                     readonly=True, )
     partner_id = fields.Many2one(comodel_name="res.partner", string="Organisme d'accueil", required=True, )
@@ -93,6 +93,8 @@ class StagesCandidature(models.Model):
     impacts_attendus = fields.Html(string="Impacts attendus", default="Entrer les impacts attendus..." )
     engagement = fields.Boolean(string="Engagement", )
     active = fields.Boolean(string="Active", default=True)
+    is_favorite = fields.Boolean(string="Favori", default=False  )
+    priority = fields.Selection([('0', 'Normal'),('1', 'Favorite'),], default='0', string="Favorite")
 
 
 class StagesCandidaturePerfectionnement(models.Model):

@@ -12,3 +12,6 @@ access_stages_docs_retour,access_stages_docs_retour,model_stages_docs_retour,bas
 access_stages_docs_depart,access_stages_docs_depart,model_stages_docs_depart,base.group_user,1,1,1,1
 access_stages_frais_stages,access_stages_frais_stages,model_stages_frais_stages,base.group_user,1,1,1,1
 access_stages_exercice,access_stages_exercice,model_stages_exercice,base.group_user,1,1,1,1
+access_stages_candidature_chg_period,access_stages_candidature_chg_period,model_stages_candidature_chg_period,base.group_user,1,1,1,1
+
+

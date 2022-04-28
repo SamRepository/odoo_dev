@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--From view for the stages.candidatures_perfectionnement_change_period-->
+    <record id="stages_candidature_perfectionnement_chg_period_view_form" model="ir.ui.view">
+        <field name="name">stages_candidature_perfectionnement_chg_period_from</field>
+        <field name="model">stages.candidature.chg.period</field>
+        <field name="arch" type="xml">
+            <form string="Changer Période Candidature">
+                <group>
+                    <label for="date_depart" string="Date départ / retour"/>
+                    <div class="o_row">
+                        <field name="date_depart" widget="daterange" nolabel="1" class="oe_inline"
+                               options="{'related_end_date': 'date_retour'}"/>
+                        <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                        <field name="date_retour" widget="daterange" nolabel="1" class="oe_inline"
+                               options="{'related_start_date': 'date_depart'}"/>
+                    </div>
+                    <field name="cause_chg_period" widget="text"/>
+                </group>
+                <footer>
+                    <button string="Confirm" class="btn btn-primary" type="object" name="action_confirm" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--action of the candidature_perfectionnement_change_period -->
+    <record id="action_candidature_perfectionnement_chg_period" model="ir.actions.act_window">
+        <field name="name">Changer Période Candidature</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stages.candidature.chg.period</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
