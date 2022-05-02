@@ -7,13 +7,32 @@ class ChangePeriodWizard(models.TransientModel):
     _name = 'stages.candidature.chg.period'
     _description = 'Changer Période Candidature'
 
+    @api.model
+    def default_get(self, fields):
+        res = super(ChangePeriodWizard, self).default_get(fields)
+        main_rec = self.env['stages.candidature.perfectionnement'].browse(self.env.context.get('active_id'))
+        if 'date_depart' and 'date_retour' in fields:
+            res["date_depart"] = main_rec.date_depart
+            res["date_retour"] = main_rec.date_retour
+            res["cause_chg_period"] = main_rec.cause_chg_period
+        return res
+
+    def action_confirm(self):
+        for rec in self:
+            main_rec = self.env['stages.candidature.perfectionnement'].browse(self.env.context.get('active_id'))
+            if main_rec.date_depart != rec.date_depart or main_rec.date_retour != rec.date_retour:
+                main_rec.cause_chg_period = rec.cause_chg_period
+                main_rec.date_depart = rec.date_depart
+                main_rec.date_retour = rec.date_retour
+            else:
+                raise UserError('Il faut au moins changer la date de départ ou de retour !')
 
     date_depart = fields.Date(string="Date de départ", required=True, )
     date_retour = fields.Date(string="Date de retour ", required=True, )
-    cause_chg_period = fields.Char(string="Cause changement période", required=False, )
+    cause_chg_period = fields.Char(string="Cause changement période", required=True, )
 
-    def action_confirm(self):
-       return
+
+
 
     # duree = fields.Integer(string="Durée", compute='set_durre', store=True, )
     # cause_chg_period = fields.Char(string="Cause changement période", required=False, )

@@ -32,6 +32,18 @@
     <!--creating root menu stages  -->
     <menuitem id="stages_root" name="Stages" sequence="1" web_icon="om_hospital,static/description/icon.png"/>
 
+    <!--creating sub_menu  TEST -->
+<!--    <menuitem id="stages_Test" name="Test" parent="stages_root" sequence="80">-->
+<!--        <menuitem id="stages_Test2" name="Test2" sequence="70">-->
+<!--            <menuitem id="stages_Test21" name="Test21" sequence="71" action="base.action_partner_title_contact"/>-->
+<!--            <menuitem id="stages_Test22" name="Test22" sequence="72" action="base.action_partner_title_contact"/>-->
+<!--        </menuitem>-->
+<!--        <menuitem id="stages_Test3" name="Test3" sequence="60">-->
+<!--            <menuitem id="stages_Test31" name="Test31" sequence="61" action="base.action_partner_title_contact"/>-->
+<!--            <menuitem id="stages_Test32" name="Test32" sequence="62" action="base.action_partner_title_contact"/>-->
+<!--        </menuitem>-->
+<!--    </menuitem>-->
+
     <!--creating sub_menu  configuration -->
     <menuitem id="stages_configuration"
               name="Configuration"

@@ -19,7 +19,6 @@
                 <field name="zone" optional="hide"/>
                 <field name="type_stage_id" invisible="1"/>
                 <field name="activity_ids" widget="list_activity"/>
-                <field name="active" widget="boolean_toggle" optional="show"/>
                 <field name="montant" sum="Totale des montants" decoration-bf="1"  widget="monetary" optional="show"/>
                 <field name="state" string="État"
                        decoration-muted="state == 'draft'"
@@ -27,6 +26,7 @@
                        decoration-warning="state == 'chg_period'"
                        decoration-danger="state == 'cancel'"
                        decoration-info="state == 'done'" widget="badge"/>
+                <field name="active" widget="boolean_toggle" optional="show"/>
                 <field name="intitule_these" optional="hide"/>
                 <field name="date_1er_inscription" optional="hide"/>
                 <field name="nbr_inscription" optional="hide"/>
@@ -57,7 +57,7 @@
                     <button name="action_confirm" string="Confirmer" class="oe_highlight" states="draft" type="object"/>
                     <button name="action_draft" states="cancel,done" type="object" string="Remettre en brouillon"
                             attrs="{'invisible': [('state','!=', 'confirm')]}"/>
-                    <button name="stages.action_candidature_perfectionnement_chg_period" type="action" string="Changer périod"
+                    <button name="stages.action_candidature_perfectionnement_chg_period" type="action" string="Changer période"
                             attrs="{'invisible': [('state','!=', 'confirm')]}"/>
                     <button name="action_cancel" type="object" string="Annuler"
                             attrs="{'invisible': [('state','!=', 'confirm')]}"/>
@@ -69,7 +69,7 @@
                     <div class="oe_button_box" name="button_box">
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
                         <button name="toggle_active" string="Archiver" type="object" class="oe_stat_button" icon="fa-archive">
-                            <field name="active" />
+                            <field name="active" widget="boolean_toggle"/>
                         </button>
                     </div>
                     <div class="oe_title">
@@ -113,6 +113,7 @@
                             <field name="duree" readonly="1"/>
                             <field name="currency_id" invisible="1"/>
                             <field name="montant" widget='monetary'/>
+                            <field name="cause_chg_period" widget='text' readonly="1"/>
                         </group>
                     </group>
                     <group>
