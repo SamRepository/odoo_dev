@@ -18,7 +18,7 @@
                     <field name="cause_chg_period" widget="text"/>
                 </group>
                 <footer>
-                    <button string="Confirm" class="btn btn-primary" type="object" name="action_confirm" />
+                    <button string="Confirm" class="btn btn-primary" type="object" name="action_confirm"/>
                     <button string="Cancel" class="btn-secondary" special="cancel" />
                 </footer>
             </form>

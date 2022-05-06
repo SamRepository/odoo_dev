@@ -22,6 +22,7 @@ class ChangePeriodWizard(models.TransientModel):
             main_rec = self.env['stages.candidature.perfectionnement'].browse(self.env.context.get('active_id'))
             if main_rec.date_depart != rec.date_depart or main_rec.date_retour != rec.date_retour:
                 main_rec.cause_chg_period = rec.cause_chg_period
+                main_rec.cause_chg_invisible = False
                 main_rec.date_depart = rec.date_depart
                 main_rec.date_retour = rec.date_retour
             else:

@@ -53,6 +53,7 @@ class StagesCandidature(models.Model):
     def action_draft(self):
         for rec in self:
             rec.state = 'draft'
+            rec.cause_chg_invisible = True
 
     def action_done(self):
         for rec in self:
@@ -78,6 +79,7 @@ class StagesCandidature(models.Model):
         ('draft', 'Brouillon'),
         ('confirm', 'Confirmée'),
         # ('chg_period', 'Période changée'),
+        # ('open', 'En cours),
         ('done', 'Réalisée'),
         ('cancel', 'Annulée')], readonly=True, default='draft')
     dernier_stage = fields.Date(string="Date dernier Stage", required=True, )
@@ -85,6 +87,7 @@ class StagesCandidature(models.Model):
     date_retour = fields.Date(string="Date de retour ", track_visibility='always', required=True, )
     duree = fields.Integer(string="Durée", compute='set_durre', store=True, )
     cause_chg_period = fields.Char(string="Cause changement période", track_visibility='always', )
+    cause_chg_invisible = fields.Boolean(string="Visibility de Cause changement période", default=True, required=True, )
     currency_id = fields.Many2one('res.currency',default=lambda self: self.env['res.currency'].search([('name', '=', 'DZD')]).id, readonly=True)
     # currency_id = fields.Many2one('res.currency', string='Currency', default=_default_country_id, readonly=True)
     montant = fields.Float(string="Montant", compute="set_montant", )

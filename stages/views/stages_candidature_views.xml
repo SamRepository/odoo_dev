@@ -21,9 +21,9 @@
                 <field name="activity_ids" widget="list_activity"/>
                 <field name="montant" sum="Totale des montants" decoration-bf="1"  widget="monetary" optional="show"/>
                 <field name="state" string="État"
-                       decoration-muted="state == 'draft'"
+                       decoration-warning="state == 'draft'"
                        decoration-success="state == 'confirm'"
-                       decoration-warning="state == 'chg_period'"
+                       decoration-muted="state == 'chg_period'"
                        decoration-danger="state == 'cancel'"
                        decoration-info="state == 'done'" widget="badge"/>
                 <field name="active" widget="boolean_toggle" optional="show"/>
@@ -58,7 +58,7 @@
                     <button name="action_draft" states="cancel,done" type="object" string="Remettre en brouillon"
                             attrs="{'invisible': [('state','!=', 'confirm')]}"/>
                     <button name="stages.action_candidature_perfectionnement_chg_period" type="action" string="Changer période"
-                            attrs="{'invisible': [('state','!=', 'confirm')]}"/>
+                            attrs="{'invisible': [('state','!=', 'confirm')]}" />
                     <button name="action_cancel" type="object" string="Annuler"
                             attrs="{'invisible': [('state','!=', 'confirm')]}"/>
                     <button name="action_done" type="object" string="Réalisée" class="oe_highlight"
@@ -96,7 +96,7 @@
                             <field name="pays"/>
                             <field name="zone"/>
                             <field name="contact"/>
-                            <field name="cause_chg_period" invisible="1"/>
+                            <field name="cause_chg_period" invisible="context.get('hide_cause_chg_period')"/>
                         </group>
                         <group>
                             <field name="dernier_stage"/>
@@ -113,7 +113,8 @@
                             <field name="duree" readonly="1"/>
                             <field name="currency_id" invisible="1"/>
                             <field name="montant" widget='monetary'/>
-                            <field name="cause_chg_period" widget='text' readonly="1"/>
+                            <field name="cause_chg_invisible" invisible="1"/>
+                            <field name="cause_chg_period" widget='text' readonly="1" attrs="{'invisible': [('cause_chg_invisible','=',True)]}"/>
                         </group>
                     </group>
                     <group>
