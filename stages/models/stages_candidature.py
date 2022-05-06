@@ -68,6 +68,12 @@ class StagesCandidature(models.Model):
 
     name = fields.Char(string='Référence', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     employee_id = fields.Many2one(comodel_name="hr.employee", string="Enseignant", required=True, )
+    nom_prenom_ar = fields.Char(related="employee_id.nom_prenom_ar", string="En lettre arabe", )
+    civilite = fields.Char(related="employee_id.civilite.name", string="Civilite", )
+    work_email = fields.Char(related='employee_id.work_email', string="Email", readonly=False, related_sudo=False)
+    department_id = fields.Char(related="employee_id.department_id.name", string="Département", )
+    lab_id = fields.Char(related="employee_id.lab_id.name", string="Laboratoire", )
+    grade_id = fields.Char(related="employee_id.grade_id.name", string="Grade scientifique", )
     session_id = fields.Many2one(comodel_name="event.event", string="Session stage", required=True, )
     type_stage_id = fields.Many2one(comodel_name="stages.type_stage", string="Type Stage", required=True,
                                     readonly=True, )
@@ -108,6 +114,7 @@ class StagesCandidaturePerfectionnement(models.Model):
     doc_depart_ids = fields.One2many("stages.docs_depart", "candidature_perfec_id", string="Documents de Départ", )
     doc_retour_ids = fields.One2many("stages.docs_retour", "candidature_perfec_id", string="Documents de Retour", )
 
+    speciality = fields.Char(string="Spéciality", required=False, )
     intitule_these = fields.Char(string="Intitulé de la thèse", required=False, )
     date_1er_inscription = fields.Date(string="Date 1ère inscription", required=False, )
     nbr_inscription = fields.Selection(string="Nbr d'inscription",
@@ -122,6 +129,7 @@ class StagesCandidatureManifestation(models.Model):
     doc_depart_ids = fields.One2many("stages.docs_depart", "candidature_manif_id", string="Documents de Départ", )
     doc_retour_ids = fields.One2many("stages.docs_retour", "candidature_manif_id", string="Documents de Retour", )
 
+    speciality = fields.Char(string="Spéciality", required=False, )
     intitule_manifestation = fields.Char(string="Intitulé de la Manifestation", required=False, )
     lien_web = fields.Char(string="Lien web", required=False, )
     nature = fields.Selection(string="", selection=[

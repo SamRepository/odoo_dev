@@ -88,17 +88,27 @@
                         </h1>
                     </div>
                     <group>
-                        <group>
+                        <group string="Informations Professionnelles / معلومات مهنية">
                             <field name="active" invisible="1"/>
                             <field name="employee_id" widget="many2one_avatar_employee"/>
-                            <field name="session_id"/>
+                            <field name="nom_prenom_ar"/>
+                            <field name="civilite"/>
+                            <field name="work_email" widget="email"/>
+                             <field name="grade_id"/>
+                            <field name="department_id"/>
+                            <field name="lab_id"/>
+                        </group>
+                        <group>
+                             <field name="session_id"/>
                             <field name="partner_id" domain="[('is_company', '=', 'True')]" widget="many2one_avatar"/>
                             <field name="pays"/>
                             <field name="zone"/>
                             <field name="contact"/>
                             <field name="cause_chg_period" invisible="context.get('hide_cause_chg_period')"/>
                         </group>
-                        <group>
+                    </group>
+                    <group>
+                    <group>
                             <field name="dernier_stage"/>
                             <label for="date_depart" string="Date départ / retour"/>
                             <div class="o_row">
@@ -116,10 +126,9 @@
                             <field name="cause_chg_invisible" invisible="1"/>
                             <field name="cause_chg_period" widget='text' readonly="1" attrs="{'invisible': [('cause_chg_invisible','=',True)]}"/>
                         </group>
-                    </group>
-                    <group>
                         <group>
                             <field name="intitule_these"/>
+                            <field name="speciality"/>
                             <field name="date_1er_inscription"/>
                             <field name="nbr_inscription"/>
                         </group>
