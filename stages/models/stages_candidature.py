@@ -115,11 +115,18 @@ class StagesCandidaturePerfectionnement(models.Model):
     doc_retour_ids = fields.One2many("stages.docs_retour", "candidature_perfec_id", string="Documents de Retour", )
 
     speciality = fields.Char(string="Spéciality", required=False, )
+    diplome_prepare = fields.Selection(string="Diplôme préparé",
+                                       selection=[('doctorat', 'Doctorat / دكتورا'),
+                                                  ('master', 'Master / ماستر'), ], required=False, )
     intitule_these = fields.Char(string="Intitulé de la thèse", required=False, )
     date_1er_inscription = fields.Date(string="Date 1ère inscription", required=False, )
     nbr_inscription = fields.Selection(string="Nbr d'inscription",
                                        selection=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'),
                                                   ('6', '6'), ('+', 'plus de 6'), ], required=False, )
+    type_inscription = fields.Selection(string="Type d'inscription",
+                                       selection=[('ordinaire', 'Ordinaire / عادية'),
+                                                  ('cotutelle ', 'Cotutelle / إشراف مشترك'),
+                                                  ('coenadrement', 'Coenadrement / تأطير مشترك'), ], required=False, )
 
 class StagesCandidatureManifestation(models.Model):
     _name = 'stages.candidature.manifestation'

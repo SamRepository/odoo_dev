@@ -91,24 +91,31 @@
                         <group string="Informations Professionnelles / معلومات مهنية">
                             <field name="active" invisible="1"/>
                             <field name="employee_id" widget="many2one_avatar_employee"/>
-                            <field name="nom_prenom_ar"/>
                             <field name="civilite"/>
+                            <field name="nom_prenom_ar"/>
                             <field name="work_email" widget="email"/>
                              <field name="grade_id"/>
                             <field name="department_id"/>
                             <field name="lab_id"/>
                         </group>
-                        <group>
+                        <group string="Organisme d'Accueil / معلومات الهيئة المستقبلة">
                              <field name="session_id"/>
                             <field name="partner_id" domain="[('is_company', '=', 'True')]" widget="many2one_avatar"/>
                             <field name="pays"/>
                             <field name="zone"/>
                             <field name="contact"/>
-                            <field name="cause_chg_period" invisible="context.get('hide_cause_chg_period')"/>
                         </group>
                     </group>
                     <group>
-                    <group>
+                        <group string="Projet de travail / مشروع العمل">
+                            <field name="diplome_prepare"/>
+                            <field name="intitule_these"/>
+                            <field name="speciality"/>
+                            <field name="date_1er_inscription"/>
+                            <field name="nbr_inscription"/>
+                            <field name="type_inscription"/>
+                        </group>
+                        <group string="Information sur le stage / معلومات حول التربص">
                             <field name="dernier_stage"/>
                             <label for="date_depart" string="Date départ / retour"/>
                             <div class="o_row">
@@ -118,19 +125,15 @@
                                 <field name="date_retour" widget="daterange" nolabel="1" class="oe_inline"
                                        options="{'related_start_date': 'date_depart'}"/>
                             </div>
-<!--                            <field name="date_depart"/>-->
-<!--                            <field name="date_retour"/>-->
+                            <!--                            <field name="date_depart"/>-->
+                            <!--                            <field name="date_retour"/>-->
                             <field name="duree" readonly="1"/>
                             <field name="currency_id" invisible="1"/>
                             <field name="montant" widget='monetary'/>
                             <field name="cause_chg_invisible" invisible="1"/>
-                            <field name="cause_chg_period" widget='text' readonly="1" attrs="{'invisible': [('cause_chg_invisible','=',True)]}"/>
-                        </group>
-                        <group>
-                            <field name="intitule_these"/>
-                            <field name="speciality"/>
-                            <field name="date_1er_inscription"/>
-                            <field name="nbr_inscription"/>
+                            <field name="cause_chg_period" widget='text' readonly="1"
+                                   attrs="{'invisible': [('cause_chg_invisible','=',True)]}"/>
+                            <!--                            <field name="cause_chg_period" invisible="context.get('hide_cause_chg_period')"/>-->
                         </group>
                     </group>
                     <group col="1">
