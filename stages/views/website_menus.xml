@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Main Menu to navigate to Stages from website -->
+        <record id="menu_stages_main" model="website.menu">
+            <field name="name">Stages</field>
+            <field name="url"> </field>
+<!--        <field name="parent_id" ref="website.main_menu"/>-->
+            <field name="parent_id" search="[('parent_id','=',False), ('website_id','=',obj(ref('website.default_website')).id)]"/>
+            <field name="sequence" type="int">10</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+        <record id="menu_stages_type_stages" model="website.menu">
+            <field name="name">Catégories Stages</field>
+            <field name="url">/stages/type_stages/</field>
+            <field name="parent_id" ref="stages.menu_stages_main"/>
+            <field name="sequence" type="int">10</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+    </data>
+</odoo>

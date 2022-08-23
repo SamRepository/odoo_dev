@@ -1,5 +1,6 @@
 <odoo>
     <data>
+        <!--add employees detailes to portal template -->
         <template id="stages_portal_layout_add_details" inherit_id="portal.portal_layout"
                   name="Stages Portal Layout Add Details">
             <div id="o_my_sidebar" position="attributes">
@@ -21,6 +22,86 @@
                 </div>
             </div>
         </template>
+        <!-- display stages types template -->
+        <template id="stages_display">
+            <t t-call="website.layout">
+                <title>Type de Stages</title>
+                <!--            <ul>-->
+                <!--                <t t-foreach="stages" t-as="stage">-->
+                <!--                    <li>-->
+                <!--                      <t t-esc="stage.name"/>-->
+                <!--                    </li>-->
+                <!--                </t>-->
+                <!--            </ul>-->
+                <div class="oe_structure"/>
+                <div class="oe_structure">
+                    <div class="container">
+                        <t t-foreach="stages" t-as="stage">
+                            <p>
+                                <a t-attf-href="/stages/{{ slug(stage) }}">
+                                    <t t-esc="stage.name"/>
+                                </a>
+                            </p>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
+        <!-- display stages details template -->
+        <template id="stages_details_display">
+            <t t-call="website.layout">
+                <title>Détails de stage</title>
+                <div class="oe_structure"/>
+                <div class="oe_structure">
+                    <div class="container">
+                        <h3 t-field="stage.name"/>
+                        <p>
+                            <b>Grades Concernés:</b>
+                        </p>
+                        <ul class="list-group">
+                            <t t-foreach="stage.grades_ids" t-as="grades">
+                                <li class="list-group-item">
+                                    <p t-field="grades.name"/>
+                                </li>
+                            </t>
+                        </ul>
+                        <div style="height: 10px;"></div>
+                        <p>
+                            <b>Conditions Stage:</b>
+                        </p>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <p t-field="stage.conditions"/>
+                            </li>
+                        </ul>
+
+                        <!--                        <t t-foreach="grades" t-as="grade">-->
+                        <!--                            <li>-->
+                        <!--                                <t t-esc="grade.name"/>-->
+                        <!--                            </li>-->
+                        <!--                        </t>-->
+
+                    </div>
+                </div>
+            </t>
+        </template>
+<!--        <template id="stages_display">-->
+<!--            <t t-call="website.layout">-->
+<!--                <title>Type de Stages</title>-->
+<!--                <div class="oe_structure"/>-->
+<!--                <div class="oe_structure">-->
+<!--                    <div class="container">-->
+<!--                        <t t-foreach="stages" t-as="stage">&ndash;&gt;-->
+<!--                            <p>-->
+<!--                                <a t-attf-href="/academy/{{ slug(course) }}">-->
+<!--                                    <t t-esc="course.course_name"/>-->
+<!--                                </a>-->
+<!--                            </p>-->
+<!--                        </t>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </t>-->
+<!--        </template>-->
 
 <!--        <template id="contact_portal_new" inherit_id="base.contact" name="New Portal Contact Widget" >-->
 <!--            <xpath expr="//address/div" position="after">-->

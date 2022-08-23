@@ -13,7 +13,7 @@
     'category': 'Education',
     'version': '14.0.0.2',
     # any module necessary for this one to work correctly
-    'depends': ['base','l10n_dz_regions','contacts','hr','event','account','mail'],
+    'depends': ['base','l10n_dz_regions','contacts','hr','event','account','mail','website'],
     'application': ['True'],
     'sequence': 1,
     # always loaded
@@ -25,6 +25,7 @@
         'wizard/stages_candidature_chg_period_view.xml',
         'views/views_main.xml',
         'views/templates.xml',
+        'views/website_menus.xml',
         'views/stages_candidature_views.xml',
         'views/stages_enseignant_views.xml',
         'views/stages_departement_views.xml',
