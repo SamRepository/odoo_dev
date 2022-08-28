@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--add employees detailes to portal template -->
+        <template id="stages_portal_layout_add_details" inherit_id="portal.portal_layout"
+                  name="Stages Portal Layout Add Details">
+            <div id="o_my_sidebar" position="attributes">
+                <attribute name="class">"pt-3 pt-lg-0 col-12 col-md col-lg-4 col-xl-4 o_my_sidebar"</attribute>
+            </div>
+            <div t-field="user_id.partner_id" position="after">
+                <div t-if="user_id.employee_id.department_id.name">
+                    <hr class="mt-1 mb-0"/>
+                    <h4>Department</h4>
+                    <div t-field="user_id.employee_id.department_id.name" class="fa fa-briefcase"> </div>
+                    <!--style="margin-top:4px;margin-bottom:4px;font-size:10px;"/>-->
+                </div>
+                <div t-if="user_id.employee_id.grade_id.name" >
+                    <hr class="mt-1 mb-0"/>
+                    <h4>Grade</h4>
+                    <div t-field="user_id.employee_id.grade_id.name" class="fa fa-graduation-cap"> </div>
+                    <!-- style="margin-top:4px;margin-bottom:4px;"/>-->
+                    <hr class="mt-1 mb-0"/>
+                </div>
+            </div>
+        </template>
+
+
+
+
+    </data>
+</odoo>

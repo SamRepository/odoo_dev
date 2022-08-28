@@ -10,7 +10,7 @@
         Long description of module's purpose """,
     'author': "ENSET-Skikda",
     'website': "www.enset-skikda.dz",
-    'category': 'Education',
+    'category': 'Stages Category',
     'version': '14.0.0.2',
     # any module necessary for this one to work correctly
     'depends': ['base','l10n_dz_regions','contacts','hr','event','account','mail','website'],
@@ -18,6 +18,7 @@
     'sequence': 1,
     # always loaded
     'data': [
+        'security/stages_security.xml',
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
         'reports/report_departement_list.xml',
@@ -26,6 +27,7 @@
         'views/views_main.xml',
         'views/templates.xml',
         'views/website_menus.xml',
+        'views/stages_portal_templates.xml',
         'views/stages_candidature_views.xml',
         'views/stages_enseignant_views.xml',
         'views/stages_departement_views.xml',
