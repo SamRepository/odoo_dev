@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Category for the Stages module -->
+        <record model="ir.module.category" id="module_category_stages">
+            <field name="name">ENSET Stages Category</field>
+            <field name="description">Catégorie pour le module Stages ENSET</field>
+            <field name="sequence">10</field>
+        </record>
+
+       <!-- Security Groupes for the Stages module -->
+        <record id="group_stages_user" model="res.groups">
+            <field name="name">Gestionnaire Stages</field>
+            <field name="category_id" ref="module_category_stages"/>
+        </record>
+
+        <record id="group_stages_manager" model="res.groups">
+            <field name="name">Chef Service Stages</field>
+            <field name="category_id" ref="module_category_stages"/>
+        </record>
+
+    </data>
+</odoo>
