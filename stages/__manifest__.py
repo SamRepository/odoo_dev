@@ -10,7 +10,7 @@
         Long description of module's purpose """,
     'author': "ENSET-Skikda",
     'website': "www.enset-skikda.dz",
-    'category': 'Stages Category',
+    'category': 'ENSET',
     'version': '14.0.0.2',
     # any module necessary for this one to work correctly
     'depends': ['base','l10n_dz_regions','contacts','hr','event','account','mail','website'],
