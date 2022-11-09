@@ -18,7 +18,7 @@ This module applies to companies based in Algeria.
     'category': 'Outils',
     # any module necessary for this one to work correctly
     'depends': ['base', 'account', 'sale',],
-    'application': ['True'],
+    'application': True,
     'sequence': 4,
     'installable': True,
     'auto_install': False,

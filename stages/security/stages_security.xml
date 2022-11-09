@@ -23,17 +23,42 @@
         <record id="group_stages_manager" model="res.groups">
             <field name="name">Chef Service Stages</field>
             <field name="category_id" ref="stages.module_category_enset_stages"/>
-            <field name="implied_ids" eval="[(4, ref('stages.group_stages_user'))]"/>
+<!--            <field name="implied_ids" eval="[(4, ref('stages.group_stages_user'))]"/>-->
+             <field name="implied_ids" eval="[(6, 0, [ref('stages.group_stages_user'), ref('base.group_private_addresses'), ref('base.group_user')])]"/>
         </record>
 
         <record id="group_stages_admin" model="res.groups">
             <field name="name">Administrateur Stages</field>
             <field name="category_id" ref="stages.module_category_enset_stages"/>
             <field name="implied_ids" eval="[(4, ref('group_stages_manager'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+         <!-- Recordes Rules for the Stages module -->
+        <record id="rule_group_stages_user" model="ir.rule">
+            <field name="name"> Règle pour afficher seulement les engrigistement creé par l'utilisateur</field>
+            <field ref="model_stages_candidature_perfectionnement" name="model_id"/>
+            <field name="domain_force">[('create_uid', '=',user.id )]</field>
+            <!-- You can attach this rule to a specific group, Or make it Global -->
+            <field name="groups" eval="[(4, ref('stages.group_stages_user'))]"/>
+            <!--<field name="global" eval="1"/> -->
+        </record>
+        <record id="rule_group_stages_admin_manger" model="ir.rule">
+            <field name="name"> Règle pour afficher toutes les engrigistement</field>
+            <field ref="model_stages_candidature_perfectionnement" name="model_id"/>
+            <field name="domain_force">[(1, '=',1 )]</field>
+            <!-- You can attach this rule to a specific group, Or make it Global -->
+            <field name="groups" eval="[(4, ref('stages.group_stages_manager')),(4, ref('stages.group_stages_admin'))]"/>
+            <!--<field name="global" eval="1"/> -->
         </record>
 
     </data>
 </odoo>
+
+
+
+
+
 
 
 

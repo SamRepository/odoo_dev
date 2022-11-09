@@ -24,7 +24,7 @@ class StagesCandidature(models.Model):
                     if rec.date_retour > rec.date_depart:
                         rec.duree = (rec.date_retour - rec.date_depart).days
                     else:
-                        raise UserError('La date de retour doit être supérieure à la date de départ')
+                        raise UserError(_('La date de retour doit être supérieure à la date de départ'))
 
     @api.depends('partner_id')
     def set_pays(self):
@@ -32,19 +32,18 @@ class StagesCandidature(models.Model):
             if rec.partner_id:
                 rec.pays = rec.partner_id.country_id.name
             else:
-                rec.pays = "Pays non défini"
+                rec.pays = _("Pays non défini")
 
     @api.depends('type_stage_id', 'zone', 'duree')
     def set_montant(self):
         for rec in self:
             if rec.type_stage_id:
                 obj = self.env['stages.type_stage.indemnite'].search(
-                [('type_stage_id', '=', rec.type_stage_id.name), ('zone_id.name', '=', rec.zone),
-                 ('nombre_jour', '=', rec.duree)])
+                    [('type_stage_id', '=', rec.type_stage_id.name), ('zone_id.name', '=', rec.zone),
+                     ('nombre_jour', '=', rec.duree)])
                 rec.montant = obj.montant
             else:
-                rec.montant = "Montant non ecnore calculé"
-
+                rec.montant = _("Montant non ecnore calculé")
 
     def action_confirm(self):
         for rec in self:
@@ -94,16 +93,18 @@ class StagesCandidature(models.Model):
     duree = fields.Integer(string="Durée", compute='set_durre', store=True, )
     cause_chg_period = fields.Char(string="Cause changement période", track_visibility='always', )
     cause_chg_invisible = fields.Boolean(string="Visibility de Cause changement période", default=True, required=True, )
-    currency_id = fields.Many2one('res.currency',default=lambda self: self.env['res.currency'].search([('name', '=', 'DZD')]).id, readonly=True)
+    currency_id = fields.Many2one('res.currency',
+                                  default=lambda self: self.env['res.currency'].search([('name', '=', 'DZD')]).id,
+                                  readonly=True)
     # currency_id = fields.Many2one('res.currency', string='Currency', default=_default_country_id, readonly=True)
     montant = fields.Float(string="Montant", compute="set_montant", )
-    objectifs_stage = fields.Html(string="Objectifs du stage", default="Entrer les objectifs du stage..." , )
+    objectifs_stage = fields.Html(string="Objectifs du stage", default="Entrer les objectifs du stage...", )
     methodologie = fields.Html(string="Méthodologie", default="Entrer votre methodologie...", )
-    impacts_attendus = fields.Html(string="Impacts attendus", default="Entrer les impacts attendus..." )
+    impacts_attendus = fields.Html(string="Impacts attendus", default="Entrer les impacts attendus...")
     engagement = fields.Boolean(string="Engagement", )
     active = fields.Boolean(string="Active", default=True)
-    is_favorite = fields.Boolean(string="Favori", default=False  )
-    priority = fields.Selection([('0', 'Normal'),('1', 'Favorite'),], default='0', string="Favorite")
+    is_favorite = fields.Boolean(string="Favori", default=False)
+    priority = fields.Selection([('0', 'Normal'), ('1', 'Favorite'), ], default='0', string="Favorite")
 
 
 class StagesCandidaturePerfectionnement(models.Model):
@@ -124,9 +125,10 @@ class StagesCandidaturePerfectionnement(models.Model):
                                        selection=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'),
                                                   ('6', '6'), ('+', 'plus de 6'), ], required=False, )
     type_inscription = fields.Selection(string="Type d'inscription",
-                                       selection=[('ordinaire', 'Ordinaire / عادية'),
-                                                  ('cotutelle ', 'Cotutelle / إشراف مشترك'),
-                                                  ('coenadrement', 'Coenadrement / تأطير مشترك'), ], required=False, )
+                                        selection=[('ordinaire', 'Ordinaire / عادية'),
+                                                   ('cotutelle ', 'Cotutelle / إشراف مشترك'),
+                                                   ('coenadrement', 'Coenadrement / تأطير مشترك'), ], required=False, )
+
 
 class StagesCandidatureManifestation(models.Model):
     _name = 'stages.candidature.manifestation'

@@ -1,0 +1,1686 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stages
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-17 12:53+0000\n"
+"PO-Revision-Date: 2022-09-17 12:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_manifestation__nature__intervention
+msgid " Intervention - مداخلة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_hr_employee__nom_prenom_ar
+msgid " Nom et prénom -  بالحروف العربية "
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_details_display
+msgid "<b>Conditions Stage:</b>"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_details_display
+msgid "<b>Grades Concernés:</b>"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_chg_period_view_form
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid ""
+"<i class=\"fa fa-long-arrow-right mx-2\" aria-label=\"Arrow icon\" "
+"title=\"Arrow\"/>"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_needaction
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_needaction
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_needaction
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__active
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__active
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__active
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__active
+msgid "Active"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__activity_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__activity_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__activity_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__activity_exception_decoration
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__activity_exception_decoration
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__activity_exception_decoration
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__activity_state
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__activity_state
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__activity_state
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__activity_type_icon
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__activity_type_icon
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__activity_type_icon
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: stages
+#: model:res.groups,name:stages.group_stages_admin
+msgid "Administrateur Stages"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.view_country_state_search
+msgid "Algérie"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Annuler"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature__state__cancel
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_manifestation__state__cancel
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__state__cancel
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_sejour__state__cancel
+msgid "Annulée"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__annee
+msgid "Année Fiscal - السنة المالية"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Archived"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Archiver"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_search
+msgid "Archivés"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__articles
+msgid "Articles - الحسابات"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_frais_stages__type__assurance
+msgid "Assurance"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_attachment_count
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_attachment_count
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_attachment_count
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_manifestation__nature__autre
+msgid "Autre - شيء اخر"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_action_res_bank_form
+msgid "Banques"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature__state__draft
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_manifestation__state__draft
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__state__draft
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_sejour__state__draft
+msgid "Brouillon"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__budget_max
+msgid "Budget Exercice - الميزانية"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__budget_suppl
+msgid "Budget Suplimentaire - الميزانية الاضافية"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_account_budget
+msgid "Budgets"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_chg_period_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__candidature_manif_id
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__candidature_perfec_id
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__candidature_sejour_id
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__candidature_manif_id
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__candidature_perfec_id
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__candidature_sejour_id
+msgid "Candidature Stage - طلب الترشح"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.stages_cadidature
+msgid "Candidatures"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_stages_candidature
+msgid "Candidatures Stages - طلبات الترشح للتكوين"
+msgstr ""
+
+#. module: stages
+#: model:ir.module.category,description:stages.module_category_enset
+msgid "Catégorie mére pour le Apps ENSET"
+msgstr ""
+
+#. module: stages
+#: model:ir.module.category,description:stages.module_category_enset_stages
+msgid "Catégorie pour le module Stages ENSET"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_grade__categories
+msgid "Catégories"
+msgstr ""
+
+#. module: stages
+#: model:website.menu,name:stages.menu_stages_type_stages
+msgid "Catégories Stages"
+msgstr ""
+
+#. module: stages
+#: model:ir.actions.act_window,name:stages.action_session_type_stage
+#: model:ir.model,name:stages.model_stages_type_stage
+msgid "Catégories Stages - انواع التربصات"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_event_type
+msgid "Catégories d'événements"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__cause_chg_period
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_chg_period__cause_chg_period
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__cause_chg_period
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__cause_chg_period
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__cause_chg_period
+msgid "Cause changement période"
+msgstr ""
+
+#. module: stages
+#: model:ir.actions.act_window,name:stages.action_candidature_perfectionnement_chg_period
+#: model:ir.model,name:stages.model_stages_candidature_chg_period
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_chg_period_view_form
+msgid "Changer Période Candidature"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Changer période"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__chapitre
+msgid "Chapitre - الفصل"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.report_departement_list
+msgid "Chef Dpte"
+msgstr ""
+
+#. module: stages
+#: model:res.groups,name:stages.group_stages_manager
+msgid "Chef Service Stages"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__civilite
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__civilite
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__civilite
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__civilite
+msgid "Civilite"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_hr_employee__civilite
+msgid "Civilité - الهوية"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_partner_title_contact
+msgid "Civilités"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__type_inscription__coenadrement
+msgid "Coenadrement / تأطير مشترك"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_commune_staction_country_stateate_partner
+msgid "Communes"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_account_compta
+msgid "Comptabilité"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_action_res_partner_bank_form
+msgid "Comptes"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_config_bank_accounts
+msgid "Comptes bancaires"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage__conditions
+msgid "Conditions stage - شروط التربص "
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.stages_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_chg_period_view_form
+msgid "Confirm"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Confirmer"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature__state__confirm
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_manifestation__state__confirm
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__state__confirm
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_sejour__state__confirm
+msgid "Confirmée"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_stages_conseil
+#: model:ir.model.fields,field_description:stages.field_stages_conseil_members__conseil_id
+msgid "Conseil Scientifique - المجلس العلمي"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_res_partner
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__contact
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__contact
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__contact
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__contact
+msgid "Contact"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_partner_contact
+msgid "Contacts"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_grade__corps
+msgid "Corps"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__type_inscription__cotutelle_
+msgid "Cotutelle / إشراف مشترك"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_res_country_group
+msgid "Country Group"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_chg_period__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_conseil__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_conseil_members__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_frais_stages__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_grade__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage__create_uid
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_chg_period__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_conseil__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_conseil_members__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_frais_stages__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_grade__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage__create_date
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.actions.act_window,help:stages.action_departement
+msgid "Créez votre premier département !"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.actions.act_window,help:stages.action_enseignant
+msgid "Créez votre premier enseignant !"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.actions.act_window,help:stages.action_session_grades
+msgid "Créez votre premier grade scientifique !"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.actions.act_window,help:stages.action_organisme
+msgid "Créez votre premier organisme !"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.actions.act_window,help:stages.action_candidature_sejour
+msgid "Créez votre premier sejour scientifique !"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.actions.act_window,help:stages.action_candidature_perfectionnement
+msgid "Créez votre premier stage de perfectionnement !"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.actions.act_window,help:stages.action_candidature_manifestation
+msgid "Créez votre premiere manifestation scientifique !"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.actions.act_window,help:stages.action_session_type_stage
+msgid "Créez votre première catégorie de stage !"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.actions.act_window,help:stages.action_session_indemnite_stage
+msgid "Créez votre première indemnite stage !"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__currency_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__currency_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__currency_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__date_1er_inscription
+msgid "Date 1ère inscription"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__date_depart
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_chg_period__date_depart
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__date_depart
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__date_depart
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__date_depart
+msgid "Date de départ"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_hr_employee__date_recru
+msgid "Date de recrutement - تاريخ التوظيف"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__date_retour
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_chg_period__date_retour
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__date_retour
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__date_retour
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__date_retour
+msgid "Date de retour "
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__dernier_stage
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__dernier_stage
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__dernier_stage
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__dernier_stage
+msgid "Date dernier Stage"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_conseil__date_pv
+msgid "Date du Conseil - تاريخ الانعقاد"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_chg_period_view_form
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Date départ / retour"
+msgstr ""
+
+#. module: stages
+#: model:ir.actions.report,name:stages.report_departement_list_declaration
+msgid "Departements List"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_hr_department
+#: model_terms:ir.ui.view,arch_db:stages.stages_portal_layout_add_details
+msgid "Department"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__diplome_prepare
+msgid "Diplôme préparé"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_event_event__display_name
+#: model:ir.model.fields,field_description:stages.field_hr_department__display_name
+#: model:ir.model.fields,field_description:stages.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:stages.field_res_country_group__display_name
+#: model:ir.model.fields,field_description:stages.field_res_partner__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_chg_period__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_conseil__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_conseil_members__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_frais_stages__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_grade__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage__display_name
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__diplome_prepare__doctorat
+msgid "Doctorat / دكتورا"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__doc_depart_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__doc_depart_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__doc_depart_ids
+msgid "Documents de Départ"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_stages_docs_depart
+msgid "Documents de Départ - وثائق الذهاب"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__doc_retour_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__doc_retour_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__doc_retour_ids
+msgid "Documents de Retour"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_stages_docs_retour
+msgid "Documents de Retour - وثائق الرجوع"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Documents de départ"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Documents de retour"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__duree
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__duree
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__duree
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__duree
+msgid "Durée"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__department_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__department_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__department_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__department_id
+msgid "Département"
+msgstr ""
+
+#. module: stages
+#: model:ir.actions.act_window,name:stages.action_departement
+#: model:ir.ui.menu,name:stages.stages_departement
+msgid "Départements"
+msgstr ""
+
+#. module: stages
+#: model:ir.module.category,name:stages.module_category_enset
+msgid "ENSET"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__work_email
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__work_email
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__work_email
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__work_email
+msgid "Email"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__nom_prenom_ar
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__nom_prenom_ar
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__nom_prenom_ar
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__nom_prenom_ar
+msgid "En lettre arabe"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__engagement
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__engagement
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__engagement
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__engagement
+msgid "Engagement"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__employee_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__employee_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__employee_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__employee_id
+msgid "Enseignant"
+msgstr ""
+
+#. module: stages
+#: model:ir.actions.act_window,name:stages.action_enseignant
+#: model:ir.ui.menu,name:stages.stages_enseignant
+msgid "Enseignants"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__state
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__state
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__state
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__state
+msgid "Etat Candidature"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_event_event
+msgid "Event"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_stages_exercice
+msgid "Exercice Fiscal - السنة المالية"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__is_favorite
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__is_favorite
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__is_favorite
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__is_favorite
+msgid "Favori"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__priority
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__priority
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__priority
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__priority
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature__priority__1
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_manifestation__priority__1
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__priority__1
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_sejour__priority__1
+msgid "Favorite"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_search
+msgid "Favorites"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_follower_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_follower_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_follower_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_channel_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_channel_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_channel_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_partner_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_partner_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_partner_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,help:stages.field_stages_candidature__activity_type_icon
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__activity_type_icon
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__activity_type_icon
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_stages_frais_stages
+msgid "Frais Stage - تكاليف الترص"
+msgstr ""
+
+#. module: stages
+#: model:res.groups,name:stages.group_stages_user
+msgid "Gestionnaire Stages"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_portal_layout_add_details
+msgid "Grade"
+msgstr ""
+
+#. module: stages
+#: model:ir.actions.act_window,name:stages.action_session_grades
+#: model:ir.model,name:stages.model_stages_grade
+msgid "Grade Scientifique - الرتب العلمية"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_res_partner__grade_acc
+#: model:ir.model.fields,field_description:stages.field_res_users__grade_acc
+msgid "Grade accueillant - الرتبة العلمية للمستقبل"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__grade_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__grade_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__grade_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__grade_id
+msgid "Grade scientifique"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_hr_employee__grade_id
+msgid "Grade scientifique - الرتبة العلمية"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_session_grade
+msgid "Grades"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage__grades_ids
+msgid "Grades Concernés - الرتب العلمية المعنية"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.type_stage_indemnite_search
+#: model_terms:ir.ui.view,arch_db:stages.view_country_state_search
+msgid "Group By"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_event_event__id
+#: model:ir.model.fields,field_description:stages.field_hr_department__id
+#: model:ir.model.fields,field_description:stages.field_hr_employee__id
+#: model:ir.model.fields,field_description:stages.field_res_country_group__id
+#: model:ir.model.fields,field_description:stages.field_res_partner__id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_chg_period__id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__id
+#: model:ir.model.fields,field_description:stages.field_stages_conseil__id
+#: model:ir.model.fields,field_description:stages.field_stages_conseil_members__id
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__id
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__id
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__id
+#: model:ir.model.fields,field_description:stages.field_stages_frais_stages__id
+#: model:ir.model.fields,field_description:stages.field_stages_grade__id
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage__id
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__id
+msgid "ID"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__activity_exception_icon
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__activity_exception_icon
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__activity_exception_icon
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,help:stages.field_stages_candidature__activity_exception_icon
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__activity_exception_icon
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__activity_exception_icon
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_enseignant_view_form
+msgid "Identification"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,help:stages.field_stages_candidature__message_needaction
+#: model:ir.model.fields,help:stages.field_stages_candidature__message_unread
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__message_needaction
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__message_unread
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__message_needaction
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__message_unread
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__message_needaction
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,help:stages.field_stages_candidature__message_has_error
+#: model:ir.model.fields,help:stages.field_stages_candidature__message_has_sms_error
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__message_has_error
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__message_has_sms_error
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__message_has_error
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__message_has_sms_error
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__message_has_error
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__impacts_attendus
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__impacts_attendus
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__impacts_attendus
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__impacts_attendus
+#: model:ir.model.fields.selection,name:stages.selection__stages_docs_depart__type__impacts
+msgid "Impacts attendus"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.type_stage_indemnite_search
+msgid "Indemnite Stage par zone"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_stages_type_stage_indemnite
+msgid "Indemnite Stage par zone - علاوات التربص حسب المنطقة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage__indemnite_stage_ids
+msgid "Indemnite Stage par zone- علاوات لتربص حسب المنطقة"
+msgstr ""
+
+#. module: stages
+#: model:ir.actions.act_window,name:stages.action_session_indemnite_stage
+msgid "Indemnite stage par zone et type - علاوات التربص حسب المنطقة و النوع"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_session_indemnite_stage
+msgid "Indemnite stages"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_grade__indice_min
+msgid "Indice minimal"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Information sur le stage / معلومات حول التربص"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Informations Professionnelles / معلومات مهنية"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_frais_stages__type__inscription
+msgid "Inscription"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_frais_stages__name
+msgid "Intitulé - إسم التكلفة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__name
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__name
+msgid "Intitulé - إسم الوثيقة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__intitule_manifestation
+msgid "Intitulé de la Manifestation"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__intitule_these
+msgid "Intitulé de la thèse"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_grade__name
+msgid "Intitulé grade"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage__name
+msgid "Intitulé stage - إسم التربص"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_is_follower
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_is_follower
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_is_follower
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid ""
+"Je m’engage à : <br> </br>\n"
+"                                1.Effectuer le stage conformément au projet de travail avec l’obligation de ma présence\n"
+"                                au sein de l’organisme d’accueil,<br> </br>\n"
+"                                2.Ramener le rapport de stage signé par l’intéressé (et visé par l’organisme d’accueil,\n"
+"                                et par l’encadreur),<br> </br>\n"
+"                                3.Respecter les dates de départ et de retour mentionnées dans l’attestation de\n"
+"                                l’allocation du stage,<br> </br>\n"
+"                                4.Faire un exposé devant le CSD après mon retour."
+msgstr ""
+
+#. module: stages
+#: code:addons/stages/models/stages_candidature.py:0
+#, python-format
+msgid "La date de retour doit être supérieure à la date de départ"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__lab_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__lab_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__lab_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__lab_id
+msgid "Laboratoire"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_hr_employee__lab_id
+msgid "Laboratoire - المخبر"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_event_event____last_update
+#: model:ir.model.fields,field_description:stages.field_hr_department____last_update
+#: model:ir.model.fields,field_description:stages.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:stages.field_res_country_group____last_update
+#: model:ir.model.fields,field_description:stages.field_res_partner____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_candidature____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_chg_period____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_conseil____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_conseil_members____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_exercice____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_frais_stages____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_grade____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage____last_update
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_chg_period__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_conseil__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_conseil_members__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_frais_stages__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_grade__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage__write_uid
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_chg_period__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_conseil__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_conseil_members__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_frais_stages__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_grade__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage__write_date
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__lien_web
+msgid "Lien web"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.report_departement_list
+msgid "List des Departements"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_localisation
+msgid "Localisation"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_main_attachment_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_main_attachment_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_main_attachment_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_stages_cadidature_manifestation
+#: model_terms:ir.ui.view,arch_db:stages.type_stage_indemnite_search
+msgid "Manifestation Scientifique"
+msgstr ""
+
+#. module: stages
+#: model:ir.actions.act_window,name:stages.action_candidature_manifestation
+#: model:ir.model,name:stages.model_stages_candidature_manifestation
+msgid "Manifestation Scientifique - تظاهرة علمية بالخارج"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__diplome_prepare__master
+msgid "Master / ماستر"
+msgstr ""
+
+#. module: stages
+#: model:ir.model,name:stages.model_stages_conseil_members
+#: model:ir.model.fields,field_description:stages.field_stages_conseil__memeber_ids
+msgid "Members - اعضاء المجلس"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_conseil_members__member_id
+msgid "Membre -  العضو"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_has_error
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_has_error
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_has_error
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__montant
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__montant
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__montant
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__montant
+msgid "Montant"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__montant
+msgid "Montant - القيمة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_frais_stages__montant
+msgid "Montant - قيمة التكلفة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__montant_lettre_ar
+msgid "Montant lettre ar - بالعربية"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__montant_lettre_fr
+msgid "Montant lettre fr - بالفرنسية"
+msgstr ""
+
+#. module: stages
+#: code:addons/stages/models/stages_candidature.py:0
+#, python-format
+msgid "Montant non ecnore calculé"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__my_activity_date_deadline
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__my_activity_date_deadline
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__my_activity_date_deadline
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__methodologie
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__methodologie
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__methodologie
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__methodologie
+#: model:ir.model.fields.selection,name:stages.selection__stages_docs_depart__type__methodologie
+msgid "Méthodologie"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__nature
+msgid "Nature"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__nbr_inscription
+msgid "Nbr d'inscription"
+msgstr ""
+
+#. module: stages
+#: code:addons/stages/models/stages_candidature.py:0
+#: code:addons/stages/models/stages_candidature.py:0
+#: code:addons/stages/models/stages_candidature.py:0
+#: code:addons/stages/models/stages_candidature.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__activity_date_deadline
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__activity_date_deadline
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__activity_date_deadline
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__activity_summary
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__activity_summary
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__activity_summary
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__activity_type_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__activity_type_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__activity_type_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.report_departement_list
+msgid "Nom Dpte"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.type_stage_indemnite_search
+msgid "Nombre Jour"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__nombre_jour
+msgid "Nombre de jour - عدد الايام"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature__priority__0
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_manifestation__priority__0
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__priority__0
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_sejour__priority__0
+msgid "Normal"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_hr_employee__num_pers
+msgid "Num Personel - الرقم التعريفي"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_needaction_counter
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_needaction_counter
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_needaction_counter
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_has_error_counter
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_has_error_counter
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_has_error_counter
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,help:stages.field_stages_candidature__message_needaction_counter
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__message_needaction_counter
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__message_needaction_counter
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,help:stages.field_stages_candidature__message_has_error_counter
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__message_has_error_counter
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__message_has_error_counter
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,help:stages.field_stages_candidature__message_unread_counter
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__message_unread_counter
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__message_unread_counter
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__objectifs_stage
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__objectifs_stage
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__objectifs_stage
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__objectifs_stage
+#: model:ir.model.fields.selection,name:stages.selection__stages_docs_depart__type__objectifs
+msgid "Objectifs du stage"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__type_inscription__ordinaire
+msgid "Ordinaire / عادية"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_docs_retour__type__ordre
+msgid "Ordre de mission visé"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_tree
+msgid "Organisme"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Organisme d'Accueil / معلومات الهيئة المستقبلة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__partner_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__partner_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__partner_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__partner_id
+msgid "Organisme d'accueil"
+msgstr ""
+
+#. module: stages
+#: model:ir.actions.act_window,name:stages.action_organisme
+#: model:ir.ui.menu,name:stages.stages_organisme
+msgid "Organismes"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__pays
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__pays
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__pays
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__pays
+#: model:ir.ui.menu,name:stages.menu_country_partner
+#: model_terms:ir.ui.view,arch_db:stages.view_country_state_search
+msgid "Pays"
+msgstr ""
+
+#. module: stages
+#: code:addons/stages/models/stages_candidature.py:0
+#, python-format
+msgid "Pays non défini"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_frais_stages__piece_joint
+msgid "Piece joint - الوثيقة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__piece_joint
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__piece_joint
+msgid "Piece joint - ملحقة الوثيقة"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_enseignant_view_form
+msgid "Position Scientifique"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_account_budget_positions
+msgid "Positions budgétaires"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_manifestation__nature__poster
+msgid "Poster - ملصقة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_docs_depart__type__projet
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Projet de travail"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Projet de travail / مشروع العمل"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_manifestation__nature__orale
+msgid "Présentation orale - شفوية مداخلة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_conseil__president_id
+msgid "Président - رئيس المجلس"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_docs_retour__type__rapport
+msgid "Rapport de stage visé"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_search
+msgid "Rechercher Candidatures Perfectionnement"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Remettre en brouillon"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__activity_user_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__activity_user_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__activity_user_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature__state__done
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_manifestation__state__done
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__state__done
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_sejour__state__done
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Réalisée"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__name
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__name
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__name
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__name
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "Référence"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_conseil__name
+msgid "Référence - المرجع"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_docs_retour__type__resultat_
+msgid "Résultats Scientifiques"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_has_sms_error
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_has_sms_error
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_has_sms_error
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.res_partner_industry_menu
+msgid "Secteurs d'activité"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_conseil__session_id
+msgid "Session - االفترة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__session_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__session_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__session_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__session_id
+msgid "Session stage"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.stages_session
+msgid "Sessions"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_event_session
+msgid "Sessions stage"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__speciality
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__speciality
+msgid "Spéciality"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_session_stage
+#: model:ir.ui.menu,name:stages.stages_root
+#: model:website.menu,name:stages.menu_stages_main
+msgid "Stages"
+msgstr ""
+
+#. module: stages
+#: model:ir.module.category,name:stages.module_category_enset_stages
+msgid "Stages Category"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_stages_cadidature_perfectionnement
+#: model_terms:ir.ui.view,arch_db:stages.type_stage_indemnite_search
+msgid "Stages Perfectionnement"
+msgstr ""
+
+#. module: stages
+#: model:ir.actions.act_window,name:stages.action_candidature_perfectionnement
+#: model:ir.model,name:stages.model_stages_candidature_perfectionnement
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_tree
+msgid "Stages Perfectionnement - تربص تحسين المستوى بالخارج"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,help:stages.field_stages_candidature__activity_state
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__activity_state
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__activity_state
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_stages_cadidature_sejour
+#: model_terms:ir.ui.view,arch_db:stages.type_stage_indemnite_search
+msgid "Séjour scientifique de haut niveau"
+msgstr ""
+
+#. module: stages
+#: model:ir.actions.act_window,name:stages.action_candidature_sejour
+#: model:ir.model,name:stages.model_stages_candidature_sejour
+msgid "Séjour scientifique de haut niveau - إقامة علمية رفيعة المستوى بالخارج"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_exercice__texte_reglmtr
+msgid "Textes Réglementaires - النصوص التنظيمية"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_tree
+msgid "Totale des montants"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_frais_stages__type__transport
+msgid "Transport"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_frais_stages__type
+msgid "Type - نوع التكلفة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_docs_depart__type
+#: model:ir.model.fields,field_description:stages.field_stages_docs_retour__type
+msgid "Type - نوع الوثيقة"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__type_stage_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__type_stage_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__type_stage_id
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__type_stage_id
+#: model_terms:ir.ui.view,arch_db:stages.type_stage_indemnite_search
+msgid "Type Stage"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__type_stage_id
+msgid "Type Stage - نوع التربص"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__type_inscription
+msgid "Type d'inscription"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_session_type_stage
+msgid "Type de stages"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,help:stages.field_stages_candidature__activity_exception_decoration
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__activity_exception_decoration
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__activity_exception_decoration
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_unread
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_unread
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_unread
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__message_unread_counter
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__message_unread_counter
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__message_unread_counter
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_frais_stages__type__visa
+msgid "Visa"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__cause_chg_invisible
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__cause_chg_invisible
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__cause_chg_invisible
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__cause_chg_invisible
+msgid "Visibility de Cause changement période"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__website_message_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__website_message_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__website_message_ids
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,help:stages.field_stages_candidature__website_message_ids
+#: model:ir.model.fields,help:stages.field_stages_candidature_manifestation__website_message_ids
+#: model:ir.model.fields,help:stages.field_stages_candidature_perfectionnement__website_message_ids
+#: model:ir.model.fields,help:stages.field_stages_candidature_sejour__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_country_staction_country_stateate_partner
+msgid "Wilayas"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.view_country_state_search
+msgid "Wilayas et États Fédéraux"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_candidature__zone
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_manifestation__zone
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_perfectionnement__zone
+#: model:ir.model.fields,field_description:stages.field_stages_candidature_sejour__zone
+#: model_terms:ir.ui.view,arch_db:stages.type_stage_indemnite_search
+msgid "Zone"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields,field_description:stages.field_stages_type_stage_indemnite__zone_id
+msgid "Zone - المناطق"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_country_group
+msgid "Zones"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_form
+msgid "e.g. Cheese Burger"
+msgstr ""
+
+#. module: stages
+#: model:ir.model.fields.selection,name:stages.selection__stages_candidature_perfectionnement__nbr_inscription__+
+msgid "plus de 6"
+msgstr ""
+
+#. module: stages
+#: model_terms:ir.ui.view,arch_db:stages.stages_candidature_perfectionnement_view_tree
+msgid "État"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_partner_category_form
+msgid "Étiquettes"
+msgstr ""
+
+#. module: stages
+#: model:ir.ui.menu,name:stages.menu_session_event
+msgid "Événements"
+msgstr ""

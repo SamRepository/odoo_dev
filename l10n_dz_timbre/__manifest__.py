@@ -18,7 +18,7 @@
     'category': 'Accounting',
     # any module necessary for this one to work correctly
     'depends': ['sale','account','purchase', 'base'],
-    'application': ['True'],
+    'application': True,
     'sequence': 5,
     'installable': True,
     'auto_install': False,

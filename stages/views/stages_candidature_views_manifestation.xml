@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Tree view for the stages.candidatures_manifestation_scientifique-->
+    <record id="stages_candidature_manifestation_view_tree" model="ir.ui.view">
+        <field name="name">stages_candidature_manifestation_tree</field>
+        <field name="model">stages.candidature.manifestation</field>
+        <field name="arch" type="xml">
+            <tree string=" Manifestation Scientifique - تظاهرة علمية بالخارج">
+                <field name="name"/>
+                <field name="employee_id" widget="many2one_avatar_employee"/>
+                <field name="session_id"/>
+                <field name="dernier_stage" optional="hide"/>
+                <field name="date_depart"/>
+                <field name="date_retour"/>
+                <field name="duree"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="partner_id" string="Organisme" widget="many2one_avatar"/>
+                <field name="pays" optional="show"/>
+                <field name="zone" optional="hide"/>
+                <field name="type_stage_id" invisible="1"/>
+                <field name="activity_ids" widget="list_activity"/>
+                <field name="montant" sum="Totale des montants" decoration-bf="1" widget="monetary" optional="show"/>
+                <field name="state" string="État"
+                       decoration-warning="state == 'draft'"
+                       decoration-success="state == 'confirm'"
+                       decoration-muted="state == 'chg_period'"
+                       decoration-danger="state == 'cancel'"
+                       decoration-info="state == 'done'" widget="badge"/>
+                <field name="active" widget="boolean_toggle" optional="show"/>
+                <field name="speciality" optional="hide"/>
+                <field name="intitule_manifestation" optional="hide"/>
+                <field name="nature" optional="hide"/>
+                <field name="lien_web" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+    <!--Search view for the stages.candidatures_séjour_scientifique-->
+    <record id="stages_candidature_manifestation_view_search" model="ir.ui.view">
+        <field name="name">stages_candidature_manifestation_search</field>
+        <field name="model">stages.candidature.manifestation</field>
+        <field name="arch" type="xml">
+            <search string="Rechercher Candidatures Manifestation Scientifique">
+                <separator/>
+                <filter string="Archivés" name="inactives" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Favorites" name="favorites" domain="[('priority','=','1')]"/>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+    <!--From view for the stages.candidatures_manifestation-->
+    <record id="stages_candidature_manifestation_view_form" model="ir.ui.view">
+        <field name="name">stages_candidature_manifestation_from</field>
+        <field name="model">stages.candidature.manifestation</field>
+        <field name="arch" type="xml">
+            <form string="Manifestation Scientifique - تظاهرة علمية بالخارج">
+                <header>
+                    <button name="action_confirm" string="Confirmer" class="oe_highlight" states="draft" type="object"/>
+                    <button name="action_draft" states="cancel,done" type="object" string="Remettre en brouillon"
+                            attrs="{'invisible': [('state','!=', 'confirm')]}"/>
+                    <!--Needs Wizard Modification or specific one-->
+                    <!--                    <button name="stages.action_candidature_perfectionnement_chg_period" type="action"-->
+                    <!--                            string="Changer période"-->
+                    <!--                            attrs="{'invisible': [('state','!=', 'confirm')]}"/>-->
+                    <button name="action_cancel" type="object" string="Annuler"
+                            attrs="{'invisible': [('state','!=', 'confirm')]}"/>
+                    <button name="action_done" type="object" string="Réalisée" class="oe_highlight"
+                            attrs="{'invisible': [('state','!=', 'confirm')]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <button name="toggle_active" string="Archiver" type="object" class="oe_stat_button"
+                                icon="fa-archive">
+                            <field name="active" widget="boolean_toggle"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Référence" readonly="1"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field name="priority" widget="priority" class="mr-3"/>
+                                <field class="o_text_overflow" name="name" placeholder="e.g. Cheese Burger"/>
+                            </div>
+                        </h1>
+                    </div>
+
+                    <div class="o_row">
+                        <h1>
+                            <field name="type_stage_id" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Informations Professionnelles / معلومات مهنية">
+                            <field name="active" invisible="1"/>
+                            <field name="employee_id" widget="many2one_avatar_employee"/>
+                            <field name="civilite"/>
+                            <field name="nom_prenom_ar"/>
+                            <field name="work_email" widget="email"/>
+                            <field name="grade_id"/>
+                            <field name="department_id"/>
+                            <field name="lab_id"/>
+                        </group>
+                        <group string="Organisme d'Accueil / معلومات الهيئة المستقبلة">
+                            <field name="session_id"/>
+                            <field name="partner_id" domain="[('is_company', '=', 'True')]" widget="many2one_avatar"/>
+                            <field name="pays"/>
+                            <field name="zone"/>
+                            <field name="contact"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Projet de travail / مشروع العمل">
+                            <field name="speciality"/>
+                            <field name="intitule_manifestation"/>
+                            <field name="nature"/>
+                            <field name="lien_web"/>
+                        </group>
+                        <group string="Information sur le séjour / معلومات حول التربص">
+                            <field name="dernier_stage"/>
+                            <label for="date_depart" string="Date départ / retour"/>
+                            <div class="o_row">
+                                <field name="date_depart" widget="daterange" nolabel="1" class="oe_inline"
+                                       options="{'related_end_date': 'date_retour'}"/>
+                                <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                                <field name="date_retour" widget="daterange" nolabel="1" class="oe_inline"
+                                       options="{'related_start_date': 'date_depart'}"/>
+                            </div>
+                            <!--                            <field name="date_depart"/>-->
+                            <!--                            <field name="date_retour"/>-->
+                            <field name="duree" readonly="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="montant" widget='monetary'/>
+                            <field name="cause_chg_invisible" invisible="1"/>
+                            <field name="cause_chg_period" widget='text' readonly="1"
+                                   attrs="{'invisible': [('cause_chg_invisible','=',True)]}"/>
+                            <!--                            <field name="cause_chg_period" invisible="context.get('hide_cause_chg_period')"/>-->
+                        </group>
+                    </group>
+                    <group col="1">
+                        <field name="engagement"/>
+                        <p>
+                            Je m’engage à :
+                            <br></br>
+                            1.Effectuer le séjour conformément au projet de travail avec l’obligation de ma présence
+                            au sein de l’organisme d’accueil,
+                            <br></br>
+                            2.Ramener le rapport de séjour signé par l’intéressé (et visé par l’organisme d’accueil,
+                            et par l’encadreur),
+                            <br></br>
+                            3.Respecter les dates de départ et de retour mentionnées dans l’attestation de
+                            l’allocation du séjour,
+                            <br></br>
+                            4.Faire un exposé devant le CSD après mon retour.
+                        </p>
+                    </group>
+                    <notebook>
+                        <page string="Projet de travail" name="projet_travail">
+                            <group>
+                                <field name="objectifs_stage" widget="pad"/>
+                                <field name="methodologie"/>
+                                <field name="impacts_attendus"/>
+                            </group>
+                        </page>
+                        <page string="Documents de départ" name="doc_depart">
+                            <field name="doc_depart_ids" widget="one2many">
+                                <tree editable="bottom">
+                                    <field name="type"/>
+                                    <field name="name"/>
+                                    <field name="piece_joint"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="type"/>
+                                        <field name="name"/>
+                                        <field name="piece_joint"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Documents de retour" name="doc_retour"
+                              attrs="{'invisible': [('state', 'in', ('draft','cancel'))]}">
+                            <field name="doc_retour_ids" widget="one2many">
+                                <tree editable="bottom">
+                                    <field name="type"/>
+                                    <field name="name"/>
+                                    <field name="piece_joint"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="type"/>
+                                        <field name="name"/>
+                                        <field name="piece_joint"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <!-- Chatter-->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>

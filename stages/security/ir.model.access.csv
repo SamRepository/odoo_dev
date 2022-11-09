@@ -32,4 +32,3 @@ access_stages_enseignant_user,access_stages_enseignant_user,model_hr_employee,st
 access_stages_enseignant_manager,access_stages_enseignant_manager,model_hr_employee,stages.group_stages_manager,1,1,1,1
 access_stages_departement_user,access_stages_departement_user,model_hr_department,stages.group_stages_user,1,0,0,0
 access_stages_departement_manager,access_stages_departement_manager,model_hr_department,stages.group_stages_manager,1,1,1,1
-

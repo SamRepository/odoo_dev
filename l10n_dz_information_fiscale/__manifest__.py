@@ -19,7 +19,7 @@ This module applies to companies based in Algeria.
     'category': 'Accounting',
     # any module necessary for this one to work correctly
     'depends': ['base','account',],
-    'application': ['True'],
+    'application': True,
     'sequence': 3,
     'installable': True,
     'auto_install': False,
