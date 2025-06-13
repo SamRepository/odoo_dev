@@ -27,7 +27,7 @@ Custom Odoo 16 add-on that digitises the entire lifecycle of final-year disserta
 
 | Login                                     | Landing Page                                    | Topic Validation                           | Dissertation Assignment                           |
 | ----------------------------------------- | ----------------------------------------------- | ------------------------------------------ | ------------------------------------------------- |
-| ![Login](UI_Figures/Login_My_Website.png) | ![Landing](UI_Figures/Website_Landing_page.png) | ![Validate](UI_Figures/VALIDATE_TOPIC.png) | ![Assign](UI_Figures/DISSERTATION_ASSIGNMENT.png) |
+| ![Login](UI_Figures/Login.png) | ![Landing](UI_Figures/Website_Landing_page.png) | ![Validate](UI_Figures/VALIDATE_TOPIC.png) | ![Assign](UI_Figures/DISSERTATION_ASSIGNMENT.png) |
 
 | Student Portal                            | Topic Selection                                  | Teacher Portal                            | Topic Submission Form                  |
 | ----------------------------------------- | ------------------------------------------------ | ----------------------------------------- | -------------------------------------- |
