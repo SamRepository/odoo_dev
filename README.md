@@ -146,5 +146,14 @@ This project is licensed under the **GNU LGPL v3.0** – see the [LICENSE](LICEN
 * Daniel Reis, *Odoo 15 Development Essentials*
 
 > *For academic citation, please refer to the dissertation “Design and Implementation of a Module under the Odoo Framework for Managing Final Year Projects at ENSET-Skikda”, 2025.*
+**Ms. Maghlaoui Ikram**  
+**Ms. Zakkad Nesrine**  
+**Ms. Rjem Wiem**
+
+&nbsp;
+
+**Supervised by&nbsp;&nbsp;&nbsp;Dr. SELLAMI Samir**  
+
+**Co-Supervisor&nbsp;&nbsp;&nbsp;Ms. TAIBI Sihem**
 
 <!-- TODO: Add project logo once available -->
