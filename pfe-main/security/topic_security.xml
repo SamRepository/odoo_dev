@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+      <record id="dissertation_rule_teacher_own_only" model="ir.rule">
+    <field name="name">Dissertation: Only Own Dissertations (Teacher)</field>
+    <field name="model_id" ref="model_pfe_dissertation"/>
+    <field name="domain_force">[('supervisor_id.user_id', '=', user.id)]</field>
+    <field name="groups" eval="[(4, ref('pfe.group_teacher'))]"/>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_write" eval="1"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+<!--        <record id="topic_rule_teacher_own_only" model="ir.rule">-->
+<!--    <field name="name">Topic: Only Own Topics (Teacher)</field>-->
+<!--    <field name="model_id" ref="model_pfe_topic"/>-->
+<!--    <field name="domain_force">[('teacher_id.user_id', '=', user.id)]</field>-->
+<!--    <field name="groups" eval="[(4, ref('pfe.group_teacher'))]"/>-->
+<!--    <field name="perm_read" eval="1"/>-->
+<!--    <field name="perm_write" eval="1"/>-->
+<!--    <field name="perm_create" eval="0"/>-->
+<!--    <field name="perm_unlink" eval="0"/>-->
+<!--</record>-->
+
+    </data>
+
+
+</odoo>

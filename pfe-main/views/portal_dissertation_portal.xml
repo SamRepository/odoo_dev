@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="portal_dissertation_list" name="Dissertation List">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">My Dissertations</t>
+            </t>
+
+            <t t-if="not dissertations">
+                <p>No dissertations available at the moment.</p>
+            </t>
+
+            <t t-if="dissertations" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Reference</th>
+                        <th>Title</th>
+                        <th>Group</th>
+                        <th class="text-right">Supervisor</th>
+                        <th class="text-right">Status</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <t t-foreach="dissertations" t-as="dissertation">
+                    <tr>
+                        <td>
+                            <a t-attf-href="/dissertation/detail/{{ dissertation.id }}">
+                                <t t-esc="dissertation.name"/>
+                            </a>
+                        </td>
+                        <td>
+                            <t t-esc="dissertation.title or 'Untitled'"/>
+                        </td>
+                        <td>
+                            <t t-esc="dissertation.group_id.name or 'Unassigned'"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="dissertation.supervisor_id.name or 'Unassigned'"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="dissertation.state"/>
+                        </td>
+                        <td class="text-right">
+                            <a t-attf-href="/dissertation/{{ dissertation.id }}/add_avancement"
+                               class="btn btn-sm btn-primary">
+                                Add Progress
+                            </a>
+                        </td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="dissertation_detail" name="Dissertation Details">
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert" groups="base.group_user">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=pfe.dissertation&amp;id=%s&amp;view_type=form' % (dissertation2.id)"/>
+                </t>
+            </t>
+
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <section style="background-color: #eee;">
+<!--                        <div class="container py-5"/>-->
+                        <div class="row">
+                            <div class="col">
+                                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item">
+                                            <a href="/my/home">Home</a>
+                                        </li>
+                                        <li class="breadcrumb-item">
+                                            <a href="/my/dissertations">My Dissertations</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            <t t-esc="dissertation2.title or 'Untitled'"/>
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!--                            <div class="col-lg-4">-->
+                            <!--                                <div class="card mb-4">-->
+                            <!--                                    <div class="card-body text-center">-->
+                            <!--                                        <t t-if="dissertation.supervisor_id.image_1920">-->
+                            <!--                                            <img t-attf-src="data:image/png;base64,{{dissertation.supervisor_id.image_1920}}"-->
+                            <!--                                                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"/>-->
+                            <!--                                        </t>-->
+                            <!--                                        <t t-else="">-->
+                            <!--                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"-->
+                            <!--                                                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"/>-->
+                            <!--                                        </t>-->
+                            <!--                                        <h5 class="my-3">-->
+                            <!--                                            <t t-esc="dissertation.supervisor_id.name or 'Unassigned'"/>-->
+                            <!--                                        </h5>-->
+                            <!--                                        <p class="text-muted mb-1">Supervisor</p>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+
+                            <div class="col-lg-8">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <p class="mb-0">Reference</p>
+                                            </div>
+                                            <div class="col-sm-8 text-muted">
+                                                <t t-esc="dissertation2.reference"/>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <p class="mb-0">Title</p>
+                                            </div>
+                                            <div class="col-sm-8 text-muted">
+                                                <t t-esc="dissertation2.title or 'Untitled'"/>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <p class="mb-0">Status</p>
+                                            </div>
+                                            <div class="col-sm-8 text-muted">
+                                                <t t-esc="dissertation2.state"/>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <p class="mb-0">Group Name</p>
+                                            </div>
+                                            <div class="col-sm-8 text-muted">
+                                                <t t-esc="dissertation2.group_id.name or 'Unassigned'"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-sm-4">
+                                                <p class="mb-0">Group Members</p>
+                                            </div>
+                                            <div class="col-sm-8 text-muted">
+                                                <ul class="mb-0">
+                                                    <t t-foreach="dissertation2.group_id.student_ids" t-as="student">
+                                                        <li>
+                                                            <t t-esc="student.name"/>
+                                                        </li>
+                                                    </t>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <p class="mb-0">Description</p>
+                                            </div>
+                                            <div class="col-sm-8 text-muted">
+                                                <div t-field="dissertation2.description"/>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <p class="mb-0">Tools</p>
+                                            </div>
+                                            <div class="col-sm-8 text-muted">
+                                                <div t-field="dissertation2.tools"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Attachments -->
+                                <t t-if="dissertation2.attachment_ids">
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-secondary text-white">
+                                            <h5 class="mb-0">Attachments</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-group">
+                                                <t t-foreach="dissertation2.attachment_ids" t-as="attach">
+                                                    <li class="list-group-item">
+                                                        <a t-attf-href="/web/content/{{ attach.id }}?download=true"
+                                                           target="_blank">
+                                                            <t t-esc="attach.name"/>
+                                                        </a>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <!-- Progress Section -->
+                                <t t-if="dissertation2.avancement_ids">
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-info text-white">
+                                            <h5 class="mb-0">Progress</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Title</th>
+                                                        <th>Date</th>
+                                                        <th>Progress (%)</th>
+                                                        <th>Stage</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <t t-foreach="dissertation2.avancement_ids" t-as="progress">
+                                                        <tr>
+                                                            <td>
+                                                                <t t-esc="progress.name"/>
+                                                            </td>
+                                                            <td>
+                                                                <t t-esc="progress.date"/>
+                                                            </td>
+                                                            <td><t t-esc="progress.progress_percent"/>%
+                                                            </td>
+                                                            <td>
+                                                                <t t-if="progress.stage == 'state_of_art_study'">State
+                                                                    of Art Study
+                                                                </t>
+                                                                <t t-if="progress.stage == 'data_collection'">Data
+                                                                    Collection
+                                                                </t>
+                                                                <t t-if="progress.stage == 'design'">Design</t>
+                                                                <t t-if="progress.stage == 'implementation'">
+                                                                    Implementation
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </section>
+                </t>
+
+                <!-- Message history (optional) -->
+                <div class="mt32">
+                    <h4>
+                        <strong>Message and Communication History</strong>
+                    </h4>
+                    <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="dissertation2"/>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

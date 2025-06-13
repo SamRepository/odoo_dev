@@ -1,0 +1,51 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_education_level_department_head,Access Education Level for Department Head,model_pfe_education_level,pfe.group_department_head,1,1,1,1
+access_specialization_department_head,Access Specialization for Department Head,model_pfe_specialization,pfe.group_department_head,1,1,1,1
+access_pfe_sgroupe_admin,Admin Access,model_pfe_sgroupe,base.group_system,1,1,1,1
+access_pfe_sgroupe_department_head,Department Head Access,model_pfe_sgroupe,pfe.group_department_head,1,1,1,1
+access_pfe_sgroupe_student,Student Access,model_pfe_sgroupe,pfe.group_student,1,0,0,0
+access_topic_department_head,Access Topic for Department Head,model_pfe_topic,pfe.group_department_head,1,1,1,1
+access_topic_teacher,Access Topic for Teacher,model_pfe_topic,pfe.group_teacher,1,0,1,0
+access_topic_committee,Access Topic for Committee,model_pfe_topic,pfe.group_committee_scientifique,1,1,1,1
+access_dissertation_committee,Access Dissertation for Committee,model_pfe_dissertation,pfe.group_committee_scientifique,1,1,1,1
+access_dissertation_department_head,Access Dissertation for Department Head,model_pfe_dissertation,pfe.group_department_head,1,0,0,0
+access_dissertation_avancement_teacher,Access Dissertation Progress for Teacher,model_pfe_dissertation_avancement,pfe.group_teacher,1,1,1,1
+access_dissertation_teacher,Access Dissertation for Teacher,model_pfe_dissertation,pfe.group_teacher,1,1,1,1
+access_dissertation_avancement_department_head,Access Dissertation Progress for Department Head,model_pfe_dissertation_avancement,pfe.group_department_head,1,0,0,0
+dissertation_read_rule_student,Student: Read Validated Dissertations,model_pfe_dissertation,pfe.group_student,1,0,0,0
+student_group_read_own,Student: Read Own Group,model_pfe_sgroupe,pfe.group_student,1,0,0,0
+student_group_write_leader_only,Student Group: Leader Can Edit Dissertation,model_pfe_sgroupe,pfe.group_group_leader,1,1,0,0
+dissertation_access_for_leader,Dissertation: Leader Can Access,model_pfe_dissertation,pfe.group_group_leader,1,1,0,0
+access_dissertation_avancement_leader,Access Dissertation Progress for Leader,model_pfe_dissertation_avancement,pfe.group_group_leader,1,0,0,0
+pfe_defense_user_access,Defense Access for Basic Users,model_pfe_defense,base.group_user,1,0,0,0
+pfe_defense_jury_access,Defense Access for Jury,model_pfe_defense,pfe.group_jury,1,0,0,0
+pfe_defense_committe_access,Defense Access for Committee,model_pfe_defense,pfe.group_committee_scientifique,1,1,1,0
+pfe_defense_department_head_access,Defense Access for Department Head,model_pfe_defense,pfe.group_department_head,1,1,1,1
+pfe_defense_student_group_access,Defense Access for Student Groups,model_pfe_defense,pfe.group_student,1,0,0,0
+access_pfe_choose_list_admin,pfe.choose.list.admin,model_pfe_choose_list,base.group_system,1,1,1,1
+access_pfe_choose_list_portal,pfe.choose.list.portal,model_pfe_choose_list,base.group_portal,1,1,1,1
+access_pfe_sgroupe,pfe_sgroupe,model_pfe_sgroupe,base.group_portal,1,1,1,1
+access_dissertation_admin,Admin Access for Dissertation,model_pfe_dissertation,base.group_system,1,1,1,1
+access_hr_employee_portal,access_hr_employee_portal,model_hr_employee,base.group_portal,1,0,0,0
+access_topic_admin,Access Topic for Admin,model_pfe_topic,base.group_system,1,1,1,1
+access_sgroupe_admin,pfe.sgroupe admin,model_pfe_sgroupe,base.group_system,1,1,1,1
+access_education_level_admin,Access Education Level for Admin,model_pfe_education_level,base.group_system,1,1,1,1
+access_specialization_admin,Access Specialization for Admin,model_pfe_specialization,base.group_system,1,1,1,1
+access_dissertation_avancement_admin,Access Dissertation Progress admin,model_pfe_dissertation_avancement,base.group_system,1,1,1,1
+access_hr_department_portal,access_hr_department_portal,model_hr_department,base.group_portal,1,0,0,0
+access_topic_categories_department_head,Access Topic for Department Head,model_pfe_topic_category,pfe.group_department_head,1,1,1,1
+access_topic_categories_admin,Access Topic for Admin,model_pfe_topic_category,base.group_system,1,1,1,1
+access_pfe_specialization_portal,pfe.specialization.portal,model_pfe_specialization,base.group_portal,1,1,1,1
+access_pfe_education_level_portal,pfe.education level.portal,model_pfe_education_level,base.group_portal,1,1,1,1
+access_pfe_topic_portal,pfe.topic.portal,model_pfe_topic,base.group_portal,1,1,1,1
+access_pfe_topic_category_committee_scientifique,pfe.topic_category committee scientifique,pfe.model_pfe_topic_category,pfe.group_committee_scientifique,1,1,1,1
+access_dissertation_avancement_committee_scientifique,Access Dissertation Progress committee scientifique,model_pfe_dissertation_avancement,pfe.group_committee_scientifique,1,1,1,1
+access_pfe_dissertation_portal,pfe_dissertation,model_pfe_dissertation,base.group_portal,1,1,1,1
+access_pfe_topic_public_public,pfe.topic,model_pfe_topic,base.group_public,1,0,0,0
+access_dissertation_avancement_portal,Access Dissertation Progress portal,model_pfe_dissertation_avancement,base.group_portal,1,1,1,1
+access_pfe_dissertation_public,pfe_dissertation_public,model_pfe_dissertation,base.group_public,1,0,0,0
+access_hr_employee_public,access_hr_employee_public,model_hr_employee,base.group_public,1,0,0,0
+
+
+
+

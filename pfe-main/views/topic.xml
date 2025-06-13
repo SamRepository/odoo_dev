@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Vue Formulaire Sujet -->
+        <record id="view_topic_form" model="ir.ui.view">
+            <field name="name">topic.form</field>
+            <field name="model">pfe.topic</field>
+            <field name="arch" type="xml">
+                <form >
+                    <sheet>
+                        <!-- Header actions -->
+                        <header>
+                            <button name="action_validate_button" type="object" string="Validate"
+                                    class="oe_highlight"
+                                    groups="pfe.group_committee_scientifique"
+                                    attrs="{'invisible': [('state', '=', 'validated')]}"/>
+
+                            <button name="action_set_pending_button" type="object" string="Set Pending"
+                                    class="oe_highlight btn-warning"
+                                    groups="pfe.group_committee_scientifique"
+                                    attrs="{'invisible': [('state', '=', 'pending')]}"/>
+
+                            <button name="action_reset_to_proposed" type="object" string="Reset to Proposed"
+                                    class="oe_highlight btn-secondary"
+                                    groups="pfe.group_committee_scientifique"
+                                    attrs="{'invisible': [('state', '=', 'proposed')]}"/>
+
+                            <button name="action_reject_button" type="object" string="Reject"
+                                    class="oe_highlight btn-danger"
+                                    groups="pfe.group_committee_scientifique"
+                                    attrs="{'invisible': [('state', '=', 'rejected')]}"/>
+                        </header>
+
+                        <!-- Form content -->
+
+
+                        <group string="General Information" colspan="2">
+
+                            <field name="name"/>
+                            <field name="title" required="1"/>
+                            <field name="supervisor_id"
+                                   domain="[('category_ids.name', '=', 'Teacher')]"
+                                   options="{'no_create': True}"/>
+                        </group>
+
+                        <group string="Details" colspan="2">
+                            <field name="description" widget="html" placeholder="Write a description here..."/>
+                            <field name="tools" widget="html" placeholder="Write tools here..."/>
+                            <field name="category_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="reference" required="1"/>
+
+                        </group>
+                        <group string="Attachments">
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                        </group>
+
+
+                        <group>
+                            <field name="state" widget="statusbar" options="{'clickable': 'True'}" readonly="1"/>
+                        </group>
+
+                        <group string="Linked Dissertation">
+                            <field name="dissertation_id" readonly="1"
+                                   attrs="{'invisible': [('state', '!=', 'validated')]}"/>
+                        </group>
+
+                        <div class="oe_chatter">
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vue Liste Sujet -->
+        <record id="view_topic_tree" model="ir.ui.view">
+            <field name="name">topic.tree</field>
+            <field name="model">pfe.topic</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name="name"/>
+                    <field name="title"/>
+                    <field name="supervisor_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vue Kanban Sujet -->
+        <record id="view_topic_kanban" model="ir.ui.view">
+            <field name="name">topic.kanban</field>
+            <field name="model">pfe.topic</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_view">
+
+                    <field name="name"/>
+                    <field name="title"/>
+                    <field name="supervisor_id"/>
+                    <field name="state"/>
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_card">
+                                    <strong t-esc="record.name.value" style="font-size:16px; color:black;"/>
+                                    <div>
+                                        <span>Supervisor:</span>
+                                        <span t-esc="record.supervisor_id.value" style="font-weight:bold;"/>
+                                    </div>
+                                    <div class="oe_kanban_bottom">
+                                        <span>Status:</span>
+                                        <span t-esc="record.state.value"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Action + Menu -->
+        <record id="action_pfe_topic" model="ir.actions.act_window">
+            <field name="name">Topics</field>
+            <field name="res_model">pfe.topic</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+    </data>
+</odoo>

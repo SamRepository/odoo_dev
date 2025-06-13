@@ -1,0 +1,11 @@
+<odoo>
+<record id="event_groupes_year_2025" model="event.type">
+<field name="name">Formation groupes 2025</field>
+</record>
+<record id="event_topics_year_2025" model="event.type">
+<field name="name">Propose Topics 2025</field>
+</record>
+ <record id="event_topics_year_2025" model="event.type">
+<field name="name">Academic Year 2025</field>
+</record>
+</odoo>

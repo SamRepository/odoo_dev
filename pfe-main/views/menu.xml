@@ -1,0 +1,97 @@
+<odoo>
+
+    <!-- ✅ Student Action -->
+    <record id="action_student_list" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="pfe.view_student_tree"/>
+        <field name="domain">[('is_student', '=', True)]</field>
+        <field name="context">{'group_by': ['specialization_id', 'education_level_id']}</field>
+    </record>
+
+    <menuitem id="pfe_main_menu" name="Dissertation Management" sequence="1"  web_icon="pfe,static\description\icon.png"/>
+
+
+    <menuitem id="menu_students_parent" name="Students"
+              parent="pfe_main_menu" sequence="5"/>
+
+    <menuitem id="menu_student" name="Student List"
+              parent="menu_students_parent" action="action_student_list" sequence="1"/>
+
+    <menuitem id="menu_student_groups" name="Student Groups"
+              parent="menu_students_parent" action="action_pfe_sgroupe" sequence="2"/>
+
+    <!-- ✅ باقي القوائم -->
+    <menuitem id="menu_topic" name="Topic"
+              parent="pfe_main_menu" action="action_pfe_topic"/>
+
+    <menuitem id="menu_dissertation" name="Dissertation"
+              parent="pfe_main_menu" action="action_pfe_dissertation"/>
+
+    <!-- ✅ إعدادات -->
+    <menuitem id="menu_pfe_configuration" name="Configuration"
+              parent="pfe_main_menu" sequence="99"/>
+
+    <menuitem id="menu_pfe_tags" name=" Topics Tags"
+              parent="menu_pfe_configuration" action="action_topic_category"/>
+    <record id="action_employee_tags" model="ir.actions.act_window">
+    <field name="name">Employee Tags</field>
+    <field name="res_model">hr.employee.category</field>
+    <field name="view_mode">tree,form</field>
+</record>
+<menuitem id="menu_employee_tags" name=" Employe categories"
+          parent="menu_pfe_configuration" action="action_employee_tags" sequence="10"/>
+
+
+<record id="action_pfe_event" model="ir.actions.act_window">
+    <field name="name">Events</field>
+    <field name="res_model">event.event</field>
+    <field name="view_mode">tree,form</field>
+</record>
+<menuitem id="menu_pfe_event" name="Events"
+          parent="pfe_main_menu" action="action_pfe_event" sequence="7"/>
+  <!-- القائمة الفرعية: Configuration -->
+<menuitem id="menu_pfe_event_config" name="Configuration"
+          parent="menu_pfe_event" sequence="100"/>
+    <!-- داخل Configuration -->
+<record id="action_pfe_event_type" model="ir.actions.act_window">
+    <field name="name">Event Types</field>
+    <field name="res_model">event.type</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="menu_pfe_event_type" name="Event Types"
+          parent="menu_pfe_event_config" action="action_pfe_event_type" sequence="3"/>
+<record id="action_pfe_event_tag" model="ir.actions.act_window">
+    <field name="name">Event Tags</field>
+    <field name="res_model">event.tag</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="menu_pfe_event_tag" name="Event Tags"
+          parent="menu_pfe_event_config" action="action_pfe_event_tag" sequence="2"/>
+
+
+<!-- ✅ Action لعرض Event Sessions -->
+<record id="action_event_session_list" model="ir.actions.act_window">
+    <field name="name">Sessions</field>
+    <field name="res_model">event.event</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="menu_event_sessions" name="Sessions"
+          parent="menu_pfe_event" action="action_event_session_list" sequence="20"/>
+<record id="action_employee_list" model="ir.actions.act_window">
+    <field name="name">Personnels</field>
+    <field name="res_model">hr.employee</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[('is_student', '=', False)]</field>
+        <field name="context">{'group_by': 'category_ids'}</field>
+
+</record>
+<menuitem id="menu_employee" name="Personnels"
+          parent="pfe_main_menu" action="action_employee_list" sequence="6"/>
+
+
+</odoo>

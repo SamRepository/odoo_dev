@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_education_level_tree" model="ir.ui.view">
+        <field name="name">education.level.tree</field>
+        <field name="model">pfe.education_level</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="specialization_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_education_level_form" model="ir.ui.view">
+        <field name="name">education.level.form</field>
+        <field name="model">pfe.education_level</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="specialization_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_specialization_tree" model="ir.ui.view">
+        <field name="name">specialization.tree</field>
+        <field name="model">pfe.specialization</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="education_level_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_specialization_form" model="ir.ui.view">
+        <field name="name">specialization.form</field>
+        <field name="model">pfe.specialization</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="education_level_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_education_level" model="ir.actions.act_window">
+        <field name="name">Education Levels</field>
+        <field name="res_model">pfe.education_level</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_specialization" model="ir.actions.act_window">
+        <field name="name">Specializations</field>
+        <field name="res_model">pfe.specialization</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_education_root" name="Education" sequence="10"/>
+    <menuitem id="menu_education_level" name="Education Levels" parent="menu_education_root" action="action_education_level"/>
+    <menuitem id="menu_specialization" name="Specializations" parent="menu_education_root" action="action_specialization"/>
+</odoo>

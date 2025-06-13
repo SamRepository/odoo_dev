@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Mise en page standard avec en-tête et pied de page -->
+    <template id="pfe_layout">
+        <div class="header" style="font-family:arial">
+            <div class="row" style="margin-top:10px; justify-content:center; font-family:arial">
+                <div class="col text-center">
+                    <h5>
+                        <strong>الجمهوريــة الجزائريـــة الديمقراطيــة الشعبيـة</strong>
+                        <br/>
+                        <strong>وزارة التعليم العالي و البحث الـعلمي</strong>
+                        <br/>
+                        <strong>République Algérienne Démocratique Populaire</strong>
+                        <br/>
+                        <strong>Ministère de L’enseignement Supérieur et de La Recherche Scientifique</strong>
+                    </h5>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:10px; border-top:1px solid black;">
+
+                <!-- العمود الأيسر: فرنسي -->
+                <div class="col-5 mt-2" style="text-align: left; direction: ltr;">
+                    <span>
+                        <small>Ecole Normale Supérieure d’Enseignement Technologique de Skikda</small>
+                    </span>
+                    <br/>
+                    <span>
+                        <small>Département de Mathématiques et Informatique</small>
+                    </span>
+                </div>
+
+                <!-- وسط: شعار -->
+                <t t-set="company" t-value="user.company_id"/>
+                <div class="col-2 text-center">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 90px;"
+                         alt="Logo"/>
+                </div>
+
+                <!-- العمود الأيمن: عربي -->
+                <div class="col-5 mt-2" style="text-align: right; direction: rtl;">
+                    <span>المدرسة العليا لأساتذة التعليم التكنولوجي - سكيكدة</span>
+                    <br/>
+                    <span>قسم الرياضيات و الإعلام الآلي</span>
+                </div>
+            </div>
+            <br/>
+        </div>
+        <div class="article o_report_layout_standard">
+            <t t-raw="0"/>
+        </div>
+
+        <div class="footer o_standard_footer">
+            <div class="text-center" style="border-top: 1px solid black;">
+                <ul class="list-inline mb4">
+                    <span t-field="company.report_footer"/>
+                </ul>
+                <br/>
+                <p>Page
+                    <span class="page"/>
+                    /
+                    <span class="topage"/>
+                </p>
+            </div>
+        </div>
+    </template>
+
+    <!-- Template principal corrigé -->
+    <template id="pfe.report_dissertation">
+        <t t-call="web.html_container">
+            <t t-call="pfe.pfe_layout">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page" style="font-family:arial; padding: 30px;">
+                        <div class="oe_structure"/>
+
+                        <div style="text-align: center; direction: rtl; margin-top: 30px;">
+                            <h3>
+                                <strong>اقتراح موضوع مذكرة التخرج (2024/2025)</strong>
+                            </h3>
+                        </div>
+                        <br/>
+
+                        <p style="direction: rtl;">
+                            <strong>لطلبة السنة:</strong>
+                            ...............................................................
+                        </p>
+                        <p style="direction: rtl;">
+                            <strong>الإختصاص:</strong>
+                            ...............................................................
+                        </p>
+
+                        <p style="direction: rtl;">
+                            <strong>الموضوع :</strong>
+                            <br/>
+                            ...............................................................
+                            <br/>
+                            ...............................................................
+                            <br/>
+                        </p>
+
+                        <p style="direction: rtl;">
+                            <strong>ملخص حول الموضوع :</strong>
+                            <br/>
+                            ...............................................................
+                            <br/>
+                            ...............................................................
+                            <br/>
+                            ...............................................................
+                            <br/>
+                        </p>
+
+                        <p style="direction: rtl;">
+                            <strong>قائمة المراجع :</strong>
+                            <br/>
+                            ...............................................................
+                            <br/>
+                            ...............................................................
+                            <br/>
+                            ...............................................................
+                            <br/>
+                        </p>
+
+                        <br/>
+                        <br/>
+                        <p style="direction: rtl;">
+                            <strong>إمضاء الأستاذ (ة) :</strong>
+                            ..............................................
+                        </p>
+                        <br/>
+                        <br/>
+                        <p style="direction: rtl;">
+                            <strong>تأشيرة رئيس القسم :</strong>
+                            ..............................................
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- Rapport PDF corrigé -->
+    <report
+            id="report_dissertation1"
+            model="pfe.dissertation"
+            string="validate topic form"
+            report_type="qweb-pdf"
+            name="pfe.report_dissertation"
+            file="pfe.report_dissertation"
+    />
+
+</odoo>

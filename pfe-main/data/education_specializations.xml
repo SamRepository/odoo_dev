@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- إدخال المستويات التعليمية -->
+        <record id="education_level_pem" model="pfe.education_level">
+            <field name="name">Pem</field>
+            <field name="duration">4</field>
+        </record>
+
+        <record id="education_level_pes" model="pfe.education_level">
+            <field name="name">Pes</field>
+            <field name="duration">5</field>
+        </record>
+
+        <!-- إدخال التخصصات وربطها بالمستويات التعليمية -->
+        <record id="specialization_math" model="pfe.specialization">
+            <field name="name">Mathematics</field>
+            <field name="education_level_ids" eval="[(4, ref('education_level_pem')), (4, ref('education_level_pes'))]"/>
+        </record>
+
+        <record id="specialization_computer_science" model="pfe.specialization">
+            <field name="name">Computer Science</field>
+            <field name="education_level_ids" eval="[(4, ref('education_level_pem')), (4, ref('education_level_pes'))]"/>
+        </record>
+    </data>
+</odoo>
+

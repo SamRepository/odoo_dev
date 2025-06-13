@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Add employee and student details to the portal sidebar -->
+        <template id="pfe_portal_layout_add_details" inherit_id="portal.portal_layout"
+                  name="Pfe Portal Layout Add Details">
+
+            <!-- Fix sidebar class -->
+            <xpath expr="//div[@id='o_my_sidebar']" position="attributes">
+                <attribute name="class">pt-3 pt-lg-0 col-12 col-md col-lg-4 col-xl-4 o_my_sidebar</attribute>
+            </xpath>
+
+            <!-- Add after partner details -->
+            <xpath expr="//div[@id='o_my_sidebar']" position="inside">
+                <!-- Department (for any employee) -->
+                <t t-if="user_id.employee_id.department_id">
+                    <hr class="mt-1 mb-0"/>
+                    <h4>Department</h4>
+                    <p><span class="fa fa-briefcase me-1"/> <t t-esc="user_id.employee_id.department_id.name"/></p>
+                </t>
+
+                <!-- Student specific details -->
+                <t t-if="user_id.employee_id.is_student and user_id.employee_id.group_id">
+                    <hr class="mt-1 mb-0"/>
+                    <h4>Student Info</h4>
+                    <p><strong>Group:</strong> <t t-esc="user_id.employee_id.group_id.name"/></p>
+                    <p><strong>Specialization:</strong> <t t-esc="user_id.employee_id.group_id.specialization_id.name"/></p>
+                    <p><strong>Education Level:</strong> <t t-esc="user_id.employee_id.group_id.education_level_id.name"/></p>
+                </t>
+            </xpath>
+
+        </template>
+    </data>
+</odoo>

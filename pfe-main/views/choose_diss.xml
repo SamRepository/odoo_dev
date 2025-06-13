@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Template for choosing dissertation preferences -->
+    <template id="choose_list_template1" name="Choose Dissertation List">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5">
+                <h2>Choose Your Dissertation Preferences</h2>
+
+                <!-- Group Info Header -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Group Information</h5>
+                        <p><strong>Group Name:</strong> <t t-esc="group.name"/></p>
+<!--                        <p><strong>Specialization:</strong> <t t-esc="group.specialization_id.name"/></p>-->
+<!--                        <p><strong>Education Level:</strong> <t t-esc="group.education_level_id.name"/></p>-->
+                    </div>
+                </div>
+
+<!--                &lt;!&ndash; Warning &ndash;&gt;-->
+<!--                <div class="alert alert-warning">-->
+<!--                    <strong>Note:</strong> Once a topic is assigned by the administration, you won’t be able to change your preferences.-->
+<!--                </div>-->
+
+                <!-- Error Message -->
+<!--                <t t-if="error">-->
+<!--                    <p class="text-danger mt-2"><t t-esc="error"/></p>-->
+<!--                </t>-->
+
+                <!-- Choice Form Table -->
+                <form action="/my/choose/submit/save" method="POST">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th style="width: 20%;">Sequence</th>
+                                <th>Dissertation Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="sequence" t-as="seq">
+                                <tr>
+                                    <td>Choice <t t-esc="('%02d' % seq)"/></td>
+                                    <td>
+                                        <input type="hidden" name="sequence" t-att-value="seq"/>
+                                        <select name="dissertation_id" class="form-control">
+                                            <option value="">-- Select Dissertation --</option>
+                                            <t t-foreach="dissertations" t-as="d">
+                                                <option t-att-value="d.id"
+                                                    t-att-selected="'selected' if existing_choices.filtered(lambda c: c.sequence == seq and c.dissertation_id.id == d.id) else None">
+                                                    <t t-esc="d.title"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <button type="submit" class="btn btn-primary mt-3">Submit Choices</button>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <!-- Template for success message after choices are submitted -->
+    <template id="choose_success_template" name="Choice Submitted Successfully">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5">
+                <h3>Thank you! Your topic preferences have been submitted successfully.</h3>
+                <a href="/my/choose" class="btn btn-secondary mt-3">Back to Choice Page</a>
+            </div>
+        </t>
+    </template>
+
+    <!-- Template for showing assigned dissertation -->
+    <template id="portal_my_topic" name="Assigned Topic View">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5">
+                <h2>Your Assigned Dissertation Topic</h2>
+
+                <div class="card mt-4">
+                    <div class="card-body">
+
+                        <p class="card-text">
+                            <strong>Dissertation_Title:</strong>
+                            <t t-esc="dissertation.title"/>
+                        </p>
+                        <p class="card-text">
+                            <strong>Supervisor:</strong>
+                            <t t-esc="dissertation.supervisor_id.name or 'Not assigned yet'"/>
+                        </p>
+
+
+                    </div>
+                </div>
+
+                <a href="/my/home" class="btn btn-secondary mt-4">Back to Dashboard</a>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ========== FORM VIEW ========== -->
+    <record id="view_pfe_defense_form" model="ir.ui.view">
+        <field name="name">pfe.defense.form</field>
+        <field name="model">pfe.defense</field>
+        <field name="arch" type="xml">
+            <form string="DISSERTATION DEFENSE">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="group_id"/>
+                            <field name="dissertation_id"/>
+                            <field name="date"/>
+                            <field name="time"/>
+                            <field name="location"/>
+                        </group>
+                        <group>
+                            <field name="final_grade"/>
+                            <field name="dissertation_file" widget="binary"/>
+                            <field name="dissertation_filename"/>
+                            <field name="comments"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="jury_ids" widget="many2many_tags"/>
+                        <field name="state" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_valider_soutenance" string="Defense Validate" type="object" class="btn-primary"
+                                attrs="{'invisible': [('state', '!=', 'planned')]}"/>
+                        <button name="action_generate_pv" string="Générer le PV" type="object" class="btn-secondary"
+                                attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ========== TREE VIEW ========== -->
+    <record id="view_pfe_defense_tree" model="ir.ui.view">
+        <field name="name">pfe.defense.tree</field>
+        <field name="model">pfe.defense</field>
+        <field name="arch" type="xml">
+            <tree string="Defense List">
+                <field name="group_id"/>
+                <field name="dissertation_id"/>
+                <field name="date"/>
+                <field name="location"/>
+                <field name="final_grade"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ========== KANBAN VIEW ========== -->
+    <record id="view_pfe_defense_kanban" model="ir.ui.view">
+        <field name="name">pfe.defense.kanban</field>
+        <field name="model">pfe.defense</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column" create="false">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <div class="o_kanban_primary_left">
+                                <strong><field name="group_id"/></strong>
+                                <div>Date : <field name="date"/></div>
+                                <div>Lieu : <field name="location"/></div>
+                                <div>Note : <field name="final_grade"/></div>
+                                <div>État : <field name="state"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ========== ACTION ========== -->
+    <record id="action_pfe_defense" model="ir.actions.act_window">
+        <field name="name">Dissertation Defense</field>
+        <field name="res_model">pfe.defense</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Plan and validate the dissertation defenses here.
+            </p>
+        </field>
+    </record>
+
+    <!-- ========== MENU ITEM ========== -->
+    <menuitem id="menu_dissertation_defense" name="Dissertation defense"
+              parent="pfe_main_menu" action="action_pfe_defense"/>
+</odoo>

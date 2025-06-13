@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="topic_submit_templateA" name="Submit Topic Form">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5" style="max-width: 800px;">
+                <div class="card shadow-sm rounded-3">
+                    <div class="card-body p-4">
+                        <h2 class="card-title mb-4 text-center">Submit a New Topic</h2>
+                        <form action="/create_topic/" method="POST" id="topic_form">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                            <div class="mb-3">
+                                <label for="topic_title" class="form-label"> Title
+                                    <span class="text-danger">*</span>
+                                </label>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="topic_description" class="form-label">Description</label>
+                                <textarea name="description" id="topic_description" rows="4" class="form-control"
+                                          placeholder="Write a description..."></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="topic_tools" class="form-label">Tools</label>
+                                <textarea name="tools" id="topic_tools" rows="2" class="form-control"
+                                          placeholder="Technologies/tools used..."></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="topic_reference" class="form-label">
+                                    Reference
+                                </label>
+                                <textarea name="reference" id="topic_reference" class="form-control"
+                                          placeholder="Enter a  reference"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="topic_attachments" class="form-label">Attachments</label>
+                                <input type="file" name="attachments" id="topic_attachments"
+                                       class="form-control" multiple="multiple"/>
+                                <div class="form-text">Upload one or several files (PDF, images, etc.).</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Tags</label>
+                                <details
+                                        style="max-height: 150px; overflow-y: auto; border: 1px solid #ced4da; padding: 10px; border-radius: .25rem;">
+                                    <summary style="cursor: pointer; user-select: none;">Select Tags</summary>
+                                    <div style="margin-top: 10px;">
+                                        <t t-foreach="category_ids" t-as="category">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox"
+                                                       t-att-id="'tag_' + str(category.id)"
+                                                       name="category_ids" t-att-value="category.id"/>
+                                                <label class="form-check-label" t-att-for="'tag_' + str(category.id)">
+                                                    <t t-esc="category.name"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </details>
+                                <div class="form-text">Click to expand. Check one or more tags.</div>
+                            </div>
+
+                            <!-- Nouveau champ pour ajouter un tag -->
+                            <div class="mb-3 d-flex">
+                                <input type="text" id="new_tag_input" class="form-control me-2"
+                                       placeholder="New tag name"/>
+                                <button type="button" class="btn btn-outline-secondary" id="add_tag_btn">Add Tag
+                                </button>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">Submit </button>
+
+                            <t t-if="error">
+                                <div class="alert alert-danger mt-3" role="alert">
+                                    <t t-esc="error"/>
+                                </div>
+                            </t>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JS pour ajouter le tag dynamiquement -->
+            <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const addTagBtn = document.getElementById("add_tag_btn");
+    const newTagInput = document.getElementById("new_tag_input");
+    const tagsContainer = document.querySelector("details div"); // مكان الـ checkboxes container
+
+    addTagBtn.addEventListener("click", function () {
+        const newTag = newTagInput.value.trim();
+        if (newTag !== "") {
+            // Check if tag already exists (case-insensitive)
+            const exists = [...tagsContainer.querySelectorAll('input[type="checkbox"]')].some(checkbox => {
+                return checkbox.nextElementSibling.textContent.toLowerCase() === newTag.toLowerCase();
+            });
+
+            if (!exists) {
+                // Create new checkbox div
+                const div = document.createElement("div");
+                div.classList.add("form-check");
+
+                const input = document.createElement("input");
+                input.type = "checkbox";
+                input.classList.add("form-check-input");
+                input.name = "category_ids";
+                // Give a temporary unique id (e.g. timestamp)
+                input.id = "tag_new_" + Date.now();
+                input.value = "new:" + newTag;
+                input.checked = true;
+
+                const label = document.createElement("label");
+                label.classList.add("form-check-label");
+                label.setAttribute("for", input.id);
+                label.textContent = newTag;
+
+                div.appendChild(input);
+                div.appendChild(label);
+                tagsContainer.appendChild(div);
+            }
+            newTagInput.value = "";
+        }
+    });
+});
+</script>
+
+
+
+        </t>
+    </template>
+
+    <template id="topic_submit_success" name="Topic Submitted Successfully">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5 text-center">
+                <div class="alert alert-success p-4">
+                    <h3>Thank you!</h3>
+                    <p>Your topic has been submitted successfully.</p>
+                    <a href="/create_topic/" class="btn btn-outline-success mt-3">Submit Another Topic</a>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

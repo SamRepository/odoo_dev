@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menu item "Topic" in Website main menu -->
+        <record id="menu_website_topic" model="website.menu">
+            <field name="name">Topic</field>
+            <field name="url">Topic</field>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="parent_id" search="[('parent_id','=',False),('website_id','=',1)]"/>
+            <!--            <field name="parent_id" ref="website.main_menu"/>-->
+            <field name="sequence" type="int">4</field>
+        </record>
+
+
+        <record id="create_topic" model="website.menu">
+            <field name="name">Create Topic</field>
+            <field name="url">/create_topic/</field>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="parent_id" ref="menu_website_topic"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+
+        <record id="choose_topic" model="website.menu">
+            <field name="name">Choose Topic</field>
+            <field name="url">/my/choose</field>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="parent_id" ref="menu_website_topic"/>
+            <field name="sequence" type="int">2</field>
+        </record>
+
+        <!-- Menu item " List Topic" in Website main menu -->
+        <record id="menu_website_list_topic" model="website.menu">
+            <field name="name">List</field>
+            <field name="url">List</field>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="parent_id" search="[('parent_id','=',False),('website_id','=',1)]"/>
+            <!--            <field name="parent_id" ref="website.main_menu"/>-->
+            <field name="sequence" type="int">3</field>
+        </record>
+
+
+        <record id="List_topic" model="website.menu">
+            <field name="name"> Dissertations List </field>
+            <field name="url">/lists/</field>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="parent_id" ref="menu_website_list_topic"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+    </data>
+</odoo>

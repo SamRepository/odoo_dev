@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Sequence for Student Group -->
+        <record id="seq_pfe_sgroupe" model="ir.sequence">
+            <field name="name">Student Group Sequence</field>
+            <field name="code">pfe.sgroupe</field>
+            <field name="prefix">GRP-</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- Action عرض المجموعات -->
+        <record id="action_pfe_sgroupe" model="ir.actions.act_window">
+            <field name="name">Student Groups</field>
+            <field name="res_model">pfe.sgroupe</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+        </record>
+
+        <!-- عنصر القائمة -->
+        <menuitem id="menu_student_groups" name="Student Groups" parent="pfe_main_menu" action="action_pfe_sgroupe"/>
+
+        <!-- نموذج مجموعة الطلاب (Form View) -->
+        <record id="view_student_group_form" model="ir.ui.view">
+            <field name="name">student.group.form</field>
+            <field name="model">pfe.sgroupe</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="leader_id"/>
+                            <field name="academic_year_id"/>
+                            <field name="leader_user_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="student_ids" widget="many2many_tags"/>
+                            <field name="group_avg" readonly="1"/>
+                        </group>
+
+                        <notebook>
+                            <page string="Dissertation Choices" name="dissertation_choices">
+                                <field name="choose_id">
+                                    <tree editable="bottom">
+                                        <field name="dissertation_id"/>
+                                        <field name="sequence"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="dissertation_id"/>
+                                            <field name="sequence"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- قائمة المجموعات (Tree View) -->
+        <record id="view_student_group_tree" model="ir.ui.view">
+            <field name="name">student.group.tree</field>
+            <field name="model">pfe.sgroupe</field>
+            <field name="arch" type="xml">
+                <tree string="Student Groups" default_order="group_avg desc">
+                    <header>
+                        <button name="%(action_assign_topics_by_average)d"
+                                type="action"
+                                string="Assign Topics"
+                                class="btn-primary"
+                                confirm="Are you sure you want to assign topics to groups based on their choices and averages?"
+                                groups="pfe.group_department_head,base.group_system"/>
+                    </header>
+                    <field name="name"/>
+                    <field name="group_avg"/>
+                    <field name="leader_id"/>
+                    <field name="student_ids" />
+                    <field name="academic_year_id"/>
+                    <field name="selected_dissertation_id" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- عرض Kanban للمجموعات -->
+        <record id="view_student_group_kanban" model="ir.ui.view">
+            <field name="name">student.group.kanban</field>
+            <field name="model">pfe.sgroupe</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_view o_kanban_grouped">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <div class="o_kanban_image">
+                                    <span class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </span>
+                                </div>
+                                <div class="o_kanban_details">
+                                    <strong>Group Average:</strong>
+                                    <field name="group_avg"/>
+                                    <br/>
+                                    <strong>Leader:</strong>
+                                    <field name="leader_id"/>
+                                    <br/>
+                                    <strong>Students:</strong>
+                                    <field name="student_ids" widget="many2many_tags"/>
+                                    <br/>
+                                    <strong>Academic Year:</strong>
+                                    <field name="academic_year_id"/>
+                                    <br/>
+                                    <strong>Selected Dissertation:</strong>
+                                    <field name="selected_dissertation_id"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Server Action: Assign Topics by Choices and Average -->
+        <record id="action_assign_topics_by_average" model="ir.actions.server">
+            <field name="name">Assign Topics by Choices and Average</field>
+            <field name="model_id" ref="model_pfe_sgroupe"/>
+            <field name="state">code</field>
+            <field name="code">model.assign_topics_by_choice_and_average()</field>
+        </record>
+
+    </data>
+</odoo>

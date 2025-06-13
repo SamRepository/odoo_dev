@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- تعريف مجموعة المعلمين -->
+    <record id="group_teacher" model="res.groups">
+        <field name="name">Teacher</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+
+    </record>
+
+    <!-- تعريف مجموعة رئيس القسم -->
+    <record id="group_department_head" model="res.groups">
+        <field name="name">Department Head</field>
+        <field name="category_id" ref="base.module_category_user_type"/>
+
+    </record>
+
+    <!-- تعريف مجموعة اللجنة العلمية -->
+    <record id="group_committee_scientifique" model="res.groups">
+        <field name="name">Scientific Committee</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+    </record>
+    <record id="group_supervisor" model="res.groups">
+        <field name="name">Supervisor</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+    </record>
+    <record id="group_jury" model="res.groups">
+        <field name="name">Jury</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+    </record>
+
+    <!-- تعريف مجموعة الطلاب -->
+    <record id="group_student" model="res.groups">
+        <field name="name">Student</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+    </record>
+
+    <!-- تعريف مجموعة قائد المجموعة -->
+    <record id="group_group_leader" model="res.groups">
+        <field name="name">Group Leader</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+    </record>
+</odoo>

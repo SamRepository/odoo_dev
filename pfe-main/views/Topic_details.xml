@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="topic_detail" name="Topic Details">
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert" groups="base.group_user">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url" t-value="'/web#model=pfe.topic&amp;id=%s&amp;view_type=form' % (topic.id)"/>
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <section style="background-color: #eee;">
+                        <div class="container py-5"/>
+                        <div class="row">
+                            <div class="col">
+                                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item">
+                                            <a href="/my/home">Home</a>
+                                        </li>
+                                        <li class="breadcrumb-item">
+                                            <a href="/topic/liste/?{{ keep_query() }}">Topics</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            <t t-esc="topic.title"/>
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card mb-4">
+                                    <div class="card-body text-center">
+                                        <t t-if="topic.supervisor_id.image_1920">
+                                            <img t-attf-src="data:image/png;base64,{{topic.supervisor_id.image_1920}}"
+                                                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"/>
+                                        </t>
+                                        <t t-else="">
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"/>
+                                        </t>
+                                        <h5 class="my-3">
+                                            <t t-esc="topic.supervisor_id.name or 'Unassigned'"/>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card mb-4">
+
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Reference</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0">
+                                                    <t t-esc="topic.name"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Title</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0">
+                                                    <t t-esc="topic.title"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Status</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0">
+                                                    <t t-esc="topic.state"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Description</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0">
+                                                    <t t-esc="topic.description or 'Not available'"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Reference</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0">
+                                                    <t t-esc="topic.reference"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr/>
+
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Attachments</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <t t-if="topic.attachment_ids">
+                                                    <ul class="list-group">
+                                                        <t t-foreach="topic.attachment_ids" t-as="attach">
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                <a t-attf-href="/web/content/{{ attach.id }}?download=true"
+                                                                   target="_blank">
+                                                                    <t t-esc="attach.name"/>
+                                                                </a>
+                                                                <t t-if="topic.create_uid.id == request.env.user.id and topic.state == 'pending'">
+                                                                    <a t-attf-href="/topic/{{ topic.id }}/attachment/delete/{{ attach.id }}"
+                                                                       class="btn btn-sm btn-outline-danger"
+                                                                       onclick="return confirm('Are you sure you want to delete this attachment?');">
+                                                                        Remove
+                                                                    </a>
+                                                                </t>
+                                                            </li>
+                                                        </t>
+                                                    </ul>
+                                                </t>
+                                                <t t-else="">
+                                                    <p class="text-muted mb-0">No attachments available.</p>
+                                                </t>
+                                            </div>
+                                        </div>
+
+                                        <hr/>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </t>
+            </t>
+            <div class="mt32">
+                <h4>
+                    <strong>Message and Communication History</strong>
+                </h4>
+                <t t-call="portal.message_thread">
+                    <t t-set="object" t-value="topic"/>
+                </t>
+            </div>
+        </t>
+    </template>
+
+<!--    <template id="portal_my_home_topic" name="Topics" inherit_id="portal.portal_my_home" priority="1">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Topics</t>
+&lt;!&ndash;                <t t-set="url" t-value="'/topic/liste/'"/>&ndash;&gt;
+                <t t-set="placeholder_count" t-value="'count_topic'"/>
+            </t>
+        </xpath>
+    </template>-->
+
+        <template id="portal_my_home_topic" name="Topics" customize_show="True" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Topics</t>
+                <t t-set="url" t-value="'/topics/list/'"/>
+                <t t-set="placeholder_count" t-value="'count_topics'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Dissertations</t>
+                <t t-set="url" t-value="'/my/dissertation/'"/>
+                <t t-set="placeholder_count" t-value="'count_dissertations'"/>
+            </t>
+
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_topic" name="Portal layout : topic menu entries"
+              inherit_id="portal.portal_breadcrumbs" priority="20">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'topic'" t-attf-class="breadcrumb-item #{'active ' if not topic else ''}">
+                <a t-if="topic" t-attf-href="/topic/liste/?{{ keep_query() }}">Graduation Project Topics</a>
+                <t t-else="">Graduation Project Topics</t>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_topic_list" name="Topic List">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Topic List</t>
+            </t>
+            <t t-if="not topics">
+                <p>No topics available at the moment.</p>
+            </t>
+            <t t-if="topics" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Reference</th>
+                        <th>Title</th>
+                        <th class="text-right">Supervisor</th>
+                        <th class="text-right">Status</th>
+                    </tr>
+                </thead>
+                <t t-foreach="topics" t-as="topic">
+                    <tr>
+                        <td>
+                            <a t-attf-href="/topic_detail/{{ topic.id }}">
+                                <t t-esc="topic.name"/>
+                            </a>
+                        </td>
+                        <td>
+
+                            <t t-esc="topic.title"/>
+
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="topic.supervisor_id.name or 'Unassigned'"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="topic.state"/>
+                        </td>
+
+                    </tr>
+                </t>
+            </t>
+        </t>
+
+    </template>
+
+    <template id="topic_edit_template" name="Edit Topic">
+        <t t-call="website.layout">
+            <div class="container mt-5 mb-5" style="max-width: 800px;">
+                <div class="card shadow-sm rounded-3">
+                    <div class="card-body p-4">
+                        <h2 class="card-title mb-4 text-center">Edit Topic</h2>
+                        <form t-att-action="'/topic/update/%s/' % topic.id" method="POST">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Topic Title</label>
+                                <input type="text" id="title" name="title" class="form-control" required="required"
+                                       t-att-value="topic.title"/>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea id="description" name="description" class="form-control" rows="4">
+                                    <t t-esc="topic.description"/>
+                                </textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="tools" class="form-label">Tools</label>
+                                <textarea id="tools" name="tools" class="form-control" rows="2">
+                                    <t t-esc="topic.tools"/>
+                                </textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="reference" class="form-label">Reference</label>
+                                <textarea id="reference" name="reference" class="form-control" rows="1">
+                                    <t t-esc="topic.reference"/>
+                                </textarea>
+                            </div>
+                            <t t-set="attachments"
+                               t-value="request.env['ir.attachment'].sudo().search([('res_model', '=', 'pfe.topic'), ('res_id', '=', topic.id)])"/>
+
+                            <form t-att-action="'/topic/upload_attachment'" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="topic_id" t-att-value="topic.id"/>
+                                <div class="mb-3">
+                                    <label for="attachments" class="form-label">Upload Attachments</label>
+                                    <input type="file" id="attachments" name="attachments" class="form-control"
+                                           multiple=""/>
+
+                                </div>
+                            </form>
+
+                            <hr/>
+
+
+                            <button type="submit" class="btn btn-primary w-100">Update Topic</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

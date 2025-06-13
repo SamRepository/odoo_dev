@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pfe_departement_view_form" model="ir.ui.view">
+        <field name="name">Départements.view.form</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                    <field name="intitule_dep_ar"/>
+            </xpath>
+        </field>
+    </record>
+    <!--action of the departements menu-->
+    <record id="action_departement" model="ir.actions.act_window">
+        <field name="name">Départements</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.department</field>
+<!--        <field name="view_type">form</field>-->
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Créez votre premier département !
+          </p>
+        </field>
+    </record>
+   <!--creating departements sub_menu -->
+<!--    <menuitem id="pfe_departement" name="Départements" parent="pfe_root"-->
+<!--              action="action_departement" sequence="13"/>-->
+</odoo>

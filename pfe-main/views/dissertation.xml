@@ -1,0 +1,71 @@
+<odoo>
+    <!-- Vue Liste (Tree) -->
+    <record id="view_dissertation_tree" model="ir.ui.view">
+        <field name="name">dissertation.tree</field>
+        <field name="model">pfe.dissertation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title"/>
+                <field name="topic_id"/>
+                <field name="supervisor_id"/>
+                <field name="group_id"/>
+                <field name="state"/>
+                <field name="is_free"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue Formulaire (Form) -->
+    <record id="view_dissertation_form" model="ir.ui.view">
+        <field name="name">dissertation.form</field>
+        <field name="model">pfe.dissertation</field>
+        <field name="arch" type="xml">
+            <form string="Dissertation">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="title"/>
+                            <field name="supervisor_id"/>
+                            <field name="topic_id"/>
+                            <field name="group_id"/>
+                            <field name="is_free"/>
+                        </group>
+                        <group>
+                            <field name="description" widget="html"/>
+                            <field name="tools" widget="html"/>
+                            <field name="reference"/>
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                            <field name="category_ids" widget="many2many_tags"/>
+
+                        </group>
+                    </group>
+
+
+
+                    <notebook>
+                        <page string="Progress">
+                            <field name="avancement_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="stage" widget="selection"/>
+                                    <field name="progress_percent"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action pour afficher les dissertations -->
+    <record id="action_pfe_dissertation" model="ir.actions.act_window">
+        <field name="name">Dissertations</field>
+        <field name="res_model">pfe.dissertation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Dissertation -->
+    <menuitem id="menu_dissertation" name="Dissertation" parent="pfe_main_menu" action="action_pfe_dissertation"/>
+</odoo>
