@@ -1,6 +1,6 @@
 # PFE Management Module for Odoo 16 ― ENSET-Skikda
 
-[![License: GPL-3.0](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](LICENSE) 
+[![License: LGPL-3.0](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](LICENSE) 
 
 ---
 
