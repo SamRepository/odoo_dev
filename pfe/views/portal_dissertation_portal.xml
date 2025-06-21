@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="portal_dissertation_list" name="Dissertation List">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">My Dissertations</t>
+            </t>
+
+            <t t-if="not dissertations">
+                <p>No dissertations available at the moment.</p>
+            </t>
+
+            <t t-if="dissertations" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Reference</th>
+                        <th>Title</th>
+                        <th>Group</th>
+                        <th class="text-right">Supervisor</th>
+                        <th class="text-right">Status</th>
+
+                    </tr>
+                </thead>
+                <t t-foreach="dissertations" t-as="dissertation">
+                    <tr>
+                        <td>
+                            <a t-attf-href="/dissertation/detail/{{ dissertation.id }}">
+                                <t t-esc="dissertation.name"/>
+                            </a>
+                        </td>
+                        <td>
+                            <t t-esc="dissertation.title or 'Untitled'"/>
+                        </td>
+                        <td>
+                            <t t-esc="dissertation.group_id.name or 'Unassigned'"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="dissertation.supervisor_id.name or 'Unassigned'"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="dissertation.state"/>
+                        </td>
+
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="dissertation_detail" name="Dissertation Details">
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert" groups="base.group_user">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=pfe.dissertation&amp;id=%s&amp;view_type=form' % (dissertation2.id)"/>
+                </t>
+            </t>
+
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <section class="py-4" style="background-color: #f8f9fa;">
+                        <div class="container-fluid px-4">
+                            <!-- Breadcrumb -->
+                            <div class="row">
+                                <div class="col">
+                                    <nav aria-label="breadcrumb" class="bg-light rounded shadow-sm p-3 mb-4">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item">
+                                                <a href="/my/home">Home</a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="/my/dissertations">My Dissertations</a>
+                                            </li>
+                                            <li class="breadcrumb-item active" aria-current="page">
+                                                <t t-esc="dissertation2.title or 'Untitled'"/>
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Left: Dissertation Details -->
+                                <div class="col-md-6">
+                                    <div class="card shadow-sm mb-4">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col-sm-4 fw-bold">Sequence</div>
+                                                <div class="col-sm-8 text-muted">
+                                                    <t t-esc="dissertation2.name"/>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row mb-2">
+                                                <div class="col-sm-4 fw-bold">Title</div>
+                                                <div class="col-sm-8 text-muted">
+                                                    <t t-esc="dissertation2.title or 'Untitled'"/>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row mb-2">
+                                                <div class="col-sm-4 fw-bold">Status</div>
+                                                <div class="col-sm-8 text-muted">
+                                                    <t t-esc="dissertation2.state"/>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row mb-2">
+                                                <div class="col-sm-4 fw-bold">Group</div>
+                                                <div class="col-sm-8 text-muted">
+                                                    <t t-esc="dissertation2.group_id.name or 'Unassigned'"/>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2 mb-2">
+                                                <div class="col-sm-4 fw-bold">Group Members</div>
+                                                <div class="col-sm-8 text-muted">
+                                                    <ul class="mb-0 ps-3">
+                                                        <t t-foreach="dissertation2.group_id.student_ids"
+                                                           t-as="student">
+                                                            <li>
+                                                                <t t-esc="student.name"/>
+                                                            </li>
+                                                        </t>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row mb-2">
+                                                <div class="col-sm-4 fw-bold">Description</div>
+                                                <div class="col-sm-8 text-muted">
+                                                    <div t-field="dissertation2.description"/>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row mb-2">
+                                                <div class="col-sm-4 fw-bold">Tools</div>
+                                                <div class="col-sm-8 text-muted">
+                                                    <div t-field="dissertation2.tools"/>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <div class="row mb-2">
+                                                <div class="col-sm-4 fw-bold">Reference</div>
+                                                <div class="col-sm-8 text-muted">
+                                                    <t t-esc="dissertation2.reference"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Attachments -->
+                                    <t t-if="dissertation2.attachment_ids">
+                                        <div class="card shadow-sm mb-4">
+                                            <div class="card-header bg-secondary text-white">
+                                                <h5 class="mb-0">📎 Attachments</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <t t-foreach="dissertation2.attachment_ids" t-as="attach">
+                                                        <li class="list-group-item">
+                                                            <a t-attf-href="/web/content/{{ attach.id }}?download=true"
+                                                               target="_blank">
+                                                                <t t-esc="attach.name"/>
+                                                            </a>
+                                                        </li>
+                                                    </t>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+
+                                <!-- Right: Progress -->
+                                <div class="col-md-6">
+                                    <!-- Add Progress Button -->
+                                    <t t-if="user_id.employee_id.id == dissertation2.supervisor_id.id">
+                                        <div class="mb-2">
+                                            <a t-attf-href="/dissertation/{{ dissertation2.id }}/add_avancement"
+                                               class="btn btn-sm btn-primary">
+                                                ➕ Add Progress
+                                            </a>
+                                        </div>
+                                    </t>
+
+                                    <!-- Progress Section -->
+                                    <t t-if="dissertation2.avancement_ids">
+                                        <div class="card shadow-sm mb-4">
+                                            <div class="card-header bg-info text-white">
+                                                <h5 class="mb-0">📈 Progress</h5>
+                                            </div>
+                                            <div class="card-body table-responsive">
+                                                <table class="table table-bordered table-striped">
+                                                    <thead class="table-light">
+                                                        <tr>
+                                                            <th>Title</th>
+                                                            <th>Date</th>
+                                                            <th>Progress (%)</th>
+                                                            <th>Stage</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <t t-foreach="dissertation2.avancement_ids" t-as="progress">
+                                                            <tr>
+                                                                <td>
+                                                                    <t t-esc="progress.name"/>
+                                                                </td>
+                                                                <td>
+                                                                    <t t-esc="progress.date"/>
+                                                                </td>
+                                                                <td><t t-esc="progress.progress_percent"/>%
+                                                                </td>
+                                                                <td>
+                                                                    <t t-if="progress.stage == 'state_of_art_study'">
+                                                                        State of Art Study
+                                                                    </t>
+                                                                    <t t-if="progress.stage == 'data_collection'">Data
+                                                                        Collection
+                                                                    </t>
+                                                                    <t t-if="progress.stage == 'design'">Design</t>
+                                                                    <t t-if="progress.stage == 'implementation'">
+                                                                        Implementation
+                                                                    </t>
+                                                                </td>
+                                                            </tr>
+                                                        </t>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </t>
+
+                                    <!-- Supervisor Dissertation File -->
+                                    <t t-if="dissertation2.submission_file and dissertation2.supervisor_id.user_id.id == user_id.id">
+                                        <div class="card shadow-sm mb-4 mt-3">
+                                            <div class="card-header bg-info text-white">
+                                                <h5 class="mb-0">📤 Dissertation File</h5>
+                                            </div>
+
+                                            <div class="card-body">
+                                                <a t-attf-href="/web/content/pfe.dissertation/{{ dissertation2.id }}/submission_file?download=true"
+                                                   class="btn btn-primary" target="_blank">
+                                                    <t t-esc="dissertation2.submission_filename or 'Download File'"/>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- Bottom: Student Submission -->
+                            <div class="row">
+                                <div class="col-12 text-center mt-4">
+                                    <t t-if="user_id.employee_id.is_student">
+                                        <a t-attf-href="/dissertation/{{ dissertation2.id }}/submit"
+                                           class="btn btn-sm btn-primary">
+                                            📤 Submit Dissertation
+                                        </a>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- Messages -->
+                            <div class="mt-5">
+                                <h4>
+                                    <strong>💬 Message and Communication History</strong>
+                                </h4>
+                                <t t-call="portal.message_thread">
+                                    <t t-set="object" t-value="dissertation2"/>
+                                </t>
+                            </div>
+
+                        </div>
+                    </section>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_add_avancement_form" name="Add Dissertation Progress">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-4">
+                <h3>Add Progress for:
+                    <t t-esc="dissertation.title"/>
+                </h3>
+                <form t-att-action="'/dissertation/%d/submit_avancement' % dissertation.id" method="post" class="mt-4">
+                    <!-- ✅ CSRF token -->
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" class="form-control" required="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" name="date" class="form-control" required="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="percentage">Progress (%)</label>
+                        <input type="number" name="percentage" min="0" max="100" class="form-control"
+                               required="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stage">Stage</label>
+                        <select name="stage" class="form-control" required="required">
+                            <option value="state_of_art_study">State of Art Study</option>
+                            <option value="data_collection">Data Collection</option>
+                            <option value="design">Design</option>
+                            <option value="implementation">Implementation</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-success mt-3">Submit Progress</button>
+                </form>
+
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_submit_dissertation" name="Submit Dissertation">
+        <t t-call="portal.portal_layout">
+            <t t-set="title">Submit Dissertation</t>
+            <div class="container mt-4">
+                <h2>Submit Your Dissertation</h2>
+                <form t-att-action="'/dissertation/%s/submit/upload' % dissertation.id" method="post"
+                      enctype="multipart/form-data" class="mt-3">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                    <div class="form-group">
+                        <label>Upload File (PDF)</label>
+                        <input type="file" name="submission_file" class="form-control" required="1"/>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                </form>
+            </div>
+        </t>
+    </template>
+
+
+</odoo>

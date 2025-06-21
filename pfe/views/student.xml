@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- ✅ Tree View -->
+        <record id="view_student_tree" model="ir.ui.view">
+            <field name="name">student.tree</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ✅ Form View -->
+        <record id="view_student_form" model="ir.ui.view">
+            <field name="name">student.form</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="specialization_id"/>
+                            <field name="education_level_id"/>
+                            <field name="avg_grade"/>
+                            <field name="group_id"/>
+                            <field name="is_student"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ✅ Kanban View -->
+        <record id="view_student_kanban" model="ir.ui.view">
+            <field name="name">student.kanban</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_example">
+                    <field name="name"/>
+                    <field name="specialization_id"/>
+                    <field name="education_level_id"/>
+                    <field name="avg_grade"/>
+                    <field name="group_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record p-2 shadow-sm rounded bg-white border mb-2">
+                                <div class="fw-bold text-primary mb-1" style="font-size: 16px;">
+                                    <field name="name"/>
+                                </div>
+                                <div>Specialization: <field name="specialization_id"/></div>
+                                <div>Education Level: <field name="education_level_id"/></div>
+                                <div>Average Grade: <field name="avg_grade"/></div>
+                                <div>Group: <field name="group_id"/></div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- ✅ Action -->
+        <record id="action_student" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="view_student_kanban"/>
+            <field name="domain">[('is_student', '=', True)]</field>
+            <field name="context">{'group_by': ['specialization_id', 'education_level_id']}</field>
+        </record>
+
+        <!-- ✅ Menu Item -->
+        <menuitem id="student_menu" name="Students"
+                  parent="hr.menu_hr_root"
+                  action="action_student"/>
+
+    </data>
+</odoo>

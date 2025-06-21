@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="template_defense_creat" name="Create a Defense" >
+    <t t-call="website.layout">
+        <div class="container mt-5">
+            <h2>Create Defense</h2>
+
+            <t t-if="error">
+                <div class="alert alert-danger"><t t-esc="error"/></div>
+            </t>
+            <t t-if="success">
+                <div class="alert alert-success">File successfully submitted !</div>
+            </t>
+
+            <form action="/defense/submit" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+<!--                <div class="form-group">-->
+<!--                    <label for="defense_id">ID de la soutenance</label>-->
+<!--                    <input type="number" class="form-control" name="defense_id"/>-->
+<!--                </div>-->
+
+<!--        <div>-->
+<!--            <label>Groupe :</label>-->
+<!--            <span t-esc="defense.group_id.name"/>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label>Titre Mémoire :</label>-->
+<!--            <span t-esc="defense.dissertation_id.title"/>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label>Encadrant :</label>-->
+<!--            <span t-esc="defense.supervisor_id.name"/>-->
+<!--        </div>-->
+
+
+                <div class="form-group">
+    <label for="date">Defense Date </label>
+    <input type="date" class="form-control" name="date"/>
+</div>
+
+<div class="form-group">
+    <label for="time">Time</label>
+    <input type="time" class="form-control" name="time" min="08:30" step="2700"/> <!-- 2700s = 45min -->
+</div>
+
+<div class="form-group">
+    <label for="location">Classroom</label>
+    <input type="text" class="form-control" name="location"/>
+</div>
+
+<div class="form-group">
+    <label for="final_grade">Final  Grade</label>
+    <input type="number" step="0.01" class="form-control" name="final_grade"/>
+</div>
+
+<div class="form-group">
+    <label for="comments">Jury Comments</label>
+    <textarea class="form-control" name="comments"></textarea>
+</div>
+<div class="form-group">
+                    <label for="dissertation_file">Dissertation File</label>
+                    <input type="file" class="form-control" name="dissertation_file" />
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Created</button>
+            </form>
+        </div>
+    </t>
+   </template>
+</odoo>

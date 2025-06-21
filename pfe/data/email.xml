@@ -1,0 +1,99 @@
+<odoo>
+<data noupdate="1">
+<!--  قالب الإيميل للطلاب  -->
+<record id="email_template_event_student" model="mail.template">
+<field name="name">Event Notification to Student</field>
+<field name="model_id" ref="event.model_event_event"/>
+<field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+<field name="subject">📚 إعلان - تشكيل الأفواج </field>
+<field name="email_to">${object._context.get('default_email_to')}</field>
+<field name="body_html">
+     <![CDATA[
+        <div style="direction: rtl; text-align: right; font-family: 'Segoe UI', Arial, sans-serif; background-color: #f5f7fa; padding: 24px; border-radius: 10px; border: 1px solid #d0d7de;">
+            <h2 style="color: #004080; border-bottom: 2px solid #004080; padding-bottom: 6px; margin-bottom: 20px;">📚 إعلان هام - تشكيل الأفواج
+            <p style="font-size: 15px; line-height: 1.8; color: #333;">
+                إلى طلبتنا الأعزاء،
+            </p>
+
+            <p style="font-size: 15px; line-height: 1.8; color: #333;">
+                نعلمكم أنه قد تم فتح فترة تشكيل الأفواج الخاصة بمذكرات التخرج للسنة الجامعية الحالية
+            </p>
+
+            <ul style="font-size: 15px; line-height: 1.8; color: #444;">
+                <li>العدد الأقصى لكل مجموعة: <strong>3 طلبة</strong>.</li>
+                <li>سيتم <strong>رفض</strong> أي مجموعة لا تحترم العدد المطلوب.</li>
+            </ul>
+
+            <p style="font-size: 15px; line-height: 1.8; color: #333;">
+                يرجى من جميع الطلبة الإسراع في تشكيل الأفواج حتى يتسنى لرئيس القسم اعتمادها على المنصة.
+            </p>
+
+            <p style="font-size: 14px; color: #666;">
+                لمزيد من المعلومات، يرجى التواصل مع قسم الرياضيات والإعلام الآلي.
+            </p>
+
+            <hr style="border-top: 1px dashed #ccc; margin: 30px 0;"/>
+
+            <p style="font-size: 14px; color: #555;">
+                بالتوفيق للجميع،<br/>
+                <strong>إدارة المدرسة</strong><br/>
+                المدرسة العليا لأساتذة التعليم التكنولوجي - سكيكدة<br/>
+            </p>
+        </div>
+        ]]>
+
+</field>
+
+
+</record>
+<!--  قالب الإيميل للأساتذة  -->
+<record id="email_template_event_teacher" model="mail.template">
+<field name="name">Event Notification to Teacher</field>
+<field name="model_id" ref="event.model_event_event"/>
+<field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+<field name="subject"> إعلان - اقتراح مواضيع مذكرات التخرج 📢</field>
+<field name="email_to">${object._context.get('default_email_to')}</field>
+<field name="body_html">
+      <![CDATA[
+        <div style="direction: rtl; text-align: right; font-family: 'Segoe UI', Arial, sans-serif; background-color: #f5f7fa; padding: 24px; border-radius: 10px; border: 1px solid #d0d7de;">
+            <h2 style="color: #004080; border-bottom: 2px solid #004080; padding-bottom: 6px; margin-bottom: 20px;">📢 إعلان للأساتذة - اقتراح مواضيع التخرج</h2>
+
+            <p style="font-size: 15px; line-height: 1.8; color: #333;">
+                إلى السادة الأساتذة الأفاضل،
+            </p>
+
+            <p style="font-size: 15px; line-height: 1.8; color: #333;">
+                تعلمكم إدارة المدرسة أنه قد تم فتح فترة اقتراح مواضيع مذكرات التخرج للسنة الجامعية الحالية.
+            </p>
+
+            <p style="font-size: 15px; line-height: 1.8; color: #333;">
+                نرجو منكم إدخال المواضيع المقترحة عبر المنصة في أقرب وقت ممكن، مع ضرورة تضمين كل موضوع العناصر التالية:
+            </p>
+
+            <ul style="font-size: 15px; line-height: 1.8; color: #444;">
+                <li>الهدف الرئيسي من الموضوع</li>
+                <li>المراجع المعتمدة</li>
+                <li>الأدوات أو المنهجيات المستعملة</li>
+            </ul>
+
+            <div style="margin: 25px 0;">
+                <a href="http://pfe.enset-skikda.dz:8069/create_topic/" style="background-color: #004080; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px;">
+                    الدخول إلى المنصة ➡️
+                </a>
+            </div>
+
+            <hr style="border-top: 1px dashed #ccc; margin: 30px 0;"/>
+
+            <p style="font-size: 14px; color: #555;">
+                مع فائق التقدير،<br/>
+                <strong>إدارة المدرسة</strong><br/>
+                المدرسة العليا لأساتذة التعليم التكنولوجي - سكيكدة<br/>
+            </p>
+        </div>
+        ]]>
+</field>
+
+
+</record>
+</data>
+</odoo>

@@ -1,0 +1,11 @@
+<odoo>
+    <template id="custom_login_logo" inherit_id="web.login">
+        <xpath expr="//form" position="before">
+            <div style="text-align: center; margin: 40px 0 20px 0;">
+    <img src="/pfe/static/src/img/logo.png" style="max-height: 100px;" />
+</div>
+
+        </xpath>
+    </template>
+</odoo>
+

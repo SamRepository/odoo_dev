@@ -1,0 +1,30 @@
+<odoo>
+    <record id="pfe_event_form_view_inherit" model="ir.ui.view">
+        <field name="name">pfe.event.form.view.inherit</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form"/>
+        <field name="arch" type="xml">
+
+            <!-- إضافة الحقل department_id بعد حقل date_tz -->
+            <xpath expr="//field[@name='date_tz']" position="after">
+                <field name="department_id" widget="many2one"/>
+            </xpath>
+
+            <!-- إضافة الأزرار داخل الهيدر -->
+            <xpath expr="//header" position="inside">
+                <button name="action_email_to_department_student"
+                        type="object"
+                        string="Send Student Emails"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('department_id', '=', False)]}"/>
+
+                <button name="action_email_to_department_teacher"
+                        type="object"
+                        string="Send Teacher Emails"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('department_id', '=', False)]}"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
