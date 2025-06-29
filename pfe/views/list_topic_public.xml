@@ -197,14 +197,7 @@
                         </section>
                     </t>
                 </t>
-                <div class="mt32">
-                    <h4>
-                        <strong>Message and Communication History</strong>
-                    </h4>
-                    <t t-call="portal.message_thread">
-                        <t t-set="object" t-value="topic"/>
-                    </t>
-                </div>
+  
             </t>
         </template>
 
@@ -218,14 +211,6 @@
         <!--        </xpath>-->
         <!--    </template>-->
 
-        <template id="portal_my_home_menu_topic" name="Portal layout : topic menu entries"
-                  inherit_id="portal.portal_breadcrumbs" priority="20">
-            <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
-                <li t-if="page_name == 'topic'" t-attf-class="breadcrumb-item #{'active ' if not topic else ''}">
-                    <a t-if="topic" t-attf-href="/dissertations/list/?{{ keep_query() }}">Graduation Project Topics</a>
-                    <t t-else="">Graduation Project Topics</t>
-                </li>
-            </xpath>
-        </template>
+    
 
     </odoo>

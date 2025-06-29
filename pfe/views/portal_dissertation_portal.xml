@@ -69,7 +69,7 @@
                                                 <a href="/my/home">Home</a>
                                             </li>
                                             <li class="breadcrumb-item">
-                                                <a href="/my/dissertations">My Dissertations</a>
+                                                <a href="/my/dissertation">My Dissertations</a>
                                             </li>
                                             <li class="breadcrumb-item active" aria-current="page">
                                                 <t t-esc="dissertation2.title or 'Untitled'"/>
@@ -260,7 +260,7 @@
                                 </div>
                             </div>
 
-                            <!-- Messages -->
+                            <!-- Messages 
                             <div class="mt-5">
                                 <h4>
                                     <strong>💬 Message and Communication History</strong>
@@ -268,7 +268,7 @@
                                 <t t-call="portal.message_thread">
                                     <t t-set="object" t-value="dissertation2"/>
                                 </t>
-                            </div>
+                            </div>-->
 
                         </div>
                     </section>

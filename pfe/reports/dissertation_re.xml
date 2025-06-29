@@ -67,83 +67,73 @@
     </template>
 
     <!-- Template principal corrigé -->
-    <template id="pfe.report_dissertation">
-        <t t-call="web.html_container">
-            <t t-call="pfe.pfe_layout">
-                <t t-foreach="docs" t-as="doc">
-                    <div class="page" style="font-family:arial; padding: 30px;">
-                        <div class="oe_structure"/>
+<template id="pfe.report_dissertation">
+    <t t-call="web.html_container">
+        <t t-call="pfe.pfe_layout">
+            <t t-set="user_lang" t-value="user.lang"/>
+            <t t-foreach="docs" t-as="doc">
+                <div class="page" style="font-family:arial; padding: 30px;">
+                    <div class="oe_structure"/>
 
-                        <div style="text-align: center; direction: rtl; margin-top: 30px;">
-                            <h3>
-                                <strong>اقتراح موضوع مذكرة التخرج (2024/2025)</strong>
-                            </h3>
-                        </div>
-                        <br/>
-
-                        <p style="direction: rtl;">
-                            <strong>لطلبة السنة:</strong>
-                            ...............................................................
-                        </p>
-                        <p style="direction: rtl;">
-                            <strong>الإختصاص:</strong>
-                            ...............................................................
-                        </p>
-
-                        <p style="direction: rtl;">
-                            <strong>الموضوع :</strong>
-                            <br/>
-                            ...............................................................
-                            <br/>
-                            ...............................................................
-                            <br/>
-                        </p>
-
-                        <p style="direction: rtl;">
-                            <strong>ملخص حول الموضوع :</strong>
-                            <br/>
-                            ...............................................................
-                            <br/>
-                            ...............................................................
-                            <br/>
-                            ...............................................................
-                            <br/>
-                        </p>
-
-                        <p style="direction: rtl;">
-                            <strong>قائمة المراجع :</strong>
-                            <br/>
-                            ...............................................................
-                            <br/>
-                            ...............................................................
-                            <br/>
-                            ...............................................................
-                            <br/>
-                        </p>
-
-                        <br/>
-                        <br/>
-                        <p style="direction: rtl;">
-                            <strong>إمضاء الأستاذ (ة) :</strong>
-                            ..............................................
-                        </p>
-                        <br/>
-                        <br/>
-                        <p style="direction: rtl;">
-                            <strong>تأشيرة رئيس القسم :</strong>
-                            ..............................................
-                        </p>
+                    <!-- Titre -->
+                     <br/>
+                    <div style="text-align: center; margin-top: 30px;" t-if="user_lang == 'ar_SY'">
+                        <h3 style="direction: rtl;">
+                            <strong>اقتراح موضوع مذكرة التخرج </strong>
+                        </h3>
                     </div>
-                </t>
+                    <div style="text-align: center; margin-top: 30px;" t-if="user_lang != 'ar_SY'">
+                        <h3>
+                            <strong>Dissertation Topic Proposal </strong>
+                        </h3>
+                    </div>
+
+                    <br/>
+
+                    <!-- Version arabe -->
+                    <div t-if="user_lang == 'ar_SY'" style="direction: rtl; text-align: right;">
+                        <p><strong>لطلبة السنة:</strong> <span t-esc="doc.group_id.student_ids.education_level_id.name or ''"/></p>
+                        <p><strong>الإختصاص:</strong> <span t-esc="doc.group_id.student_ids.specialization_id.name or ''"/></p>
+                        <p><strong>الموضوع :</strong><br/> <span t-esc="doc.title or ''"/></p>
+                        <p><strong>ملخص حول الموضوع :</strong><br/>
+                            <t t-if="doc.description"><t t-raw="doc.description"/></t>
+                        </p>
+                        <p><strong>قائمة المراجع :</strong><br/> <span t-esc="doc.reference or ''"/></p>
+
+                        <br/><br/><br/>
+                        <p><strong>إمضاء الأستاذ (ة) :</strong> <span t-esc="doc.supervisor_id.name or ''"/></p>
+                        <br/><br/>
+                        <p><strong>إمضاء رئيس القسم :</strong> ..............................................</p>
+                    </div>
+
+                    <!-- Version anglaise -->
+                    <div t-if="user_lang != 'ar_SY'" style="direction: ltr; text-align: left;">
+                        <p><strong>Year Level:</strong> <span t-esc="doc.group_id.student_ids.education_level_id.name or ''"/></p>
+                        <p><strong>Speciality:</strong> <span t-esc="doc.group_id.student_ids.specialization_id.name or ''"/></p>
+                        <p><strong>Topic:</strong><br/> <span t-esc="doc.title or ''"/></p>
+                        <p><strong>Summary:</strong><br/>
+                            <t t-if="doc.description"><t t-raw="doc.description"/></t>
+                        </p>
+                        <p><strong>References:</strong><br/> <span t-esc="doc.reference or ''"/></p>
+
+                        <br/><br/><br/>
+                        <p><strong>Supervisor Signature:</strong> <span t-esc="doc.supervisor_id.name or ''"/></p>
+                        <br/><br/>
+                        <p><strong>Head of Department Signature:</strong> ..............................................</p>
+                    </div>
+                </div>
             </t>
         </t>
-    </template>
+    </t>
+</template>
+
+
 
     <!-- Rapport PDF corrigé -->
     <report
             id="report_dissertation1"
             model="pfe.dissertation"
-            string="validate topic form"
+            string="Certificate of Supervision"
             report_type="qweb-pdf"
             name="pfe.report_dissertation"
             file="pfe.report_dissertation"

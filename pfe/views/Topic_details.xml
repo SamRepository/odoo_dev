@@ -18,7 +18,7 @@
                                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                                     <ol class="breadcrumb mb-0">
                                         <li class="breadcrumb-item"><a href="/my/home">Home</a></li>
-                                        <li class="breadcrumb-item"><a href="/topic/liste/?{{ keep_query() }}">Topics</a></li>
+                                        <li class="breadcrumb-item"><a href="/topics/list/">Topics</a></li>
                                         <li class="breadcrumb-item active" aria-current="page"><t t-esc="topic.title"/></li>
                                     </ol>
                                 </nav>
@@ -163,15 +163,7 @@
         </xpath>
     </template>
 
-    <template id="portal_my_home_menu_topic" name="Portal layout : topic menu entries"
-              inherit_id="portal.portal_breadcrumbs" priority="20">
-        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
-            <li t-if="page_name == 'topic'" t-attf-class="breadcrumb-item #{'active ' if not topic else ''}">
-                <a t-if="topic" t-attf-href="/topic/liste/?{{ keep_query() }}">Graduation Project Topics</a>
-                <t t-else="">Graduation Project Topics</t>
-            </li>
-        </xpath>
-    </template>
+ 
 
     <template id="portal_topic_list" name="Topic List">
         <t t-call="portal.portal_layout">
